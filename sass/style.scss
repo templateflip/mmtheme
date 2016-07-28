@@ -1,23 +1,17 @@
-/*!
+/*
 Theme Name: MMTheme
-Theme URI: http://underscores.me/
+Theme URI: https://kkthemes.com/wordpress/mmtheme/
 Author: Kanishk Kunal
 Author URI: https://kkthemes.com/
-Description: A minimal modern theme that lets you create a responsive website with sleek design and fast page loads. Feature your content in either single column or in a two-column design with a sidebar. Use the widget areas to customize your website header, footer and sidebar. Change your content\'s layout with a full-width page template.
-Version: 1.0.0
+Description: A minimal modern theme that lets you create a responsive website with sleek design and fast page loads. Feature your content in either single column or in a two-column design with a sidebar. Use the widget areas to customize your website header, footer and sidebar. Change your content's layout with a full-width page template.
+Version: 0.1
 License: GNU General Public License v2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: mmtheme
-Tags:
+Tags: black, white, light, dark, two-columns, left-sidebar, right-sidebar, responsive-layout, custom-background, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, microformats, post-formats, sticky-post, theme-options
+Text Domain: minimalmodern
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
-
-MMTheme is based on Underscores http://underscores.me/, (C) 2012-2016 Automattic, Inc.
-Underscores is distributed under the terms of the GNU GPL v2 or later.
-
-Normalizing styles have been helped along thanks to the fine work of
-Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 */
 
 /*--------------------------------------------------------------
@@ -42,6 +36,9 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 	## Captions
 	## Galleries
 --------------------------------------------------------------*/
+
+@import "mm";
+
 @import "variables-site/variables-site";
 @import "mixins/mixins-master";
 
