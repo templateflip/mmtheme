@@ -1,0 +1,28 @@
+{
+  "name": "mmtheme",
+  "version": "1.0.0",
+  "description": "Minimal Modern WordPress Theme",
+  "main": "index.php",
+   "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.11",
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-jade": "^1.1.0",
+    "gulp-less": "^3.1.0",
+    "gulp-sass": "^2.3.2"
+  },
+  "scripts": {
+    "test": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kkthemes/mmtheme.git"
+  },
+  "author": "Kanishk Kunal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kkthemes/mmtheme/issues"
+  },
+  "homepage": "https://github.com/kkthemes/mmtheme#readme"
+}
