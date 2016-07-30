@@ -553,6 +553,15 @@ article {
     font-size: 17.6px;
     font-size: 1.1rem; } }
 
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0; }
+
+nav ul ul {
+  margin-top: 0.5em;
+  padding-left: 1.5em; }
+
 .container-full {
   padding-right: 1em;
   padding-left: 1em;
@@ -619,6 +628,43 @@ article {
     color: #fff;
     text-align: center; }
 
+.main-navigation ul li {
+  float: left;
+  position: relative;
+  padding-right: 1em;
+  margin: 0; }
+
+.main-navigation ul a {
+  display: block;
+  text-decoration: none;
+  border-bottom: none; }
+
+.main-navigation ul ul {
+  background: #fff;
+  margin: 0;
+  padding: 0.5em 0 0;
+  border: 1px solid #dedede;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+  float: left;
+  position: absolute;
+  top: 1.5em;
+  left: -999em;
+  z-index: 99999; }
+  .main-navigation ul ul ul {
+    left: -999em;
+    top: 0; }
+  .main-navigation ul ul li {
+    padding: 0 1em 0.5em; }
+    .main-navigation ul ul li:hover > ul,
+    .main-navigation ul ul li.focus > ul {
+      left: 100%; }
+  .main-navigation ul ul a {
+    min-width: 160px; }
+
+.main-navigation ul li:hover > ul,
+.main-navigation ul li.focus > ul {
+  left: auto; }
+
 .float-right {
   float: right; }
 
@@ -658,46 +704,12 @@ article {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
-.main-navigation {
-  clear: both;
-  display: block;
-  width: 100%; }
-  .main-navigation ul {
-    display: none;
-    list-style: none;
-    margin: 0;
-    padding-left: 0; }
-    .main-navigation ul ul {
-      box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
-      float: left;
-      position: absolute;
-      top: 1.5em;
-      left: -999em;
-      z-index: 99999; }
-      .main-navigation ul ul ul {
-        left: -999em;
-        top: 0; }
-      .main-navigation ul ul li:hover > ul,
-      .main-navigation ul ul li.focus > ul {
-        left: 100%; }
-      .main-navigation ul ul a {
-        width: 200px; }
-    .main-navigation ul li:hover > ul,
-    .main-navigation ul li.focus > ul {
-      left: auto; }
-  .main-navigation li {
-    float: left;
-    position: relative; }
-  .main-navigation a {
-    display: block;
-    text-decoration: none; }
-
 /* Small menu. */
 .menu-toggle,
 .main-navigation.toggled ul {
   display: block; }
 
-@media screen and (min-width: 37.5em) {
+@media screen and (min-width: 768px) {
   .menu-toggle {
     display: none; }
   .main-navigation ul {
