@@ -330,7 +330,7 @@ big {
   font-size: 125%; }
 
 a {
-  color: #00b96a;
+  color: #2196f3;
   text-decoration: none; }
   a:hover {
     border-bottom: 1px solid; }
@@ -361,7 +361,8 @@ li {
   margin-bottom: 0.3em; }
 
 blockquote {
-  background: #f2f2f2;
+  background: #fafafa;
+  border: 1px solid #f2f2f2;
   border-left: 3px solid #dedede;
   margin-left: 0;
   margin-right: 0;
@@ -402,15 +403,16 @@ code, kbd, tt {
   white-space: nowrap; }
 
 pre {
-  background: #f2f2f2;
-  border: 1px dotted #dedede;
-  border-left: 3px solid #00b96a;
+  background: #fafafa;
+  border: 1px solid #f2f2f2;
+  border-left: 3px solid #2196f3;
   line-height: 1.8;
   padding: 1em; }
   pre > code {
     background: transparent;
     font-size: inherit;
     padding: 0;
+    border: 0;
     border-radius: 0;
     display: block;
     white-space: pre; }
@@ -420,8 +422,8 @@ button,
 input[type='button'],
 input[type='reset'],
 input[type='submit'] {
-  background-color: #00b96a;
-  border: 1px solid #00b96a;
+  background-color: #2196f3;
+  border: 1px solid #2196f3;
   border-radius: 3px;
   box-sizing: border-box;
   color: #fff;
@@ -443,8 +445,8 @@ input[type='submit'] {
   input[type='reset']:focus,
   input[type='submit']:hover,
   input[type='submit']:focus {
-    background-color: #00a05b;
-    border-color: #00a05b;
+    background-color: #0d8aee;
+    border-color: #0d8aee;
     color: #fff;
     outline: 0; }
   .button.button-ghost,
@@ -452,7 +454,7 @@ input[type='submit'] {
   input[type='button'].button-ghost,
   input[type='reset'].button-ghost,
   input[type='submit'].button-ghost {
-    color: #00b96a;
+    color: #2196f3;
     background-color: transparent; }
     .button.button-ghost:hover, .button.button-ghost:focus,
     button.button-ghost:hover,
@@ -463,9 +465,9 @@ input[type='submit'] {
     input[type='reset'].button-ghost:focus,
     input[type='submit'].button-ghost:hover,
     input[type='submit'].button-ghost:focus {
-      color: #00a05b;
+      color: #0d8aee;
       background-color: transparent;
-      border-color: #00a05b; }
+      border-color: #0d8aee; }
   .button.button-rounded,
   button.button-rounded,
   input[type='button'].button-rounded,
@@ -478,7 +480,7 @@ input[type='submit'] {
   input[type='button'].button-text,
   input[type='reset'].button-text,
   input[type='submit'].button-text {
-    color: #00b96a;
+    color: #2196f3;
     background-color: transparent;
     border-color: transparent; }
     .button.button-text:hover, .button.button-text:focus,
@@ -490,7 +492,7 @@ input[type='submit'] {
     input[type='reset'].button-text:focus,
     input[type='submit'].button-text:hover,
     input[type='submit'].button-text:focus {
-      color: #00a05b;
+      color: #0d8aee;
       background-color: transparent;
       border-color: transparent; }
 
@@ -520,7 +522,7 @@ select {
   input[type='url']:focus,
   textarea:focus,
   select:focus {
-    border: 1px solid #00b96a;
+    border: 1px solid #2196f3;
     outline: 0; }
 
 label,
@@ -605,6 +607,7 @@ nav ul ul {
 .site-header {
   background-color: #fff;
   color: #4e4e4e;
+  border-bottom: 1px solid #f2f2f2;
   position: relative;
   z-index: 99; }
   .site-header .site-title {
@@ -621,11 +624,11 @@ nav ul ul {
     margin: 0; }
 
 .site-sub-header {
-  background-color: #263238;
-  color: #fff; }
+  background-color: #fafafa;
+  color: #414141; }
   .site-sub-header .sub-heading {
     font-weight: 600;
-    color: #fff;
+    color: #414141;
     text-align: center; }
 
 .site-header .site-branding {
@@ -635,21 +638,27 @@ nav ul ul {
   float: right; }
 
 .main-navigation {
-  font-weight: 600; }
+  font-size: 16px;
+  font-size: 1rem; }
   .main-navigation ul li {
     float: left;
     position: relative;
-    padding-right: 1em;
+    padding-left: 1.5em;
     margin: 0; }
   .main-navigation ul a {
     display: block;
+    color: #8e8e8e;
     text-decoration: none;
     border-bottom: none; }
+    .main-navigation ul a:hover {
+      color: #282828; }
+  .main-navigation ul .current-menu-item a {
+    color: #414141; }
   .main-navigation ul ul {
     background: #fff;
     margin: 0;
     padding: 0.5em 0 0;
-    border: 1px solid #dedede;
+    border: 1px solid #f2f2f2;
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
     float: left;
     position: absolute;
