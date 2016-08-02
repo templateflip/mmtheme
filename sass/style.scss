@@ -37,7 +37,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 	## Galleries
 --------------------------------------------------------------*/
 
-@import "variables-site/variables-site";
+@import "variables";
 @import "mm";
 
 @import "mixins/mixins-master";
@@ -46,11 +46,6 @@ Use it to make something cool, have fun, and share what you've learned with othe
 # Navigation
 --------------------------------------------------------------*/
 @import "navigation/navigation";
-
-/*--------------------------------------------------------------
-# Accessibility
---------------------------------------------------------------*/
-@import "modules/accessibility";
 
 /*--------------------------------------------------------------
 # Clearings
