@@ -55,4 +55,4 @@
 			endif;
 	endif; ?>
 
-	<div id="content" class="container-readable">
+	<div id="content" class="container-content">

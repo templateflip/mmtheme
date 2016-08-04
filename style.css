@@ -209,7 +209,7 @@ th {
 
 body {
   color: #414141;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: 16px;
   font-size: 1em;
   line-height: 1.6;
@@ -466,9 +466,9 @@ input[type='submit'] {
     input[type='reset'].button-ghost:focus,
     input[type='submit'].button-ghost:hover,
     input[type='submit'].button-ghost:focus {
-      color: #0d8aee;
-      background-color: transparent;
-      border-color: #0d8aee; }
+      color: #fff;
+      background-color: #2196f3;
+      border-color: #2196f3; }
   .button.button-rounded,
   button.button-rounded,
   input[type='button'].button-rounded,
@@ -553,6 +553,38 @@ nav ul {
 nav ul ul {
   margin-top: 0.5rem;
   padding-left: 1.5rem; }
+
+.grid {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto; }
+  .grid:after {
+    content: " ";
+    display: block;
+    clear: both; }
+
+@media (min-width: 768px) {
+  .one-half {
+    width: 44.44444%;
+    float: left;
+    margin-right: 11.11111%; }
+    .one-half:nth-child(2n+0) {
+      float: right;
+      margin-right: 0; }
+  .one-third {
+    width: 28.57143%;
+    float: left;
+    margin-right: 7.14286%; }
+    .one-third:nth-child(3n+0) {
+      float: right;
+      margin-right: 0; }
+  .one-fourth {
+    width: 21.05263%;
+    float: left;
+    margin-right: 5.26316%; }
+    .one-fourth:nth-child(4n+0) {
+      float: right;
+      margin-right: 0; } }
 
 /* Text meant only for screen readers. */
 .screen-reader-text {
