@@ -16,18 +16,19 @@ get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
-			<div class="grid">
+			<?php
+			if ( have_posts() ) :
+
+				if ( is_home() && ! is_front_page() ) : ?>
+					<header>
+						<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
+					</header>
+
 				<?php
-				if ( have_posts() ) :
-
-					if ( is_home() && ! is_front_page() ) : ?>
-						<header>
-							<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-						</header>
-
+				endif;
+				?>
+				<div class="grid">
 					<?php
-					endif;
-
 					/* Start the Loop */
 					while ( have_posts() ) : the_post();
 
@@ -42,16 +43,16 @@ get_header(); ?>
 						</div>
 					<?php
 					endwhile;
+					?>
 
-					the_posts_navigation();
-
+				</div><!-- .grid -->
+				<?php
+				the_posts_navigation();
 				else :
 
 					get_template_part( 'template-parts/content', 'none' );
 
-				endif; ?>
-
-			</div><!-- .grid -->
+			endif; ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
