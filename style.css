@@ -331,7 +331,7 @@ big {
   font-size: 125%; }
 
 a {
-  color: #2196f3;
+  color: #3498db;
   text-decoration: none; }
   a:hover {
     border-bottom: 1px solid; }
@@ -422,8 +422,8 @@ button,
 input[type='button'],
 input[type='reset'],
 input[type='submit'] {
-  background-color: #2196f3;
-  border: 1px solid #2196f3;
+  background-color: #3498db;
+  border: 1px solid #3498db;
   border-radius: 3px;
   box-sizing: border-box;
   color: #fff;
@@ -445,8 +445,8 @@ input[type='submit'] {
   input[type='reset']:focus,
   input[type='submit']:hover,
   input[type='submit']:focus {
-    background-color: #0d8aee;
-    border-color: #0d8aee;
+    background-color: #258cd1;
+    border-color: #258cd1;
     color: #fff;
     outline: 0; }
   .button.button-ghost,
@@ -454,7 +454,7 @@ input[type='submit'] {
   input[type='button'].button-ghost,
   input[type='reset'].button-ghost,
   input[type='submit'].button-ghost {
-    color: #2196f3;
+    color: #3498db;
     background-color: transparent; }
     .button.button-ghost:hover, .button.button-ghost:focus,
     button.button-ghost:hover,
@@ -466,8 +466,8 @@ input[type='submit'] {
     input[type='submit'].button-ghost:hover,
     input[type='submit'].button-ghost:focus {
       color: #fff;
-      background-color: #2196f3;
-      border-color: #2196f3; }
+      background-color: #3498db;
+      border-color: #3498db; }
   .button.button-rounded,
   button.button-rounded,
   input[type='button'].button-rounded,
@@ -480,7 +480,7 @@ input[type='submit'] {
   input[type='button'].button-text,
   input[type='reset'].button-text,
   input[type='submit'].button-text {
-    color: #2196f3;
+    color: #3498db;
     background-color: transparent;
     border-color: transparent; }
     .button.button-text:hover, .button.button-text:focus,
@@ -492,7 +492,7 @@ input[type='submit'] {
     input[type='reset'].button-text:focus,
     input[type='submit'].button-text:hover,
     input[type='submit'].button-text:focus {
-      color: #0d8aee;
+      color: #258cd1;
       background-color: transparent;
       border-color: transparent; }
 
@@ -522,7 +522,7 @@ select {
   input[type='url']:focus,
   textarea:focus,
   select:focus {
-    border: 1px solid #2196f3;
+    border: 1px solid #3498db;
     outline: 0; }
 
 label,
@@ -603,7 +603,7 @@ nav ul ul {
     border-radius: 3px;
     box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.1);
     clip: auto !important;
-    color: #2196f3;
+    color: #3498db;
     display: block;
     font-size: 14px;
     font-size: 0.875rem;
@@ -618,7 +618,6 @@ nav ul ul {
     z-index: 100000; }
 
 .container-full {
-  position: relative;
   max-width: 100%;
   width: 100%;
   margin: 0 auto;
@@ -627,7 +626,6 @@ nav ul ul {
   box-sizing: border-box; }
 
 .container-wide {
-  position: relative;
   max-width: 1600px;
   width: 100%;
   margin: 0 auto;
@@ -636,7 +634,6 @@ nav ul ul {
   box-sizing: border-box; }
 
 .container-content {
-  position: relative;
   max-width: 1180px;
   width: 100%;
   margin: 0 auto;
@@ -645,7 +642,6 @@ nav ul ul {
   box-sizing: border-box; }
 
 .container-readable {
-  position: relative;
   max-width: 740px;
   width: 100%;
   margin: 0 auto;
@@ -674,64 +670,73 @@ nav ul ul {
   padding-bottom: 6rem; }
 
 .site-header {
-  background-color: #fff;
-  color: #4e4e4e;
-  border-bottom: 1px solid #f2f2f2;
-  z-index: 99; }
+  background-color: #2F353E;
+  color: #fff;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  z-index: 99;
+  position: relative;
+  text-align: center; }
+  .site-header .site-branding {
+    position: absolute;
+    left: 1.5rem;
+    top: 1.5rem; }
   .site-header .site-title {
     font-size: 24px;
     font-size: 1.5rem;
     font-weight: 500;
-    line-height: 1;
+    line-height: 42px;
     margin: 0; }
     .site-header .site-title a {
-      color: #4e4e4e; }
+      color: #fff; }
       .site-header .site-title a:hover {
         border: 0; }
   .site-header .site-description {
     margin: 0; }
 
 .site-sub-header {
-  background-color: #fafafa;
-  color: #414141; }
+  background-color: #454E5B;
+  color: #fff; }
   .site-sub-header .sub-heading {
     font-weight: 500;
-    color: #414141;
+    color: #fff;
     text-align: center; }
 
 .main-navigation {
-  font-size: 16px;
-  font-size: 1rem; }
+  font-size: 14px;
+  font-size: 0.875rem; }
   .main-navigation ul li {
-    float: left;
     position: relative;
+    display: inline-block;
     padding: 0 0.75rem;
-    margin: 0; }
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    line-height: 42px; }
   .main-navigation ul a {
     display: block;
-    color: #8e8e8e;
+    color: rgba(255, 255, 255, 0.6);
     text-decoration: none;
     border-bottom: none; }
     .main-navigation ul a:hover {
-      color: #282828; }
+      color: #fff; }
   .main-navigation ul .current-menu-item a {
-    color: #414141; }
+    color: #fff; }
   .main-navigation ul ul {
-    background: #fff;
+    background: #2F353E;
     margin: 0;
-    padding: 0.5rem 0 0;
-    border: 1px solid #f2f2f2;
-    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.1);
+    padding: 0;
     float: left;
     position: absolute;
-    top: 1.5rem;
+    top: 42px;
     left: -999em;
     z-index: 99999; }
     .main-navigation ul ul ul {
       left: -999em;
       top: 0; }
     .main-navigation ul ul li {
-      padding: 0 1rem 0.5rem; }
+      padding: 0 0.5rem;
+      text-transform: none; }
       .main-navigation ul ul li:hover > ul,
       .main-navigation ul ul li.focus > ul {
         left: 100%; }
@@ -739,13 +744,7 @@ nav ul ul {
       min-width: 160px; }
   .main-navigation ul li:hover > ul,
   .main-navigation ul li.focus > ul {
-    left: auto; }
-
-.main-navigation ul li:first-child {
-  padding-left: 0; }
-
-.main-navigation.alignright ul li:last-child {
-  padding-right: 0; }
+    left: -0.5rem; }
 
 .page-title {
   margin-top: 3.5rem; }
@@ -755,7 +754,7 @@ nav ul ul {
   .entry-title a {
     color: #333333; }
     .entry-title a:hover {
-      color: #2196f3;
+      color: #3498db;
       border-bottom: 0; }
 
 .entry-meta, .entry-footer {
@@ -786,7 +785,7 @@ article {
   background-color: #fff;
   color: #676767;
   border-top: 1px solid #f2f2f2;
-  margin-top: 1.5rem; }
+  margin-top: 3.5rem; }
 
 .float-right {
   float: right; }
