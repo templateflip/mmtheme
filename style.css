@@ -678,35 +678,32 @@ nav ul ul {
   z-index: 99;
   position: relative;
   text-align: center; }
-  .site-header .site-branding {
-    position: absolute;
-    left: 1.5rem;
-    top: 1.5rem; }
-  .site-header .site-title {
-    font-size: 24px;
-    font-size: 1.5rem;
-    font-weight: 500;
-    line-height: 42px;
-    margin: 0; }
-    .site-header .site-title a {
-      color: #fff; }
-      .site-header .site-title a:hover {
-        border: 0; }
-  .site-header .site-description {
-    margin: 0; }
 
-.site-sub-header {
-  background-color: #454E5B;
-  color: #fff; }
-  .site-sub-header .sub-heading {
-    font-weight: 500;
-    color: #fff;
-    text-align: center; }
+.header-left {
+  position: absolute;
+  left: 1.5rem;
+  top: 1.5rem; }
 
-.site-header .search-form {
+.header-right {
   position: absolute;
   right: 1.5rem;
-  top: 1.5rem;
+  top: 1.5rem; }
+
+.site-title {
+  font-size: 24px;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 42px;
+  margin: 0; }
+  .site-title a {
+    color: #fff; }
+    .site-title a:hover {
+      border: 0; }
+
+.site-description {
+  margin: 0; }
+
+.site-header .search-form {
   margin: 0; }
   .site-header .search-form input, .site-header .search-form .search-box {
     margin: 0; }
@@ -716,6 +713,14 @@ nav ul ul {
     border-color: transparent;
     background: rgba(0, 0, 0, 0.3);
     font-style: italic; }
+
+.site-sub-header {
+  background-color: #454E5B;
+  color: #fff;
+  text-align: center; }
+  .site-sub-header h1, .site-sub-header h2 {
+    font-weight: 500;
+    color: #fff; }
 
 .main-navigation {
   font-size: 14px;

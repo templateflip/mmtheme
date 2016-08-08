@@ -26,7 +26,7 @@
 
 	<header id="header" class="site-header" role="banner">
 		<div  class="container-full">
-			<div class="site-branding">
+			<div class="site-branding header-left">
 				<?php
 				if ( is_front_page() && is_home() ) : ?>
 					<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
@@ -35,7 +35,9 @@
 				<?php
 				endif; ?>
 			</div><!-- .site-branding -->
-			<?php get_search_form( true ); ?>
+			<div class="header-right">
+				<?php get_search_form( true ); ?>
+			</div>
 			<nav id="site-navigation" class="main-navigation" role="navigation">
 				<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'mmtheme' ); ?></button>
 				<?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
