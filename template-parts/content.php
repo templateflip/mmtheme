@@ -29,7 +29,7 @@
 					'after'  => '</div>',
 				) );
 			else :
-				echo mmtheme_get_excerpt(get_the_content());
+				the_excerpt();
 			endif;
 		?>
 	</div><!-- .entry-content -->
