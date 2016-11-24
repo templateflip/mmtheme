@@ -1,0 +1,24 @@
+clean: ['dist']
+
+out: '/'
+
+html:
+  sitemap: ''
+
+styles:  
+  dest: '/'
+
+scripts:  
+  dest: '/'
+
+serve:
+  proxy: "http://thememm.local/"
+
+## additional data for site available as site.{key} in pug templates
+site:
+  url: ""
+
+## overrides when built with -d or --development option
+development:
+  site:
+    url: "http://thememm.local/"
