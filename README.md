@@ -24,12 +24,6 @@ Hi. I am a minimal modern theme that lets you create a responsive website with s
 2. Click Upload and Choose File, then select the theme's .zip file. Click Install Now.
 3. Click Activate to use your new theme right away.
 
-### Frequently Asked Questions
-
-**Does this theme support any plugins?**
-
-MMTheme includes support for Infinite Scroll in Jetpack.
-
 ### Changelog
 
 ** v1.0 ** - 28 July 2016
