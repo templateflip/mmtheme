@@ -1,15 +1,17 @@
 clean: ['dist']
 
-out: '/'
+out: '.'
 
 html:
   sitemap: ''
 
-styles:  
-  dest: '/'
+styles:
+  src: 'src/styles'
+  dest: 'css'
 
-scripts:  
-  dest: '/'
+scripts:
+  src: 'src/scripts'
+  dest: 'js'
 
 serve:
   proxy: "http://thememm.local/"
