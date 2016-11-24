@@ -1,13 +1,5 @@
 <?php
 /**
- * MMTheme functions and definitions.
- *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- *
- * @package MMTheme
- */
-
-/**
  * Theme includes
  *
  * $theme_includes contains libraries included in the theme. Loaded via locate_template using require_once
