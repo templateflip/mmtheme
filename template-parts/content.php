@@ -1,15 +1,4 @@
-<?php
-/**
- * Template part for displaying posts.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package MMTheme
- */
-
-?>
-
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article <?php post_class(); ?>>
 	<header class="entry-header">
 		<?php
 		if ( is_single() ) :
@@ -20,7 +9,7 @@
 
 		if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php mmtheme_posted_on(); ?>
+			<?php get_template_part('template-parts/entry-meta'); ?>
 		</div><!-- .entry-meta -->
 		<?php
 		endif; ?>
@@ -44,8 +33,4 @@
 			endif;
 		?>
 	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php mmtheme_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
 </article><!-- #post-## -->
