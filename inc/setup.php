@@ -41,17 +41,17 @@ add_action('after_setup_theme', function () {
 */
 add_action('widgets_init', function () {
     $config = [
-    'before_widget' => '<section class="widget %1$s %2$s">',
-    'after_widget'  => '</section>',
-    'before_title'  => '<h3>',
-    'after_title'   => '</h3>'
+      'before_widget' => '<section class="widget %1$s %2$s">',
+      'after_widget'  => '</section>',
+      'before_title'  => '<h3>',
+      'after_title'   => '</h3>'
     ];
     register_sidebar([
-    'name'          => __('Primary', 'mmtheme'),
-    'id'            => 'sidebar-primary'
+      'name'          => __('Primary', 'mmtheme'),
+      'id'            => 'sidebar-primary'
     ] + $config);
     register_sidebar([
-    'name'          => __('Footer', 'mmtheme'),
-    'id'            => 'sidebar-footer'
+      'name'          => __('Footer', 'mmtheme'),
+      'id'            => 'sidebar-footer'
     ] + $config);
 });
