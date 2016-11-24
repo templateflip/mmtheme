@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Minimal Modern WordPress Theme",
   "main": "index.php",
-   "dependencies": {},
+  "dependencies": {},
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-clean-css": "^2.0.11",
@@ -20,7 +20,7 @@
     "url": "git+https://github.com/kkthemes/mmtheme.git"
   },
   "author": "Kanishk Kunal",
-  "license": "ISC",
+  "license": "GPLv2 or later",
   "bugs": {
     "url": "https://github.com/kkthemes/mmtheme/issues"
   },
