@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * @param $filename
+ * @return string
+ */
+function asset_path($filename)
+{
+   return get_template_directory_uri() . $filename;
+}
+
 /* Custom function to limit post content words */
 if (!function_exists('mmtheme_get_excerpt')):
     function mmtheme_get_excerpt($content, $length = 75)
