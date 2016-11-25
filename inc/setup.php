@@ -47,6 +47,10 @@ add_action('widgets_init', function () {
       'after_title'   => '</h3>'
     ];
     register_sidebar([
+      'name'          => __('Header', 'mmtheme'),
+      'id'            => 'header'
+    ] + $config);
+    register_sidebar([
       'name'          => __('Primary', 'mmtheme'),
       'id'            => 'sidebar-primary'
     ] + $config);

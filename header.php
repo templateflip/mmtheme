@@ -32,13 +32,13 @@
         <div class="menu-toggle-content">
           <nav role="navigation">
              <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-          </nav><!-- #site-navigation -->
+          </nav>
           <div class="header-right">
-            <?php get_search_form( true ); ?>
+            <?php dynamic_sidebar( 'header' ); ?>
           </div>
         </div>
-		</div><!-- .container -->
-	</header><!-- #header -->
+      </div>
+    </header>
 	<?php
 	if ( is_front_page() && is_home() ) :
 		$description = get_bloginfo( 'description', 'display' );
