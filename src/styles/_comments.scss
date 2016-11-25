@@ -1,4 +1,4 @@
-.comment-list {
+.comment-list, .comment-list ol {
   list-style: none;
   padding-left: 0;
 }
@@ -6,6 +6,18 @@
 .comment-content a {
 	word-wrap: break-word;
 }
-.bypostauthor {
-	display: block;
+
+.comment-body {
+  font-size: 95%;
+  p {
+    margin-top: $size-element-spacing-small;
+  }
 }
+
+.comment-list .reply {
+  text-transform: uppercase;
+  margin-top: $size-element-spacing-small;
+  font-size: 80%;
+  letter-spacing: 0.5px;
+}
+

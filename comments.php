@@ -22,7 +22,7 @@ if ( post_password_required() ) {
 					'style'       => 'ol',
           'type'        => 'comment',
           'callback'    => 'mmtheme_comment',
-          'avatar_size' => 48,
+          'avatar_size' => 52,
 					'short_ping'  => true,
 				) );
 			?>
