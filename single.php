@@ -1,6 +1,6 @@
 <?php
 get_header(); ?>
-	<div class="container-readable">
+	<div class="<?php echo get_theme_mod('post_layout') == 'w' ? 'container-content' : 'container-readable'; ?>">
 		<main role="main">
 		<?php
 		while ( have_posts() ) : the_post();
