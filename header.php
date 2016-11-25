@@ -13,13 +13,7 @@
 	<header class="header" role="banner">
 		<div class="container">
 			<div class="header-left">
-        <a class="site-branding" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-          <?php if ( is_front_page() && is_home() ) : ?>
-            <h1 class="title"><?php bloginfo( 'name' ); ?></h1>
-				  <?php else : ?>
-            <span class="title"><?php bloginfo( 'name' ); ?></span>
-				  <?php endif; ?>
-        </a>
+        <?php mmtheme_site_branding(); ?>        
 			</div>
       <div class="menu-toggle">
         <input type="checkbox" id="menu-toggle">

@@ -3,7 +3,7 @@
 * Theme assets
 */
 add_action('wp_enqueue_scripts', function () {
-    wp_enqueue_style('mmtheme-style', asset_path('/css/main.css'), false, null);
+    wp_enqueue_style('mmtheme-style', mmtheme_asset_path('/css/main.css'), false, null);
     if ( is_singular() && comments_open() && get_option('thread_comments') ) {
         wp_enqueue_script('comment-reply');
     }
@@ -23,6 +23,13 @@ add_action('after_setup_theme', function () {
     
     // Enable support for Post Thumbnails on posts and pages.
     add_theme_support('post-thumbnails');
+
+    // add theme support for custom logos
+    add_theme_support( 'custom-logo', array(
+      'height'      => 104,
+      'width'       => 300,
+      'flex-width' => true,
+    ) );
     
     // Register navigation menus
     register_nav_menus( [
@@ -33,7 +40,7 @@ add_action('after_setup_theme', function () {
     add_theme_support('html5', ['caption', 'comment-form', 'comment-list', 'gallery', 'search-form']);
     
     // Use main stylesheet for visual editor
-    add_editor_style(asset_path('/css/main.css'));
+    add_editor_style(mmtheme_asset_path('/css/main.css'));
 });
 
 /**

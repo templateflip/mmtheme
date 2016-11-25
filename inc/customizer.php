@@ -11,5 +11,5 @@ add_action('customize_register', function ( $wp_customize ) {
 * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
 */
 add_action( 'customize_preview_init', function () {
-    wp_enqueue_script('mmtheme_customizer', asset_path('/js/customizer.js'), ['customize-preview'], null, true );
+    wp_enqueue_script('mmtheme_customizer', mmtheme_asset_path('/js/customizer.js'), ['customize-preview'], null, true );
 });

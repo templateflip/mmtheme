@@ -4,9 +4,33 @@
  * @param $filename
  * @return string
  */
-function asset_path($filename)
+function mmtheme_asset_path($filename)
 {
    return get_template_directory_uri() . $filename;
+}
+
+/**
+ * Site Branding
+ */
+function mmtheme_site_branding() {
+  if ( function_exists( 'the_custom_logo' ) && has_custom_logo() ) {
+  ?>
+    <span class="site-branding">
+		  <?php the_custom_logo(); ?>  
+    </span>
+  <?php
+	}
+  else {
+  ?>
+  <a class="site-branding" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+    <?php if ( is_front_page() && is_home() ) : ?>
+      <h1 class="title"><?php bloginfo( 'name' ); ?></h1>
+    <?php else : ?>
+      <span class="title"><?php bloginfo( 'name' ); ?></span>
+    <?php endif; ?>
+  </a>
+  <?php
+  }
 }
 
 /**
