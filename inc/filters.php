@@ -29,3 +29,18 @@ add_filter( 'get_comments_number', function ( $count ) {
 	}
 	return $comment_count;
 }, 0 );
+
+/**
+ * Styles for next posts links
+ */
+add_filter('next_posts_link_attributes', function () {
+    return 'class="button button-ghost alignright"';
+});
+
+
+/**
+ * Styles for previous posts links
+ */
+add_filter('previous_posts_link_attributes', function () {
+    return 'class="button button-ghost alignleft"';
+});

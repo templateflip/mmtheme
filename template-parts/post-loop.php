@@ -10,9 +10,13 @@
     endwhile;
     ?>
   </div>
-  <?php
-    the_posts_navigation();
-  else : ?>
+    <div class="section clearfix text-small">
+      <?php the_posts_navigation(array(
+        'prev_text'          => __( 'Older Posts &rarr;', 'mmtheme' ),
+        'next_text'          => __( '&larr; Newer Posts', 'mmtheme' ),
+      )); ?>
+    </div>
+  <?php else : ?>
     <p><?php esc_html_e( 'Sorry,  no results were found.', 'mmtheme' ); ?></p>
     <?php
       get_search_form();
