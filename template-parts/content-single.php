@@ -1,7 +1,9 @@
 <article <?php post_class(); ?>>
   <header class="entry-header">    
 	  <?php get_template_part('template-parts/entry-header'); ?>
-    <?php get_template_part('template-parts/entry-meta'); ?>
+    <div class="entry-meta">
+      <?php get_template_part('template-parts/entry-meta'); ?>
+    </div>
   </header>
   <div class="entry-content">
     <?php the_content(); ?>
