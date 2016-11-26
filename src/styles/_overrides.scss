@@ -1,7 +1,6 @@
 .site-branding img {
   height: 52px;
   padding: 0;
-  margin-top: 10px;
 }
 
 .header .menu {
@@ -10,8 +9,12 @@
   letter-spacing: 1px;
 }
 
+.search-box .css-icon-search {
+  top: 10px;
+}
+
 .header .css-icon-search {
-    top: 25px;
+    top: 16px;
 }
 
 .thumbnail-rounded img {
@@ -20,4 +23,18 @@
 
 .search-form input[type="submit"] {
   display: none;
+}
+
+.entry-meta {
+  font-weight: normal;
+  font-size: 12.96px;
+
+  .dot {
+    margin: 0 0.5em;
+    color: #ccc;
+  }
+
+  .dot + span {
+    margin-left: 0;
+  }
 }

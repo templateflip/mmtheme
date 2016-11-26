@@ -1,6 +1,6 @@
 .blogroll {
   article {
-    margin-bottom: 2rem;
+    margin-bottom: 2 * $size-element-spacing;
   }
 
   .entry-title {
@@ -13,11 +13,6 @@
   .entry-content {
     color: lighten($color-text, 20);
     font-size: 90%;
-  }
-
-  .entry-meta {
-    font-weight: 300;
-    font-size: 82%;
   }
 }
 

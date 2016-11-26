@@ -2,10 +2,12 @@
 @import 'mmcss/src/mm';
 @import "layouts";
 @import "blogroll";
+@import "posts";
 @import "comments";
 @import "widgets";
 @import "overrides";
 
 main {
+  margin-top: 2 * $size-element-spacing;
   min-height: 500px;
 }
