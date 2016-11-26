@@ -8,10 +8,10 @@ add_filter('excerpt_more', function () {
 });
 
 /**
- * Filter the except length to 20 words
+ * Filter the except length to 15 words
  */
 add_filter( 'excerpt_length', function($length) {
-  return 20;
+  return 15;
 } , 999 );
 
 /**

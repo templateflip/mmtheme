@@ -26,7 +26,7 @@ if ( $has_sidebar ) :
         <?php get_template_part('template-parts/page-header'); ?>        
         <?php
           if ( have_posts() ) : ?>
-          <div class="grid">
+          <div class="grid blogroll section-medium">
             <?php
             while ( have_posts() ) : the_post();  ?>
               <div class="<?php echo $index_post_class; ?>">
