@@ -38,6 +38,11 @@ add_action('after_setup_theme', function () {
     
     // Enable HTML5 markup support
     add_theme_support('html5', ['caption', 'comment-form', 'comment-list', 'gallery', 'search-form']);
+
+    // Set up the WordPress core custom background feature.
+    add_theme_support( 'custom-background', apply_filters( 'mmtheme_custom_background_args', array(
+      'default-color' => 'ffffff'
+    ) ) );
     
     // Use main stylesheet for visual editor
     add_editor_style(mmtheme_asset_path('/css/main.css'));
