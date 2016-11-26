@@ -1,18 +1,25 @@
 <?php
 get_header(); 
 
+$blog_layout = get_theme_mod('blog_layout');
 $index_post_class = '';
 $index_container = 'container-content';
-if (get_theme_mod('blog_layout') == '1') {
+$has_sidebar = ($blog_layout == '1-s' || $blog_layout == '2-s');
+if ($blog_layout == '1') {
   $index_container = 'container-readable';
 }
-elseif (get_theme_mod('blog_layout') == '2' || get_theme_mod('blog_layout') == '2-s') {
+elseif ($blog_layout == '2' || $blog_layout == '2-s') {
   $index_post_class = 'one-half';
 }
-elseif (get_theme_mod('blog_layout') == '3') {
+elseif ($blog_layout == '3') {
   $index_post_class = 'one-third';
 }
+if ( $has_sidebar ) :
 ?>
+  <div id="wrapper" class="container-content">
+    <div id="content-wrapper">
+      <div id="page-content">
+<?php endif; ?>
 
 	<div class="<?php echo $index_container; ?>">
 		<main role="main">      
@@ -44,5 +51,19 @@ elseif (get_theme_mod('blog_layout') == '3') {
 	</div>
 
 <?php
-get_sidebar();
+if ( $has_sidebar ) :
+?>
+      </div>
+    </div>
+<?php endif; 
+
+if( $has_sidebar ) {
+  get_sidebar();
+}
+
+if ( $has_sidebar ) :
+?>
+  </div>
+<?php endif; 
+
 get_footer();

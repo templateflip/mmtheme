@@ -1,6 +1,18 @@
 <?php
-get_header(); ?>
-	<div class="<?php echo get_theme_mod('post_layout') == 'w' ? 'container-content' : 'container-readable'; ?>">
+get_header();
+
+$post_layout = get_theme_mod('post_layout');
+$has_sidebar = $post_layout == 'n-s';
+$post_container = $post_layout == 'w' ? 'container-content' : 'container-readable';;
+
+if ( $has_sidebar ) :
+?>
+  <div id="wrapper" class="container-content">
+    <div id="content-wrapper">
+      <div id="page-content">
+<?php endif; ?>
+
+	<div class="<?php echo $post_container; ?>">
 		<main role="main">
 		<?php
 		while ( have_posts() ) : the_post();
@@ -14,6 +26,21 @@ get_header(); ?>
 		?>
 		</main>
 	</div>
+
 <?php
-get_sidebar();
+if ( $has_sidebar ) :
+?>
+      </div>
+    </div>
+<?php endif; 
+
+if( $has_sidebar ) {
+  get_sidebar();
+}
+
+if ( $has_sidebar ) :
+?>
+  </div>
+<?php endif; 
+
 get_footer();

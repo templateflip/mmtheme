@@ -39,7 +39,7 @@
 			if ( $description || is_customize_preview() ) : ?>
 				<div class="sub-header section-medium highlight text-center">
 					<div class="container-content">
-						<h2 class="site-description h1"><?php echo $description; /* WPCS: xss ok. */ ?></h2>
+						<h2 class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></h2>
 					</div>
 				</div>
 			<?php

@@ -48,9 +48,9 @@ add_action('after_setup_theme', function () {
 */
 add_action('widgets_init', function () {
     $config = [
-      'before_widget' => '<section class="widget %1$s %2$s">',
+      'before_widget' => '<section class="widget section %1$s %2$s">',
       'after_widget'  => '</section>',
-      'before_title'  => '<h3>',
+      'before_title'  => '<h3 class="h4 section-title">',
       'after_title'   => '</h3>'
     ];
     register_sidebar([
@@ -58,7 +58,7 @@ add_action('widgets_init', function () {
       'id'            => 'header'
     ] + $config);
     register_sidebar([
-      'name'          => __('Primary', 'mmtheme'),
+      'name'          => __('Sidebar', 'mmtheme'),
       'id'            => 'sidebar-primary'
     ] + $config);
     register_sidebar([

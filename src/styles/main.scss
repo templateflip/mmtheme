@@ -1,4 +1,10 @@
 @import "vars";
 @import 'mmcss/src/mm';
+@import "layouts";
 @import "comments";
+@import "widgets";
 @import "overrides";
+
+main {
+  min-height: 500px;
+}

@@ -1,0 +1,18 @@
+.widget {
+    padding-top: 0;
+}
+
+.widget .search-form:first-child {
+  margin-top: 0;
+
+  .search-box {
+    margin-top: 0;
+  }
+}
+
+.widget_calendar {
+  td {
+    padding: 0.8rem;
+    text-align: center;
+  }
+}

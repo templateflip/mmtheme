@@ -1,0 +1,33 @@
+#wrapper {
+  position: relative;
+}
+
+#content-wrapper {
+  float: left;
+  width: 100%;
+}
+
+#page-content {
+  margin-right: 324px;
+  clear: both;
+  overflow: auto;
+}
+
+#secondary {
+  position: relative;
+  width: 300px;
+  margin-left: -300px;
+  float: right;
+  overflow: hidden;
+  font-size: 90%;
+}
+
+@include mobile {
+  #secondary {
+    display: none;
+  }
+
+  #page-content {
+    margin-right: 0;
+  }
+}
