@@ -17,10 +17,10 @@ add_action('customize_register', function ( $wp_customize ) {
       'settings'   => 'blog_layout',
       'type'       => 'radio',
       'choices'    => array(
-        '3' => '3 Columns, No Sidebar',
-        '2-s'   => '2 Columns with Sidebar',
+        '3'   => '3 Columns, No Sidebar',
+        '2-s' => '2 Columns with Sidebar',
         '2'   => '2 Columns, No Sidebar',
-        '1-s'   => '1 Column with Sidebar',
+        '1-s' => '1 Column with Sidebar',
         '1'   => '1 Column, No sidebar'
       ),
     ));
