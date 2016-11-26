@@ -46,4 +46,4 @@
 			endif;
 	endif; ?>
 
-	<div id="content">
+	<div class="animated fadeIn" id="content">
