@@ -71,6 +71,19 @@ add_action('customize_register', function ( $wp_customize ) {
         'w'   => 'Wide without Sidebar'
       ),
     ));
+
+    $wp_customize->add_setting('content_style', array('default' => 'm'));
+    $wp_customize->add_control('content_style', array(
+      'label'      => __('Content Display Style', 'mmtheme'),
+      'section'    => 'layout',
+      'settings'   => 'content_style',
+      'type'       => 'radio',
+      'choices'    => array(
+        'm'   => 'Minimal',
+        'b'   => 'Borders',
+        's'   => 'Shadow'
+      ),
+    ));
 });
 
 /**
@@ -84,19 +97,24 @@ add_action( 'customize_preview_init', function () {
 * Enqueues front-end CSS for color scheme.
 */
 add_action( 'wp_enqueue_scripts', function () {
-  $inline_css = mmtheme_get_inline_css();
+  $custom_css = '';
+  $custom_color_css = mmtheme_get_custom_color_css();
+  $custom_layout_css = mmtheme_get_custom_layout_css();
 
-  if(!empty($inline_css)) {
-	  wp_add_inline_style( 'mmtheme-style', $inline_css );
+  $custom_css = $custom_color_css . $custom_layout_css;
+
+  if(!empty($custom_css)) {
+	  wp_add_inline_style( 'mmtheme-style', $custom_css );
   }
 });
 
 /**
- * Returns CSS for customized styles.
+ * Returns CSS for customized colors.
  */
-function mmtheme_get_inline_css() {
+function mmtheme_get_custom_color_css() {
   $primary_color = get_theme_mod('primary_color');
 
+  // Return blank for default values
   if( $primary_color == '#4078c0' ) {
     return '';
   }
@@ -104,7 +122,16 @@ function mmtheme_get_inline_css() {
 	return <<<CSS
 	a,
   nav .current-menu-item a, 
-  .entry-title a:hover {
+  .entry-title a:hover,  
+  .button.button-text:focus, .button.button-text:hover,
+  button.button-text:focus,
+  button.button-text:hover,
+  input[type="button"].button-text:focus,
+  input[type="button"].button-text:hover,
+  input[type="reset"].button-text:focus,
+  input[type="reset"].button-text:hover,
+  input[type="submit"].button-text:focus,
+  input[type="submit"].button-text:hover {
 		color: {$primary_color};
 	}
 
@@ -121,6 +148,21 @@ function mmtheme_get_inline_css() {
     border-color: {$primary_color};
   }
 
+
+  .button.button-primary:focus, .button.button-primary:hover,
+  button.button-primary:focus,
+  button.button-primary:hover,
+  input[type="button"].button-primary:focus,
+  input[type="button"].button-primary:hover,
+  input[type="reset"].button-primary:focus,
+  input[type="reset"].button-primary:hover,
+  input[type="submit"].button-primary:focus,
+  input[type="submit"].button-primary:hover {
+    background-color: {$primary_color};
+    border-color: {$primary_color};
+    opacity: 0.9;
+  }
+
   input[type="email"]:focus,
   input[type="number"]:focus,
   input[type="password"]:focus,
@@ -131,6 +173,54 @@ function mmtheme_get_inline_css() {
   select:focus,
   textarea:focus {
     border: 1px solid {$primary_color};
+  }
+CSS;
+}
+
+
+/**
+ * Returns CSS for custom layouts.
+ */
+function mmtheme_get_custom_layout_css() {
+  $content_style = get_theme_mod('content_style');
+  $border_color = 'transparent';
+  $box_shadow = 'none';
+  // Return blank for default values
+  if( $content_style == 'm' ) {
+    return '';
+  }
+  if( $content_style == 'b') {
+    $border_color = '#f2f2f2';
+  }
+  elseif ( $content_style == 's' ) {
+    $box_shadow = '0 1px 2px 0 rgba(0,0,0,0.08);';
+  }
+
+	return <<<CSS
+  .content-box {
+    background-color: #fff;
+    height: 100%;
+    width: 100%;
+    padding: 1.5rem;
+    border: 1px solid {$border_color};
+    border-radius: 3px;
+    box-shadow: {$box_shadow};
+    margin-bottom: 20px;
+    transition: box-shadow .25s ease-out;
+  }
+  
+  .blogroll article {  
+    height: 100%;
+    width: 100%;
+    margin-bottom: 0;
+    padding-bottom: 2.5rem;
+  }
+  .blogroll .content-box:hover {
+    box-shadow: 0 10px 20px 0 rgba(0,0,0,0.08);
+  }
+  .single main .content-box {
+    padding: 1.5rem 2rem 2rem;
+    margin-bottom: 2rem;
   }
 CSS;
 }

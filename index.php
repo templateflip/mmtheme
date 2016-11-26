@@ -2,7 +2,7 @@
 get_header(); 
 
 $blog_layout = get_theme_mod('blog_layout');
-$index_post_class = '';
+$index_post_class = 'one-full';
 $index_container = 'container-content';
 $has_sidebar = ($blog_layout == '1-s' || $blog_layout == '2-s');
 if ($blog_layout == '1') {

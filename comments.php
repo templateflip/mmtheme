@@ -4,10 +4,10 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comments-area">
+<div id="comments" class="comments-area content-box section">
 	<?php
 	if ( have_comments() ) : ?>
-		<h2 class="h3 comments-title">
+		<h2 class="h3 comments-title section-title">
 			<?php
 				printf( // WPCS: XSS OK.
 					esc_html( _nx( 'One comment', '%1$s comments', get_comments_number(), 'comments title', 'mmtheme' ) ),

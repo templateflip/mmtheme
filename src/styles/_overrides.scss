@@ -9,6 +9,10 @@
   letter-spacing: 1px;
 }
 
+.button.button-ghost {
+  background-color: #fff;
+}
+
 ins {
   background: transparent;
 }
@@ -41,4 +45,8 @@ ins {
   .dot + span {
     margin-left: 0;
   }
+}
+
+.one-full {
+  @include col-full-width();
 }
