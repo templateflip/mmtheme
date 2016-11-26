@@ -1,9 +1,15 @@
 </div><!-- #content -->
 
-<footer class="footer section text-center" role="contentinfo">
+<footer id="footer" class="footer section text-center" role="contentinfo">
   <div class="container-content">
-    <a href="<?php echo esc_url( __( 'https://wordpress.org/', 'mmtheme' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'mmtheme' ), 'WordPress' ); ?>.</a>
-    <?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'mmtheme' ), 'mmtheme', '<a href="https://templateflip.com/" rel="designer">TemplateFlip</a>' ); ?>
+  <?php
+    if ( is_active_sidebar( 'sidebar-footer' ) ) : ?>
+    <div class="widget-area">
+      <?php dynamic_sidebar( 'sidebar-footer' ); ?>
+    </div>
+  <?php endif;
+  
+   printf( esc_html__( 'Built with %1$s theme for %2$s.', 'mmtheme' ), '<a href="https://templateflip.com/wordpress/mmtheme/" target="_blank">Minimal Modern</a>', '<a href="https://wordpress.org" target="_blank">WordPress</a>' ); ?>
   </div>
 </footer>
 
