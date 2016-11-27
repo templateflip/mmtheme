@@ -15,7 +15,7 @@
 
         if (!empty($thumb_type)) :
         ?>
-          <a href="<?= esc_url(get_permalink()) ?>">
+          <a class="entry-image-wrapper" href="<?= esc_url(get_permalink()) ?>">
             <div class="entry-image" style="background-image: url(<?=the_post_thumbnail_url()?>)">
               <?php the_post_thumbnail($thumb_type); ?>
             </div>

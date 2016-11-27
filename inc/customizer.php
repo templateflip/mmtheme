@@ -80,8 +80,8 @@ add_action('customize_register', function ( $wp_customize ) {
       'type'       => 'radio',
       'choices'    => array(
         'm'   => 'Minimal',
-        'b'   => 'Borders',
-        's'   => 'Shadow'
+        'b'   => 'Cards with Borders',
+        's'   => 'Cards with Shadows'
       ),
     ));
 });
@@ -197,11 +197,14 @@ function mmtheme_get_custom_layout_css() {
   }
 
 	return <<<CSS
+  .entry-image-wrapper {
+    margin: -1.5rem -1.5rem 0;
+  }
   .content-box {
     background-color: #fff;
     height: 100%;
     width: 100%;
-    padding: 1.5rem;
+    padding: 1.5rem 1.5rem 0;
     border: 1px solid {$border_color};
     border-radius: 3px;
     box-shadow: {$box_shadow};
