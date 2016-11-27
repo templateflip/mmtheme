@@ -15,6 +15,15 @@
 
 .button.button-ghost {
   background-color: #fff;
+  transition: box-shadow .25s ease-out;
+
+  &:hover, &:focus {
+    text-decoration: none;
+    background-color: #fff;
+    color: inherit;
+    border-color: $color-default-border;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.08);
+  }
 }
 
 ins {

@@ -44,3 +44,15 @@ add_filter('next_posts_link_attributes', function () {
 add_filter('previous_posts_link_attributes', function () {
     return 'class="button button-ghost alignleft"';
 });
+
+/**
+ * Styles for tag cloug
+ */
+add_filter( 'widget_tag_cloud_args', function ($args) {
+	$args['number'] = 12;
+	$args['largest'] = 1.1;
+	$args['smallest'] = 1.1;
+	$args['unit'] = 'em';
+  $args['format'] = 'list';
+	return $args;
+});

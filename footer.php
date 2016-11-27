@@ -11,7 +11,7 @@
 
   <p class="text-small">    
     <?php 
-      printf( esc_html__( 'Built with %1$s theme for %2$s.', 'mmtheme' ), '<a href="https://templateflip.com/wordpress/mmtheme/" target="_blank">Minimal Modern</a>', '<a href="https://wordpress.org" target="_blank">WordPress</a>' ); ?>
+      printf( esc_html__( '%1$s theme for %2$s.', 'mmtheme' ), '<a href="https://templateflip.com/wordpress/mmtheme/" target="_blank">Minimal Modern</a>', '<a href="https://wordpress.org" target="_blank">WordPress</a>' ); ?>
   </p>
   </div>
 </footer>

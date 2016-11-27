@@ -21,3 +21,21 @@
     text-align: center;
   }
 }
+
+.wp-tag-cloud {
+  li {
+    display: inline-block;
+    margin: 10px 0 0 0;
+  }
+  
+  a {
+    @extend .button;
+    @extend .button.button-ghost;
+    
+    display: block;
+    margin-top: 0;
+    padding: 10px 15px;
+    line-height: 1;
+    border-radius: 3px;
+  }
+}

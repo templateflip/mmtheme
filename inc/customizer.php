@@ -221,7 +221,7 @@ function mmtheme_get_custom_layout_css() {
   .blogroll .content-box:hover {
     box-shadow: 0 10px 20px 0 rgba(0,0,0,0.08);
   }
-  .single main .content-box {
+  .single main .content-box, .page main .content-box {
     padding: 1.5rem 2rem 2rem;
     margin-bottom: 2rem;
   }

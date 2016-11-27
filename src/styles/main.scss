@@ -1,12 +1,12 @@
 @import "vars";
 @import 'mmcss/src/mm';
+@import "overrides";
 @import "animations";
 @import "layouts";
 @import "blogroll";
 @import "posts";
 @import "comments";
 @import "widgets";
-@import "overrides";
 
 main {
   margin-top: 2 * $size-element-spacing;
