@@ -23,6 +23,8 @@ add_action('after_setup_theme', function () {
     
     // Enable support for Post Thumbnails on posts and pages.
     add_theme_support('post-thumbnails');
+    add_image_size('small_thumb', 500, 0 );
+    add_image_size('large_thumb', 800, 0 );
 
     // add theme support for custom logos
     add_theme_support( 'custom-logo', array(
