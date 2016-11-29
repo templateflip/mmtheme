@@ -121,11 +121,11 @@ add_action('customize_register', function ( $wp_customize ) {
       'type'       => 'textarea'
     ));
 
-    $wp_customize->add_setting('custom_js', array('default' => ''));
-    $wp_customize->add_control('custom_js', array(
-      'label'      => __('Custom JavaScript Code', 'mmtheme'),
+    $wp_customize->add_setting('custom_head_code', array('default' => ''));
+    $wp_customize->add_control('custom_head_code', array(
+      'label'      => __('Custom Head Code', 'mmtheme'),
       'section'    => 'advanced',
-      'settings'   => 'custom_js',
+      'settings'   => 'custom_head_code',
       'type'       => 'textarea'
     ));
     
@@ -167,11 +167,25 @@ add_action( 'wp_enqueue_scripts', function () {
     }
   }
   $custom_layout_css = mmtheme_get_custom_layout_css();
+  $custom_user_css = get_theme_mod('custom_theme_css');
 
-  $custom_css = $custom_color_css . $custom_layout_css;
+  $custom_css = $custom_color_css . $custom_layout_css . $custom_user_css;
 
   if(!empty($custom_css)) {
 	  wp_add_inline_style( 'mmtheme-style', $custom_css );
+  }
+});
+
+
+/**
+* Enqueues custom code in heade.
+*/
+add_action( 'wp_head', function () {
+
+  $custom_head_code = get_theme_mod('custom_head_code');
+  
+  if(!empty($custom_head_code)) {
+	  echo  $custom_head_code;
   }
 });
 
