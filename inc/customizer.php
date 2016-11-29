@@ -107,6 +107,43 @@ add_action('customize_register', function ( $wp_customize ) {
         '4'   => 'Four Columns'
       ),
     ));
+
+    // Advanced section
+    $wp_customize->add_section('advanced' , array(
+        'title' => __('Advanced Settings','mmtheme'),
+    ));
+
+    $wp_customize->add_setting('custom_theme_css', array('default' => ''));
+    $wp_customize->add_control('custom_theme_css', array(
+      'label'      => __('Custom Theme CSS', 'mmtheme'),
+      'section'    => 'advanced',
+      'settings'   => 'custom_theme_css',
+      'type'       => 'textarea'
+    ));
+
+    $wp_customize->add_setting('custom_js', array('default' => ''));
+    $wp_customize->add_control('custom_js', array(
+      'label'      => __('Custom JavaScript Code', 'mmtheme'),
+      'section'    => 'advanced',
+      'settings'   => 'custom_js',
+      'type'       => 'textarea'
+    ));
+    
+    $wp_customize->add_setting('custom_copyright', array('default' => ''));
+    $wp_customize->add_control('custom_copyright', array(
+      'label'      => __('Custom copyright text in footer', 'mmtheme'),
+      'section'    => 'advanced',
+      'settings'   => 'custom_copyright',
+      'type'       => 'textarea'
+    ));
+    
+    $wp_customize->add_setting('credit_display', array('default' => true));
+    $wp_customize->add_control('credit_display', array(
+      'label'      => __('Display credit in footer', 'mmtheme'),
+      'section'    => 'advanced',
+      'settings'   => 'credit_display',
+      'type'       => 'checkbox'
+    ));
 });
 
 /**

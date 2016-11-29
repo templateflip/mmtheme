@@ -45,11 +45,21 @@
       <nav>
         <?php wp_nav_menu( array( 'theme_location' => 'footer', "menu_class" => 'footer-menu' ) ); ?>
       </nav>
-      <p class="text-small text-center"> 
-        Copyright &copy; <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>, All rights reserved.
-        <br>
+      <p class="text-small text-center">
         <?php 
-          printf( esc_html__( 'Powered by %1$s. Theme by %2$s.', 'mmtheme' ), '<a href="https://wordpress.org" target="_blank">WordPress</a>', '<a href="https://templateflip.com/" target="_blank">TemplateFlip</a>' ); ?>
+          $copyright = get_theme_mod('custom_copyright', '');
+          if ( !empty($copyright) ) {
+            echo $copyright.'<br>';
+          }
+          else {
+        ?>
+          Copyright &copy; <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>, All rights reserved.<br>
+        <?php
+          }
+          if ( get_theme_mod('credit_display', true) ) {
+            printf( esc_html__( 'Powered by %1$s. Theme by %2$s.', 'mmtheme' ), '<a href="https://wordpress.org" target="_blank">WordPress</a>', '<a href="https://templateflip.com/" target="_blank">TemplateFlip</a>' );
+          }
+       ?>
       </p>
     </div>
   </div>
