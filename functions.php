@@ -3,6 +3,7 @@
 * Theme includes
 */
 $theme_includes = [
+  'inc/svgicons.php',
   'inc/helpers.php',
   'inc/setup.php',
   'inc/filters.php',

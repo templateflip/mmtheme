@@ -17,7 +17,7 @@
   ?>
 	<header class="header" role="banner">
 		<div class="<?php echo $header_container; ?>">
-			<div class="alignleft">
+			<div class="header-left">
         <?php mmtheme_site_branding(); ?>        
 			</div>
       <div class="menu-toggle">

@@ -8,11 +8,16 @@ $has_sidebar = ($blog_layout == '1-s' || $blog_layout == '2-s');
 if ($blog_layout == '1') {
   $index_container = 'container-readable';
 }
-elseif ($blog_layout == '2' || $blog_layout == '2-s') {
+elseif ($blog_layout == '2') {
+  $index_post_class = 'one-half';
+  $index_container = 'container-content';
+}
+elseif ($blog_layout == '2-s') {
   $index_post_class = 'one-half';
 }
 elseif ($blog_layout == '3') {
   $index_post_class = 'one-third';
+  $index_container = 'container-content';
 }
 if ( $has_sidebar ) :
 ?>

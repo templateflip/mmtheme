@@ -56,3 +56,21 @@ add_filter( 'widget_tag_cloud_args', function ($args) {
   $args['format'] = 'list';
 	return $args;
 });
+
+/**
+ * Checks if icon class is applied to menu and insert equivalent icon to nav menu text
+ */
+function mmtheme_nav_menu_icons( $atts, $item, $args ) {
+  if(count($item->classes) >= 1) {
+		if(substr($item->classes[0], 0, 5) === "icon-") {
+      $icon = $item->classes[0];
+      $text = '';
+      if(count($item->classes) >= 2 && $item->classes[1] === 'icon-text') {
+        $text = ' ' . $item->title;
+      }
+      $item->title = mmtheme_get_svg_icon($icon) . $text;
+		}
+	}
+  return $atts;
+}
+add_filter( 'nav_menu_link_attributes', 'mmtheme_nav_menu_icons', 10, 4);
