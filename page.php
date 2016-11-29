@@ -3,7 +3,8 @@ get_header();
 
 $page_layout = get_theme_mod('page_layout');
 $has_sidebar = $page_layout == 'n-s';
-$page_container = $page_layout == 'n' ? 'container-readable' : 'container-content';
+$page_container = $page_layout == 'n' ? 'container-readable' : '';
+$page_container = $page_layout == 'w' ? 'container-content' : $page_container;
 
 if ( $has_sidebar ) :
 ?>
