@@ -6,17 +6,8 @@ add_action('customize_register', function ( $wp_customize ) {
     $wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
     $wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 
-    $wp_customize->add_section('layout' , array(
-        'title' => __('Layout','mmtheme'),
-    ));
-
-    // array to hold color settings that can be customized by user
-    $colors = array();
-    $colors[] = array(
-      'slug'=>'primary_color', 
-      'default' => '#4078c0',
-      'label' => __('Primary Color', 'mmtheme')
-    );
+    // Colors section
+    $colors = mmtheme_get_custom_colors();
 
     foreach( $colors as $color ) {
       $wp_customize->add_setting($color['slug'], array('default' => $color['default']));
@@ -30,6 +21,11 @@ add_action('customize_register', function ( $wp_customize ) {
         )
       );
     }
+
+    // Layout section
+    $wp_customize->add_section('layout' , array(
+        'title' => __('Layout','mmtheme'),
+    ));
 
     $wp_customize->add_setting('blog_layout', array('default' => '3'));
     $wp_customize->add_control('blog_layout', array(
@@ -98,7 +94,14 @@ add_action( 'customize_preview_init', function () {
 */
 add_action( 'wp_enqueue_scripts', function () {
   $custom_css = '';
-  $custom_color_css = mmtheme_get_custom_color_css();
+  $custom_color_css = '';
+  $colors = mmtheme_get_custom_colors();
+  foreach( $colors as $color ) {
+    $value = get_theme_mod($color['slug']);
+    if( $value != $color['default'] ) {
+      $custom_color_css = $custom_color_css . mmtheme_get_custom_color_css($color['slug'], $value);
+    }
+  }
   $custom_layout_css = mmtheme_get_custom_layout_css();
 
   $custom_css = $custom_color_css . $custom_layout_css;
@@ -109,72 +112,166 @@ add_action( 'wp_enqueue_scripts', function () {
 });
 
 /**
+ * Returns array containing settings for customizable colors.
+ */
+function mmtheme_get_custom_colors() {
+  $colors = array();
+  $colors[] = array(
+    'slug'=>'primary_color', 
+    'default' => '#4078c0',
+    'label' => __('Primary Color', 'mmtheme')
+  );
+  $colors[] = array(
+    'slug'=>'header_background_color', 
+    'default' => '#ffffff',
+    'label' => __('Header Background Color', 'mmtheme')
+  );
+  $colors[] = array(
+    'slug'=>'header_text_color', 
+    'default' => '#444444',
+    'label' => __('Header Text Color', 'mmtheme')
+  );  
+  $colors[] = array(
+    'slug'=>'subheader_background_color', 
+    'default' => '#fafafa',
+    'label' => __('Sub-Header Background Color', 'mmtheme')
+  );
+  $colors[] = array(
+    'slug'=>'subheader_text_color', 
+    'default' => '#444444',
+    'label' => __('Sub-Header Text Color', 'mmtheme')
+  );
+  $colors[] = array(
+    'slug'=>'footer_background_color', 
+    'default' => '#fafafa',
+    'label' => __('Footer Background Color', 'mmtheme')
+  );
+  $colors[] = array(
+    'slug'=>'footer_text_color', 
+    'default' => '#919191',
+    'label' => __('Footer Text Color', 'mmtheme')
+  );
+  $colors[] = array(
+    'slug'=>'footer_link_color', 
+    'default' => '#5e5e5e',
+    'label' => __('Footer Links Color', 'mmtheme')
+  );
+  return $colors;
+}
+
+/**
  * Returns CSS for customized colors.
  */
-function mmtheme_get_custom_color_css() {
-  $primary_color = get_theme_mod('primary_color');
+function mmtheme_get_custom_color_css($type, $value) {
+  if( $type == 'primary_color') {
+    return <<<CSS
+    a,
+    nav .current-menu-item > a, 
+    .entry-title a:hover,  
+    .button.button-text:focus, .button.button-text:hover,
+    button.button-text:focus,
+    button.button-text:hover,
+    input[type="button"].button-text:focus,
+    input[type="button"].button-text:hover,
+    input[type="reset"].button-text:focus,
+    input[type="reset"].button-text:hover,
+    input[type="submit"].button-text:focus,
+    input[type="submit"].button-text:hover {
+      color: {$value};
+    }
 
-  // Return blank for default values
-  if( $primary_color == '#4078c0' ) {
-    return '';
-  }
+    .label.label-primary {
+      background-color: {$value};
+    }
 
-	return <<<CSS
-	a,
-  nav .current-menu-item a, 
-  .entry-title a:hover,  
-  .button.button-text:focus, .button.button-text:hover,
-  button.button-text:focus,
-  button.button-text:hover,
-  input[type="button"].button-text:focus,
-  input[type="button"].button-text:hover,
-  input[type="reset"].button-text:focus,
-  input[type="reset"].button-text:hover,
-  input[type="submit"].button-text:focus,
-  input[type="submit"].button-text:hover {
-		color: {$primary_color};
-	}
-
-  .label.label-primary {
-    background-color: {$primary_color};
-  }
-
-  .button.button-primary,
-  button.button-primary,
-  input[type="button"].button-primary,
-  input[type="reset"].button-primary,
-  input[type="submit"].button-primary {
-    background-color: {$primary_color};
-    border-color: {$primary_color};
-  }
+    .button.button-primary,
+    button.button-primary,
+    input[type="button"].button-primary,
+    input[type="reset"].button-primary,
+    input[type="submit"].button-primary {
+      background-color: {$value};
+      border-color: {$value};
+    }
 
 
-  .button.button-primary:focus, .button.button-primary:hover,
-  button.button-primary:focus,
-  button.button-primary:hover,
-  input[type="button"].button-primary:focus,
-  input[type="button"].button-primary:hover,
-  input[type="reset"].button-primary:focus,
-  input[type="reset"].button-primary:hover,
-  input[type="submit"].button-primary:focus,
-  input[type="submit"].button-primary:hover {
-    background-color: {$primary_color};
-    border-color: {$primary_color};
-    opacity: 0.9;
-  }
+    .button.button-primary:focus, .button.button-primary:hover,
+    button.button-primary:focus,
+    button.button-primary:hover,
+    input[type="button"].button-primary:focus,
+    input[type="button"].button-primary:hover,
+    input[type="reset"].button-primary:focus,
+    input[type="reset"].button-primary:hover,
+    input[type="submit"].button-primary:focus,
+    input[type="submit"].button-primary:hover {
+      background-color: {$value};
+      border-color: {$value};
+      opacity: 0.9;
+    }
 
-  input[type="email"]:focus,
-  input[type="number"]:focus,
-  input[type="password"]:focus,
-  input[type="search"]:focus,
-  input[type="tel"]:focus,
-  input[type="text"]:focus,
-  input[type="url"]:focus,
-  select:focus,
-  textarea:focus {
-    border: 1px solid {$primary_color};
-  }
+    input[type="email"]:focus,
+    input[type="number"]:focus,
+    input[type="password"]:focus,
+    input[type="search"]:focus,
+    input[type="tel"]:focus,
+    input[type="text"]:focus,
+    input[type="url"]:focus,
+    select:focus,
+    textarea:focus {
+      border: 1px solid {$value};
+    }
 CSS;
+  }
+  elseif ($type == 'header_background_color') {
+     return <<<CSS
+     .header {
+       background-color: {$value};
+     }
+CSS;
+  }
+  elseif ($type == 'header_text_color') {
+     return <<<CSS
+     .header,
+     .header nav .current-menu-item > a {
+       color: {$value};
+       border: 0;
+     }
+CSS;
+  }
+  elseif ($type == 'subheader_background_color') {
+     return <<<CSS
+     .sub-header {
+       background-color: {$value};
+     }
+CSS;
+  }
+  elseif ($type == 'subheader_text_color') {
+     return <<<CSS
+     .sub-header {
+       color: {$value};
+     }
+CSS;
+  }
+  elseif ($type == 'footer_background_color') {
+     return <<<CSS
+     .footer {
+       background-color: {$value};
+     }
+CSS;
+  }
+  elseif ($type == 'footer_text_color') {
+     return <<<CSS
+     .footer {
+       color: {$value};
+     }
+CSS;
+  }
+  elseif ($type == 'footer_link_color') {
+     return <<<CSS
+     .footer a {
+       color: {$value};
+     }
+CSS;
+  }
 }
 
 
