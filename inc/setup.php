@@ -69,7 +69,19 @@ add_action('widgets_init', function () {
       'id'            => 'sidebar-primary'
     ] + $config);
     register_sidebar([
-      'name'          => __('Footer', 'mmtheme'),
-      'id'            => 'sidebar-footer'
+      'name'          => __('Footer 1', 'mmtheme'),
+      'id'            => 'sidebar-footer-1'
+    ] + $config);
+    register_sidebar([
+      'name'          => __('Footer 2', 'mmtheme'),
+      'id'            => 'sidebar-footer-2'
+    ] + $config);
+    register_sidebar([
+      'name'          => __('Footer 3', 'mmtheme'),
+      'id'            => 'sidebar-footer-3'
+    ] + $config);
+    register_sidebar([
+      'name'          => __('Footer 4', 'mmtheme'),
+      'id'            => 'sidebar-footer-4'
     ] + $config);
 });
