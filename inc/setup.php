@@ -35,7 +35,8 @@ add_action('after_setup_theme', function () {
     
     // Register navigation menus
     register_nav_menus( [
-    'primary' => __('Primary', 'mmtheme')
+    'primary' => __('Primary', 'mmtheme'),    
+    'footer' => __('Footer', 'mmtheme')
     ]);
     
     // Enable HTML5 markup support

@@ -41,10 +41,17 @@
     <?php endif;?>
     </div>
     
-    <p class="text-small text-center">    
-      <?php 
-        printf( esc_html__( '%1$s theme for %2$s.', 'mmtheme' ), '<a href="https://templateflip.com/wordpress/mmtheme/" target="_blank">Minimal Modern</a>', '<a href="https://wordpress.org" target="_blank">WordPress</a>' ); ?>
-    </p>
+    <div class="section">
+      <nav>
+        <?php wp_nav_menu( array( 'theme_location' => 'footer', "menu_class" => 'footer-menu' ) ); ?>
+      </nav>
+      <p class="text-small text-center"> 
+        Copyright &copy; <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>, All rights reserved.
+        <br>
+        <?php 
+          printf( esc_html__( 'Powered by %1$s. Theme by %2$s.', 'mmtheme' ), '<a href="https://wordpress.org" target="_blank">WordPress</a>', '<a href="https://templateflip.com/" target="_blank">TemplateFlip</a>' ); ?>
+      </p>
+    </div>
   </div>
 </footer>
 
