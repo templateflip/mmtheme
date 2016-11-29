@@ -27,12 +27,25 @@ add_action('customize_register', function ( $wp_customize ) {
         'title' => __('Layout','mmtheme'),
     ));
 
+    
+    $wp_customize->add_setting('header_layout', array('default' => 'f'));
+    $wp_customize->add_control('header_layout', array(
+      'label'      => __('Header Layout', 'mmtheme'),
+      'section'    => 'layout',
+      'settings'   => 'header_layout',
+      'type'       => 'select',
+      'choices'    => array(
+        'f'   => 'Full Width',
+        'c'   => 'Conaitner width'
+      ),
+    ));
+
     $wp_customize->add_setting('blog_layout', array('default' => '3'));
     $wp_customize->add_control('blog_layout', array(
       'label'      => __('Blog Layout', 'mmtheme'),
       'section'    => 'layout',
       'settings'   => 'blog_layout',
-      'type'       => 'radio',
+      'type'       => 'select',
       'choices'    => array(
         '3'   => '3 Columns, No Sidebar',
         '2-s' => '2 Columns with Sidebar',
@@ -47,7 +60,7 @@ add_action('customize_register', function ( $wp_customize ) {
       'label'      => __('Post Layout', 'mmtheme'),
       'section'    => 'layout',
       'settings'   => 'post_layout',
-      'type'       => 'radio',
+      'type'       => 'select',
       'choices'    => array(
         'n-s' => 'Narrow with Sidebar',
         'n'   => 'Narrow without Sidebar',
@@ -60,7 +73,7 @@ add_action('customize_register', function ( $wp_customize ) {
       'label'      => __('Page Layout', 'mmtheme'),
       'section'    => 'layout',
       'settings'   => 'page_layout',
-      'type'       => 'radio',
+      'type'       => 'select',
       'choices'    => array(
         'n-s' => 'Narrow with Sidebar',
         'n'   => 'Narrow without Sidebar',
@@ -73,11 +86,25 @@ add_action('customize_register', function ( $wp_customize ) {
       'label'      => __('Content Display Style', 'mmtheme'),
       'section'    => 'layout',
       'settings'   => 'content_style',
-      'type'       => 'radio',
+      'type'       => 'select',
       'choices'    => array(
         'm'   => 'Minimal',
         'b'   => 'Cards with Borders',
         's'   => 'Cards with Shadows'
+      ),
+    ));
+
+    $wp_customize->add_setting('footer_layout', array('default' => '1'));
+    $wp_customize->add_control('footer_layout', array(
+      'label'      => __('Footer Layout', 'mmtheme'),
+      'section'    => 'layout',
+      'settings'   => 'footer_layout',
+      'type'       => 'select',
+      'choices'    => array(
+        '1'   => 'Single Cloumn',
+        '2'   => 'Two Columns',
+        '3'   => 'Three Columns',
+        '4'   => 'Four Columns'
       ),
     ));
 });

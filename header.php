@@ -9,10 +9,15 @@
 
 <body id="top" <?php body_class(); ?>>
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'mmtheme' ); ?></a>
-
+  <?php
+    $header_layout = get_theme_mod('header_layout');
+    $header_container = $header_layout == 'f' ? 'container' : 'container-content';
+    $menu_class = $header_layout == 'f' ? '' : 'header-right';
+    $display_header_sidebar = $header_layout == 'f';
+  ?>
 	<header class="header" role="banner">
-		<div class="container">
-			<div class="header-left">
+		<div class="<?php echo $header_container; ?>">
+			<div class="alignleft">
         <?php mmtheme_site_branding(); ?>        
 			</div>
       <div class="menu-toggle">
@@ -24,12 +29,14 @@
           <span><?php esc_html_e( 'Menu', 'mmtheme' ); ?></span>
         </label>
         <div class="menu-toggle-content">
-          <nav role="navigation">
+          <nav class="<?php echo $menu_class?>" role="navigation">
              <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
           </nav>
+          <?php if ($display_header_sidebar && is_active_sidebar( 'header' )) : ?>
           <div class="header-right">
             <?php dynamic_sidebar( 'header' ); ?>
           </div>
+          <?php endif; ?>
         </div>
       </div>
     </header>

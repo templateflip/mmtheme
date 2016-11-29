@@ -3,10 +3,18 @@
   padding: 0;
 }
 
+.header .container-content {
+  position: relative;
+}
+
 .header .menu {
   font-size: 85%;
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+
+.header-right .menu > li.menu-item:last-child {
+  padding-right: 0;
 }
 
 .button.button-ghost {
