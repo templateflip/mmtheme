@@ -663,6 +663,10 @@ function mmtheme_get_custom_dimension_css() {
   $featured_image_height = get_theme_mod('featured_image_height', '250');
 
   $menu_margin = ($header_height - 42) / 2;
+  $logo_margin = 20;
+  if($header_height <= 72) { // when header height is less than default height, keep logo atleast 30px height
+    $logo_margin = ($header_height - 30) / 2;
+  }
   $css = '';
   if ($header_height != 72) {
     $css = <<<CSS
@@ -671,6 +675,9 @@ function mmtheme_get_custom_dimension_css() {
     .site-branding .title {
       line-height: {$header_height}px;
       height: {$header_height}px;
+    }
+    .site-branding img {
+      padding: {$logo_margin}px 0;
     }
     .menu-toggle label {
       margin-top: {$menu_margin}px;
