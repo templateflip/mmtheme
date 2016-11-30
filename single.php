@@ -18,7 +18,12 @@ if ( $has_sidebar ) :
 		<?php
 		while ( have_posts() ) : the_post();
 			get_template_part( 'template-parts/content-single', get_post_format() );
-			// the_post_navigation();
+      $post_nav_visiblity = get_theme_mod('post_nav_visiblity', '2');
+      if( $post_nav_visiblity == '2') {
+        echo '<div class="content-box">';
+          the_post_navigation();
+        echo '</div>';
+      }
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :
 				comments_template();

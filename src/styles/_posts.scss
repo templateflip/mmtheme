@@ -7,3 +7,36 @@
     margin-bottom: $size-element-spacing;
   }
 }
+
+.post-navigation {
+  
+  .nav-previous, .nav-next {
+    @extend .entry-title;
+    @extend .h4;
+    width: 50%;
+    padding: 10px 1rem;
+    display: inline-block;
+    margin-bottom: 0;
+  }
+
+  .nav-previous:before, .nav-next:before {
+      content: 'Next';
+      display: block;  
+      font-weight: 500;
+      text-transform: uppercase;
+      font-size: 80%;
+      margin-top: 0;
+      margin-bottom: 1rem;
+      letter-spacing: 0.8px;
+      color: #aaa;
+  }
+
+  .nav-previous {
+    text-align: right;
+    border-right: 2px solid #eee;
+
+    &:before {
+      content: 'Prev';
+    }
+  }
+}

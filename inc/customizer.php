@@ -209,6 +209,19 @@ add_action('customize_register', function ( $wp_customize ) {
       ),
     ));
 
+    
+    $wp_customize->add_setting('post_nav_visiblity', array('default' => '2'));
+    $wp_customize->add_control('post_nav_visiblity', array(
+      'label'      => __('Show Previous and Next in Posts ', 'mmtheme'),
+      'section'    => 'elements',
+      'settings'   => 'post_nav_visiblity',
+      'type'       => 'select',
+      'choices'    => array(
+        '1'   => 'Hide',
+        '2'   => 'Show'
+      ),
+    ));
+
     // Advanced section
     $wp_customize->add_section('advanced' , array(
         'title' => __('Advanced Settings','mmtheme'),
@@ -482,7 +495,9 @@ function mmtheme_get_custom_color_css($type, $value) {
     return <<<CSS
     a,
     nav .current-menu-item > a, 
-    .entry-title a:hover,  
+    .entry-title a:hover,
+    .post-navigation .nav-previous a:hover,
+    .post-navigation .nav-next a:hover,
     .button.button-text:focus, .button.button-text:hover,
     button.button-text:focus,
     button.button-text:hover,

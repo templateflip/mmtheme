@@ -10,6 +10,8 @@
 
 	.wp-caption-text {
 		margin: 0.8075em 0;
+    @extend .text-small;
+    @extend .text-muted;
 	}
 }
 
