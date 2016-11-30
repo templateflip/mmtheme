@@ -635,7 +635,7 @@ function mmtheme_get_custom_layout_css() {
     border: 1px solid {$border_color};
     border-radius: 3px;
     box-shadow: {$box_shadow};
-    margin-bottom: 20px;
+    padding-bottom: 20px;
     transition: box-shadow .25s ease-out;
   }
   
