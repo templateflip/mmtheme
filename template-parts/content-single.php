@@ -56,3 +56,21 @@
   </aside>
 </div>
 <?php endif; ?>
+
+<?php
+$about_author_visiblity = get_theme_mod('about_author_visiblity', '2');
+if ($about_author_visiblity === '2') :
+?>
+  <div class="about-author content-box section">
+    <h3 class="h4 section-title"><?php echo __('About the author', 'mmtheme'); ?></h2>
+    <div class="media media-left">
+      <div class="thumbnail thumbnail-rounded">
+        <?php echo get_avatar( get_the_author_meta('ID'), 140 ) ?>
+      </div>
+      <div class="media-body">
+        <strong><?php echo get_the_author_meta('display_name'); ?></strong>
+        <?php echo wpautop(get_the_author_meta('description')); ?>
+      </div>
+    </div>
+  </div>
+<?php endif; ?>

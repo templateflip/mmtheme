@@ -140,15 +140,15 @@ add_action('customize_register', function ( $wp_customize ) {
     ) );
 
     // Modules section
-    $wp_customize->add_section('modules' , array(
-        'title' => __('Modules','mmtheme'),
+    $wp_customize->add_section('elements' , array(
+        'title' => __('Page Elements','mmtheme'),
     ));
 
     
     $wp_customize->add_setting('site_tagline_visiblity', array('default' => '2'));
     $wp_customize->add_control('site_tagline_visiblity', array(
       'label'      => __('Site Tagline', 'mmtheme'),
-      'section'    => 'modules',
+      'section'    => 'elements',
       'settings'   => 'site_tagline_visiblity',
       'type'       => 'select',
       'choices'    => array(
@@ -161,7 +161,7 @@ add_action('customize_register', function ( $wp_customize ) {
     $wp_customize->add_setting('about_author_visiblity', array('default' => '2'));
     $wp_customize->add_control('about_author_visiblity', array(
       'label'      => __('About the Author', 'mmtheme'),
-      'section'    => 'modules',
+      'section'    => 'elements',
       'settings'   => 'about_author_visiblity',
       'type'       => 'select',
       'choices'    => array(
