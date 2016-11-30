@@ -439,9 +439,10 @@ CSS;
  * Returns CSS for custom layouts.
  */
 function mmtheme_get_custom_dimension_css() {
-  $header_height = get_theme_mod('header_height');  
+  $header_height = get_theme_mod('header_height');
   $featured_image_height = get_theme_mod('featured_image_height');
 
+  $menu_margin = ($header_height - 42) / 2;
   $css = '';
   if ($header_height != 72) {
     $css = <<<CSS
@@ -450,6 +451,9 @@ function mmtheme_get_custom_dimension_css() {
     .site-branding .title {
       line-height: {$header_height}px;
       height: {$header_height}px;
+    }
+    .menu-toggle label {
+      margin-top: {$menu_margin}px;
     }
 CSS;
   }
