@@ -53,4 +53,11 @@
 			endif;
 	endif; ?>
 
+  <?php 
+    if (is_active_sidebar( 'below-header' )) :
+  ?>
+  <aside class="widget-area">
+    <?php dynamic_sidebar( 'below-header' ); ?>
+  </aside>
+  <?php endif; ?>
 	<div class="animated fadeIn" id="content">

@@ -3,6 +3,7 @@
 * Theme includes
 */
 $theme_includes = [
+  'widgets/ads.php',
   'inc/svgicons.php',
   'inc/helpers.php',
   'inc/setup.php',

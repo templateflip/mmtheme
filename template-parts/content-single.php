@@ -9,6 +9,13 @@
     <div class="entry-content">
       <?php the_content(); ?>
     </div>
+    <?php 
+      if (is_active_sidebar( 'below-content' )) :
+    ?>
+    <aside class="widget-area section">
+      <?php dynamic_sidebar( 'below-content' ); ?>
+    </aside>
+    <?php endif; ?>
     <div class="entry-meta">
     <?php
       /* translators: used between list items, there is a space after the comma */

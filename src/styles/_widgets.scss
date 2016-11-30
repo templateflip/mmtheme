@@ -3,6 +3,10 @@
     padding-bottom: 2rem;
 }
 
+.widget:last-child {
+  padding-bottom: 0;
+}
+
 .widget .widget-title {
   font-weight: 500;
   text-transform: uppercase;

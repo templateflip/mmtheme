@@ -66,8 +66,16 @@ add_action('widgets_init', function () {
       'id'            => 'header'
     ] + $config);
     register_sidebar([
+      'name'          => __('Below Header', 'mmtheme'),
+      'id'            => 'below-header'
+    ] + $config);
+    register_sidebar([
       'name'          => __('Sidebar', 'mmtheme'),
       'id'            => 'sidebar-primary'
+    ] + $config);
+    register_sidebar([
+      'name'          => __('Below Content', 'mmtheme'),
+      'id'            => 'below-content'
     ] + $config);
     register_sidebar([
       'name'          => __('Footer 1', 'mmtheme'),
@@ -85,7 +93,7 @@ add_action('widgets_init', function () {
       'name'          => __('Footer 4', 'mmtheme'),
       'id'            => 'sidebar-footer-4'
     ] + $config);
-    
+
     // Register widgets
     register_widget('MMtheme_Ads_Widget');
 });
