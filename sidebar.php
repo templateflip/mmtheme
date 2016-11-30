@@ -4,6 +4,6 @@ if ( ! is_active_sidebar( 'sidebar-primary' ) ) {
 }
 ?>
 
-<aside id="secondary" class="widget-area section-medium" role="complementary">
+<aside id="secondary" class="widget-area" role="complementary">
 	<?php dynamic_sidebar( 'sidebar-primary' ); ?>
 </aside>

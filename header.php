@@ -56,7 +56,7 @@
   <?php 
     if (is_active_sidebar( 'below-header' )) :
   ?>
-  <aside class="widget-area">
+  <aside class="widget-area below-header">
     <?php dynamic_sidebar( 'below-header' ); ?>
   </aside>
   <?php endif; ?>

@@ -1,3 +1,11 @@
+.below-header {
+  padding: 5px;
+}
+
+.below-header + #content {
+  margin-top: 0;
+}
+
 .widget {
     padding-top: 0;
     padding-bottom: 2rem;
