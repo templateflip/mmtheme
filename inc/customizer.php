@@ -196,7 +196,7 @@ function mmtheme_get_custom_colors() {
   $colors = array();
   $colors[] = array(
     'slug'=>'primary_color', 
-    'default' => '#4078c0',
+    'default' => '#2196f3',
     'label' => __('Primary Color', 'mmtheme')
   );
   $colors[] = array(
