@@ -158,19 +158,6 @@ add_action('customize_register', function ( $wp_customize ) {
       ),
     ));
 
-    
-    $wp_customize->add_setting('realted_post_visiblity', array('default' => '2'));
-    $wp_customize->add_control('realted_post_visiblity', array(
-      'label'      => __('Related Posts', 'mmtheme'),
-      'section'    => 'modules',
-      'settings'   => 'realted_post_visiblity',
-      'type'       => 'select',
-      'choices'    => array(
-        '1'   => 'Hide',
-        '2'   => 'Show on Posts'
-      ),
-    ));
-
     $wp_customize->add_setting('about_author_visiblity', array('default' => '2'));
     $wp_customize->add_control('about_author_visiblity', array(
       'label'      => __('About the Author', 'mmtheme'),

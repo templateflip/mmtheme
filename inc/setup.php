@@ -74,8 +74,12 @@ add_action('widgets_init', function () {
       'id'            => 'sidebar-primary'
     ] + $config);
     register_sidebar([
-      'name'          => __('Below Content', 'mmtheme'),
-      'id'            => 'below-content'
+      'name'          => __('Post Footer', 'mmtheme'),
+      'id'            => 'post-footer'
+    ] + $config);
+    register_sidebar([
+      'name'          => __('Below Post', 'mmtheme'),
+      'id'            => 'below-post'
     ] + $config);
     register_sidebar([
       'name'          => __('Footer 1', 'mmtheme'),

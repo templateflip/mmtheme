@@ -10,10 +10,10 @@
       <?php the_content(); ?>
     </div>
     <?php 
-      if (is_active_sidebar( 'below-content' )) :
+      if (is_active_sidebar( 'post-footer' )) :
     ?>
     <aside class="widget-area section">
-      <?php dynamic_sidebar( 'below-content' ); ?>
+      <?php dynamic_sidebar( 'post-footer' ); ?>
     </aside>
     <?php endif; ?>
     <div class="entry-meta">
@@ -46,3 +46,13 @@
     </footer>
   </div>
 </article>
+
+<?php 
+  if (is_active_sidebar( 'below-post' )) :
+?>
+<div>
+  <aside class="widget-area section">
+    <?php dynamic_sidebar( 'below-post' ); ?>
+  </aside>
+</div>
+<?php endif; ?>
