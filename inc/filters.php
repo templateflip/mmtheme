@@ -51,7 +51,7 @@ add_filter('previous_posts_link_attributes', function () {
  * Styles for tag cloug
  */
 add_filter( 'widget_tag_cloud_args', function ($args) {
-	$args['number'] = 12;
+	$args['number'] = 20;
 	$args['largest'] = 1.1;
 	$args['smallest'] = 1.1;
 	$args['unit'] = 'em';
