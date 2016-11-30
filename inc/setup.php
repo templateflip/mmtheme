@@ -85,4 +85,7 @@ add_action('widgets_init', function () {
       'name'          => __('Footer 4', 'mmtheme'),
       'id'            => 'sidebar-footer-4'
     ] + $config);
+    
+    // Register widgets
+    register_widget('MMtheme_Ads_Widget');
 });
