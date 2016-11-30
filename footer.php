@@ -43,7 +43,11 @@
     
     <div class="section">
       <nav class="text-center">
-        <?php wp_nav_menu( array( 'theme_location' => 'footer', "menu_class" => 'footer-menu' ) ); ?>
+        <?php 
+          if ( has_nav_menu( 'footer' ) ) {
+            wp_nav_menu( array( 'theme_location' => 'footer', "menu_class" => 'footer-menu' ) );
+          }
+         ?>
       </nav>
       <p class="text-small text-center">
         <?php 
