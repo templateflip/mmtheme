@@ -4,7 +4,7 @@
       <?php
         $thumb_type = "";
         if ( has_post_thumbnail() ) {
-          $blog_layout = get_theme_mod('blog_layout');
+          $blog_layout = get_theme_mod('blog_layout', '3');
           if( $blog_layout == "1" || $blog_layout == "1-s" ) {
             $thumb_type = "large_thumb";
           }

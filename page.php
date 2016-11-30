@@ -1,7 +1,7 @@
 <?php
 get_header();
 
-$page_layout = get_theme_mod('page_layout');
+$page_layout = get_theme_mod('page_layout', 'n');
 $has_sidebar = $page_layout == 'n-s';
 $page_container = $page_layout == 'n' ? 'container-readable' : '';
 $page_container = $page_layout == 'w' ? 'container-content' : $page_container;

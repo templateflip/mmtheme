@@ -10,7 +10,7 @@
 <body id="top" <?php body_class(); ?>>
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'mmtheme' ); ?></a>
   <?php
-    $header_layout = get_theme_mod('header_layout');
+    $header_layout = get_theme_mod('header_layout', 'c');
     $header_container = $header_layout == 'f' ? 'container' : 'container-content';
     $menu_class = $header_layout == 'f' ? '' : 'header-right';
     $display_header_sidebar = $header_layout == 'f';
@@ -42,7 +42,7 @@
     </header>
 	<?php
   $display_tagline = is_front_page() && is_home();
-  $site_tagline_visiblity = get_theme_mod('site_tagline_visiblity');
+  $site_tagline_visiblity = get_theme_mod('site_tagline_visiblity', '2');
 
   if( $site_tagline_visiblity == '1' ) {
     $display_tagline = false;

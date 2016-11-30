@@ -67,7 +67,7 @@ add_action('customize_register', function ( $wp_customize ) {
     ));
 
     
-    $wp_customize->add_setting('header_layout', array('default' => 'f'));
+    $wp_customize->add_setting('header_layout', array('default' => 'c'));
     $wp_customize->add_control('header_layout', array(
       'label'      => __('Header Layout', 'mmtheme'),
       'section'    => 'layout',
@@ -107,7 +107,7 @@ add_action('customize_register', function ( $wp_customize ) {
       ),
     ));
 
-    $wp_customize->add_setting('post_layout', array('default' => 'n'));
+    $wp_customize->add_setting('post_layout', array('default' => 'n-s'));
     $wp_customize->add_control('post_layout', array(
       'label'      => __('Post Layout', 'mmtheme'),
       'section'    => 'layout',
@@ -262,7 +262,7 @@ add_action( 'wp_enqueue_scripts', function () {
   $custom_color_css = '';
   $colors = mmtheme_get_custom_colors();
   foreach( $colors as $color ) {
-    $value = get_theme_mod($color['slug']);
+    $value = get_theme_mod($color['slug'], $color['default']);
     if( $value != $color['default'] ) {
       $custom_color_css = $custom_color_css . mmtheme_get_custom_color_css($color['slug'], $value);
     }
@@ -594,7 +594,7 @@ CSS;
  * Returns CSS for custom layouts.
  */
 function mmtheme_get_custom_layout_css() {
-  $content_style = get_theme_mod('content_style');
+  $content_style = get_theme_mod('content_style', 'm');
   $border_color = 'transparent';
   $box_shadow = 'none';
   // Return blank for default values
@@ -644,8 +644,8 @@ CSS;
  * Returns CSS for custom layouts.
  */
 function mmtheme_get_custom_dimension_css() {
-  $header_height = get_theme_mod('header_height');
-  $featured_image_height = get_theme_mod('featured_image_height');
+  $header_height = get_theme_mod('header_height', '72');
+  $featured_image_height = get_theme_mod('featured_image_height', '250');
 
   $menu_margin = ($header_height - 42) / 2;
   $css = '';

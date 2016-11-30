@@ -1,6 +1,6 @@
 </div><!-- #content -->
 <?php
-  $footer_layout = get_theme_mod('footer_layout');
+  $footer_layout = get_theme_mod('footer_layout', '1');
   $footer_class = 'one-full';
   if( $footer_layout == '2' ) {
     $footer_class = 'one-half';
@@ -42,7 +42,7 @@
     </div>
     
     <div class="section">
-      <nav>
+      <nav class="text-center">
         <?php wp_nav_menu( array( 'theme_location' => 'footer', "menu_class" => 'footer-menu' ) ); ?>
       </nav>
       <p class="text-small text-center">
