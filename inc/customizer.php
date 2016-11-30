@@ -55,6 +55,19 @@ add_action('customize_register', function ( $wp_customize ) {
       ),
     ));
 
+    $wp_customize->add_setting('content_style', array('default' => 'm'));
+    $wp_customize->add_control('content_style', array(
+      'label'      => __('Content Display Style', 'mmtheme'),
+      'section'    => 'layout',
+      'settings'   => 'content_style',
+      'type'       => 'select',
+      'choices'    => array(
+        'm'   => 'Minimal',
+        'b'   => 'Cards with Borders',
+        's'   => 'Cards with Shadows'
+      ),
+    ));
+
     $wp_customize->add_setting('post_layout', array('default' => 'n'));
     $wp_customize->add_control('post_layout', array(
       'label'      => __('Post Layout', 'mmtheme'),
@@ -81,19 +94,6 @@ add_action('customize_register', function ( $wp_customize ) {
       ),
     ));
 
-    $wp_customize->add_setting('content_style', array('default' => 'm'));
-    $wp_customize->add_control('content_style', array(
-      'label'      => __('Content Display Style', 'mmtheme'),
-      'section'    => 'layout',
-      'settings'   => 'content_style',
-      'type'       => 'select',
-      'choices'    => array(
-        'm'   => 'Minimal',
-        'b'   => 'Cards with Borders',
-        's'   => 'Cards with Shadows'
-      ),
-    ));
-
     $wp_customize->add_setting('footer_layout', array('default' => '1'));
     $wp_customize->add_control('footer_layout', array(
       'label'      => __('Footer Layout', 'mmtheme'),
@@ -107,6 +107,37 @@ add_action('customize_register', function ( $wp_customize ) {
         '4'   => 'Four Columns'
       ),
     ));
+
+    
+    // Dimensions section
+    $wp_customize->add_section('dimension' , array(
+        'title' => __('Dimensions','mmtheme'),
+    ));
+
+    $wp_customize->add_setting('header_height', array('default' => '72'));
+    $wp_customize->add_control( 'header_height', array(
+      'type' => 'number',
+      'section' => 'dimension',
+      'label' => __( 'Header Height (in px)' ),
+      'input_attrs' => array(
+        'min' => 52,
+        'max' => 720,
+        'step' => 1,
+      ),
+    ) );
+
+    
+    $wp_customize->add_setting('featured_image_height', array('default' => '250'));
+    $wp_customize->add_control( 'featured_image_height', array(
+      'type' => 'number',
+      'section' => 'dimension',
+      'label' => __( 'Featured Image Height (in px)' ),
+      'input_attrs' => array(
+        'min' => 0,
+        'max' => 720,
+        'step' => 1,
+      ),
+    ) );
 
     // Advanced section
     $wp_customize->add_section('advanced' , array(
@@ -166,10 +197,11 @@ add_action( 'wp_enqueue_scripts', function () {
       $custom_color_css = $custom_color_css . mmtheme_get_custom_color_css($color['slug'], $value);
     }
   }
+  $custom_dimension_css = mmtheme_get_custom_dimension_css();
   $custom_layout_css = mmtheme_get_custom_layout_css();
   $custom_user_css = get_theme_mod('custom_theme_css');
 
-  $custom_css = $custom_color_css . $custom_layout_css . $custom_user_css;
+  $custom_css = $custom_color_css . $custom_dimension_css . $custom_layout_css . $custom_user_css;
 
   if(!empty($custom_css)) {
 	  wp_add_inline_style( 'mmtheme-style', $custom_css );
@@ -401,4 +433,34 @@ function mmtheme_get_custom_layout_css() {
     margin-bottom: 2rem;
   }
 CSS;
+}
+
+/**
+ * Returns CSS for custom layouts.
+ */
+function mmtheme_get_custom_dimension_css() {
+  $header_height = get_theme_mod('header_height');  
+  $featured_image_height = get_theme_mod('featured_image_height');
+
+  $css = '';
+  if ($header_height != 72) {
+    $css = <<<CSS
+    .header,
+    .site-branding img,
+    .site-branding .title {
+      line-height: {$header_height}px;
+      height: {$header_height}px;
+    }
+CSS;
+  }
+  
+  if ($featured_image_height != 250) {
+    $css .= <<<CSS
+    .blogroll .entry-image {
+      height: {$featured_image_height}px;
+    }
+CSS;
+  }
+
+  return $css;
 }
