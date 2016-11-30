@@ -38,6 +38,11 @@
   padding-left: 0;
 }
 
+
+.widget ul li a {
+  color: inherit;
+}
+
 .widget_calendar {
   td {
     padding: 0.8rem;
