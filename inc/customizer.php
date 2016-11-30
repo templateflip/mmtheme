@@ -56,8 +56,8 @@ add_action('customize_register', function ( $wp_customize ) {
       'choices'    => array(
         'l'   => 'Lowercase',
         'lb'   => 'Lowercase Bold',
-        'c'   => 'Uppercase',
-        'cb'   => 'Uppercase Bold'
+        'u'   => 'Uppercase',
+        'ub'   => 'Uppercase Bold'
       ),
     ));
 
@@ -385,6 +385,7 @@ function mmtheme_get_custom_fonts_css() {
   $css = '';
   $body_font = get_theme_mod('body_font', 'default');
   $headings_font = get_theme_mod('headings_font', 'default');
+  $header_menu_text_style = get_theme_mod('header_menu_text_style', 'l');
 
   if($body_font != 'default') {
     $body_font_family = mmtheme_get_font_family($body_font);
@@ -403,7 +404,21 @@ CSS;
     $css .= <<<CSS
       h1, h2, h3, h4, h5, h6,
       .h1, h2, h3, h4, h5, h6 {
-        font-family: {$headings_font};
+        font-family: {$headings_font_family};
+      }
+CSS;
+  }
+
+  if($header_menu_text_style != 'l') {
+    $menu_font_weight = ($header_menu_text_style == 'lb' || $header_menu_text_style == 'ub') ? '500' : 'normal';
+    $menu_font_transform = ($header_menu_text_style == 'u' || $header_menu_text_style == 'ub') ? 'uppercase' : 'none';
+    $menu_font_size = $header_menu_text_style == 'lb' ? '92%' : '82%';
+
+    $css .= <<<CSS
+      .header .menu {
+        font-weight: {$menu_font_weight};
+        font-size: {$menu_font_size};
+        text-transform: {$menu_font_transform};
       }
 CSS;
   }
