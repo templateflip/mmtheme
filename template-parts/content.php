@@ -16,8 +16,13 @@
         if (!empty($thumb_type)) :
         ?>
           <a class="entry-image-wrapper" href="<?= esc_url(get_permalink()) ?>">
-            <div class="entry-image" style="background-image: url(<?=the_post_thumbnail_url()?>)">
+            <div class="entry-image" style="background-image: url(<?=the_post_thumbnail_url($thumb_type)?>)">
               <?php the_post_thumbnail($thumb_type); ?>
+            </div>
+          </a>
+        <?php else : ?>
+          <a class="entry-image-wrapper" href="<?= esc_url(get_permalink()) ?>">
+            <div class="entry-image">
             </div>
           </a>
         <?php endif;
