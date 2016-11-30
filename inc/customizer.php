@@ -462,12 +462,12 @@ function mmtheme_get_custom_colors() {
   $colors[] = array(
     'slug'=>'subheader_background_color', 
     'default' => '#fafafa',
-    'label' => __('Sub-Header Background Color', 'mmtheme')
+    'label' => __('Site tagline Background Color', 'mmtheme')
   );
   $colors[] = array(
     'slug'=>'subheader_text_color', 
     'default' => '#444444',
-    'label' => __('Sub-Header Text Color', 'mmtheme')
+    'label' => __('Site tagline Text Color', 'mmtheme')
   );
   $colors[] = array(
     'slug'=>'footer_background_color', 
@@ -576,7 +576,7 @@ CSS;
   }
   elseif ($type == 'subheader_text_color') {
      return <<<CSS
-     .sub-header {
+     .site-description {
        color: {$value};
      }
 CSS;
