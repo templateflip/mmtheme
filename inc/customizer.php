@@ -610,14 +610,14 @@ CSS;
  */
 function mmtheme_get_custom_layout_css() {
   $content_style = get_theme_mod('content_style', 'm');
-  $border_color = 'transparent';
+  $border = '0';
   $box_shadow = 'none';
   // Return blank for default values
   if( $content_style == 'm' ) {
     return '';
   }
   if( $content_style == 'b') {
-    $border_color = '#f2f2f2';
+    $border = '1px solid #f2f2f2';
   }
   elseif ( $content_style == 's' ) {
     $box_shadow = '0 1px 2px 0 rgba(0,0,0,0.08);';
@@ -632,7 +632,7 @@ function mmtheme_get_custom_layout_css() {
     height: 100%;
     width: 100%;
     padding: 1.5rem 1.5rem 0;
-    border: 1px solid {$border_color};
+    border: {$border};
     border-radius: 3px;
     box-shadow: {$box_shadow};
     padding-bottom: 20px;
