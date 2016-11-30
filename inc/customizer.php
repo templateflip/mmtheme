@@ -139,6 +139,50 @@ add_action('customize_register', function ( $wp_customize ) {
       ),
     ) );
 
+    // Modules section
+    $wp_customize->add_section('modules' , array(
+        'title' => __('Modules','mmtheme'),
+    ));
+
+    
+    $wp_customize->add_setting('site_tagline_visiblity', array('default' => '2'));
+    $wp_customize->add_control('site_tagline_visiblity', array(
+      'label'      => __('Site Tagline', 'mmtheme'),
+      'section'    => 'modules',
+      'settings'   => 'site_tagline_visiblity',
+      'type'       => 'select',
+      'choices'    => array(
+        '1'   => 'Hide',
+        '2'   => 'Show on Homepage',
+        '3'   => 'Show on All pages'
+      ),
+    ));
+
+    
+    $wp_customize->add_setting('realted_post_visiblity', array('default' => '2'));
+    $wp_customize->add_control('realted_post_visiblity', array(
+      'label'      => __('Related Posts', 'mmtheme'),
+      'section'    => 'modules',
+      'settings'   => 'realted_post_visiblity',
+      'type'       => 'select',
+      'choices'    => array(
+        '1'   => 'Hide',
+        '2'   => 'Show on Posts'
+      ),
+    ));
+
+    $wp_customize->add_setting('about_author_visiblity', array('default' => '2'));
+    $wp_customize->add_control('about_author_visiblity', array(
+      'label'      => __('About the Author', 'mmtheme'),
+      'section'    => 'modules',
+      'settings'   => 'about_author_visiblity',
+      'type'       => 'select',
+      'choices'    => array(
+        '1'   => 'Hide',
+        '2'   => 'Show on Posts'
+      ),
+    ));
+
     // Advanced section
     $wp_customize->add_section('advanced' , array(
         'title' => __('Advanced Settings','mmtheme'),

@@ -41,7 +41,17 @@
       </div>
     </header>
 	<?php
-	if ( is_front_page() && is_home() ) :
+  $display_tagline = is_front_page() && is_home();
+  $site_tagline_visiblity = get_theme_mod('site_tagline_visiblity');
+
+  if( $site_tagline_visiblity == '1' ) {
+    $display_tagline = false;
+  }
+  else if ( $site_tagline_visiblity == '3' ) {
+    $display_tagline = true;
+  }
+
+	if ( $display_tagline ) :
 		$description = get_bloginfo( 'description', 'display' );
 			if ( $description || is_customize_preview() ) : ?>
 				<div class="sub-header section-medium highlight text-center">
