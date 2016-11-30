@@ -22,6 +22,45 @@ add_action('customize_register', function ( $wp_customize ) {
       );
     }
 
+    
+    // Fonts section
+    $wp_customize->add_section('fonts' , array(
+        'title' => __('Fonts','mmtheme'),
+        'priority' => 30
+    ));
+
+    $wp_customize->add_setting('headings_font', array('default' => 'default'));
+    $wp_customize->add_control('headings_font', array(
+      'label'      => __('Headings Font', 'mmtheme'),
+      'section'    => 'fonts',
+      'settings'   => 'headings_font',
+      'type'       => 'select',
+      'choices'    => mmtheme_get_custom_fonts()
+    ));
+
+    $wp_customize->add_setting('body_font', array('default' => 'default'));
+    $wp_customize->add_control('body_font', array(
+      'label'      => __('Body Font', 'mmtheme'),
+      'section'    => 'fonts',
+      'settings'   => 'body_font',
+      'type'       => 'select',
+      'choices'    => mmtheme_get_custom_fonts()
+    ));
+    
+    $wp_customize->add_setting('header_menu_text_style', array('default' => 'l'));
+    $wp_customize->add_control('header_menu_text_style', array(
+      'label'      => __('Header Menu Text Style', 'mmtheme'),
+      'section'    => 'fonts',
+      'settings'   => 'header_menu_text_style',
+      'type'       => 'select',
+      'choices'    => array(
+        'l'   => 'Lowercase',
+        'lb'   => 'Lowercase Bold',
+        'c'   => 'Uppercase',
+        'cb'   => 'Uppercase Bold'
+      ),
+    ));
+
     // Layout section
     $wp_customize->add_section('layout' , array(
         'title' => __('Layout','mmtheme'),
@@ -228,11 +267,12 @@ add_action( 'wp_enqueue_scripts', function () {
       $custom_color_css = $custom_color_css . mmtheme_get_custom_color_css($color['slug'], $value);
     }
   }
+  $custom_fonts_css = mmtheme_get_custom_fonts_css();
   $custom_dimension_css = mmtheme_get_custom_dimension_css();
   $custom_layout_css = mmtheme_get_custom_layout_css();
   $custom_user_css = get_theme_mod('custom_theme_css');
 
-  $custom_css = $custom_color_css . $custom_dimension_css . $custom_layout_css . $custom_user_css;
+  $custom_css = $custom_color_css . $custom_fonts_css . $custom_dimension_css . $custom_layout_css . $custom_user_css;
 
   if(!empty($custom_css)) {
 	  wp_add_inline_style( 'mmtheme-style', $custom_css );
@@ -241,16 +281,135 @@ add_action( 'wp_enqueue_scripts', function () {
 
 
 /**
-* Enqueues custom code in heade.
+* Enqueues custom code in head.
 */
 add_action( 'wp_head', function () {
-
   $custom_head_code = get_theme_mod('custom_head_code');
   
   if(!empty($custom_head_code)) {
 	  echo  $custom_head_code;
   }
 });
+
+function mmtheme_custom_fonts() {
+	$font_family = '';
+
+  $body_font = get_theme_mod('body_font', 'default');
+  $headings_font = get_theme_mod('headings_font', 'default');
+
+  $custom_fonts = mmtheme_get_custom_fonts();
+
+  if($body_font != 'default' && $body_font != 'default-serif') {
+    $font_family .= (str_replace(' ', '+', $custom_fonts[$body_font]) . ':400,500,700');
+  }
+  if($headings_font != 'default' && $headings_font != 'default-serif') {
+    if(!empty($font_family)) {
+      $font_family .= '|';
+    }
+    $font_family .= (str_replace(' ', '+', $custom_fonts[$headings_font]) . ':400,500,700');
+  }
+
+  if(!empty($font_family)) {
+    $query_args = $query_args = array(
+      'family' => $font_family,
+      'subset' => 'latin', //,latin-ext
+    );
+	  wp_enqueue_style( 'google_fonts', add_query_arg( $query_args, "//fonts.googleapis.com/css" ), array(), null );
+  }
+}
+add_action('wp_enqueue_scripts', 'mmtheme_custom_fonts');
+
+/**
+ * Returns array containing settings for customizable fonts.
+ */
+function mmtheme_get_custom_fonts() {
+  return array(
+      'default'             => 'Default System font (Sans-Serif)',
+      'default-serif'       => 'Default System font (Serif)',
+      'droid-serif'         => 'Droid Serif',
+      'lato'                => 'Lato',
+      'open-sans'           => 'Open Sans',
+      'playfair-display'    => 'Playfair Display',
+      'pt-sans'            =>  'PT Sans',
+      'pt-serif'            => 'PT Serif',
+      'raleway'             => 'Raleway',
+      'roboto-condensed'    => 'Roboto Condensed',
+      'roboto-slab'         => 'Roboto Slab',
+      'source-sans-pro'     => 'Source Sans Pro',
+      'titillium-web'       => 'Titillium Web',
+      'ubuntu'              => 'Ubuntu',
+  );
+}
+
+
+/**
+ * Returns font-family assosciated with the given font.
+ */
+function mmtheme_get_font_family($font_id) {
+  switch($font_id) {
+    case 'default-serif':
+      return "Georgia, Times, 'Times New Roman', serif";
+    case 'droid-serif':
+      return "'Droid Serif', serif";
+    case 'lato':
+      return "'Lato', sans-serif";
+    case 'open-sans':
+      return "'Open Sans', sans-serif";
+    case 'playfair-display':
+      return "'Playfair Display', serif";
+    case 'pt-sans':
+      return "'PT Sans', sans-serif";
+    case 'pt-serif':
+      return "'PT Serif', serif";
+    case 'raleway':
+      return "'Raleway', sans-serif";
+    case 'roboto-condensed':
+      return "'Roboto Condensed', sans-serif";
+    case 'roboto-slab':
+      return "'Roboto Slab', serif";
+    case 'source-sans-pro':
+      return "'Source Sans Pro', sans-serif";
+    case 'titillium-web':
+      return "'Titillium Web', sans-serif";
+    case 'ubuntu':
+      return "'Ubuntu', sans-serif";
+  }
+
+  return "";
+}
+
+/**
+ * Returns CSS for customized fonts.
+ */
+function mmtheme_get_custom_fonts_css() {
+  $css = '';
+  $body_font = get_theme_mod('body_font', 'default');
+  $headings_font = get_theme_mod('headings_font', 'default');
+
+  if($body_font != 'default') {
+    $body_font_family = mmtheme_get_font_family($body_font);
+
+    $css .= <<<CSS
+      body {
+        font-family: {$body_font_family};
+      }
+CSS;
+  }
+
+  
+  if($headings_font != 'default') {
+    $headings_font_family = mmtheme_get_font_family($headings_font);
+
+    $css .= <<<CSS
+      h1, h2, h3, h4, h5, h6,
+      .h1, h2, h3, h4, h5, h6 {
+        font-family: {$headings_font};
+      }
+CSS;
+  }
+
+  return $css;
+}
 
 /**
  * Returns array containing settings for customizable colors.
