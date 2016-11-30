@@ -598,7 +598,10 @@ CSS;
   elseif ($type == 'footer_link_color') {
      return <<<CSS
      .footer a {
-       color: {$value};
+       color: {$value} !important;
+     }
+     .button.button-primary {
+       color: #fff !important;
      }
 CSS;
   }
