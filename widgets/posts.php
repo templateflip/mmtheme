@@ -1,6 +1,7 @@
 <?php
 /*-----------------------------------------------------------------------------------*/
 /*	Posts Widget Class
+/*  Based on Posts widget in https://wordpress.org/themes/shamrock/ License: GPL V2
 /*-----------------------------------------------------------------------------------*/
 
 class MMtheme_Posts_Widget extends WP_Widget {
@@ -19,7 +20,6 @@ class MMtheme_Posts_Widget extends WP_Widget {
 			'orderby' => 0,
 			'date_limit' => 0,
 			'auto_detect' => 0,
-			'meta' => 0,
 			'manual' => array()
 		);
 	}
@@ -70,12 +70,6 @@ class MMtheme_Posts_Widget extends WP_Widget {
 				}
 			}
 
-			if ( $instance['orderby'] == 'views' && function_exists( 'ev_get_meta_key' ) ) {
-				$q_args['orderby'] = 'meta_value_num';
-				$q_args['meta_key'] = ev_get_meta_key();
-			}
-
-
 			if ( !empty( $instance['date_limit'] ) ) {
 				$q_args['date_query'] = array(
 					'after' => date( 'Y-m-d', strtotime( $instance['date_limit'] ) )
@@ -86,23 +80,24 @@ class MMtheme_Posts_Widget extends WP_Widget {
 		$mmtheme_posts = new WP_Query( $q_args );
 
 		if ( $mmtheme_posts->have_posts() ): ?>
-			<ul class="tm-posts-widget uk-list uk-list-space">
+			<ul class="featured-posts-widget">
 
 				<?php while ( $mmtheme_posts->have_posts() ) : $mmtheme_posts->the_post(); ?>
 
 			 		<li>
-			 			<a href="<?php echo esc_url( get_permalink() ); ?>"  title="<?php echo esc_attr( get_the_title() ); ?>">
-			 				<?php if(has_post_thumbnail()): ?>
-			 					<?php the_post_thumbnail(array(64, 64), array( 'class' => 'uk-float-left' ) ); ?>
-			 				<?php else: ?>
-			 					<?php echo mmtheme_placeholder_img(); ?>
-			 				<?php endif; ?>
-
-			 			</a>
-			 			<a class="tm-posts-widget-title" href="<?php echo esc_url( get_permalink() ); ?>" title="<?php echo esc_attr( get_the_title() ); ?>"><?php the_title(); ?></a>
-			 			<?php if ( !empty( $instance['meta'] ) && $meta = mmtheme_get_meta_data( $instance['meta'] ) ): ?>
-			 				<div class="entry-meta"><?php echo $meta;?></div>
-			 			<?php endif; ?>
+            <div class="media media-left">
+              <div class="thumbnail">
+                <a href="<?php echo esc_url( get_permalink() ); ?>"  title="<?php echo esc_attr( get_the_title() ); ?>">
+                  <?php if(has_post_thumbnail()): ?>
+                    <?php the_post_thumbnail(array(64, 64)); ?>
+                  <?php endif; ?>
+                </a>
+              </div>
+              <div class="media-body">
+                <span class="entry-title">
+			 			    <a href="<?php echo esc_url( get_permalink() ); ?>" title="<?php echo esc_attr( get_the_title() ); ?>"><?php the_title(); ?></a>
+                </span>
+              </div>
 			 		</li>
 				<?php endwhile; ?>
 
@@ -124,7 +119,6 @@ class MMtheme_Posts_Widget extends WP_Widget {
 		$instance['numposts'] = absint( $new_instance['numposts'] );
 		$instance['date_limit'] = $new_instance['date_limit'];
 		$instance['auto_detect'] = isset( $new_instance['auto_detect'] ) ? 1 : 0;
-		$instance['meta'] = $new_instance['meta'];
 		$instance['manual'] = !empty( $new_instance['manual'] ) ? explode( ",", $new_instance['manual'] ) : array();
 
 		return $instance;
@@ -174,10 +168,6 @@ class MMtheme_Posts_Widget extends WP_Widget {
 		 <small class="howto"><?php _e( 'Specify post ids separated by comma if you want to select only those posts. i.e. 213,32,12,45 Note: you can also choose pages as well as custom post types', 'mmtheme' ); ?></small>
 	</p>
 
-	<p>
-	  		<?php $this->widget_meta( $this, $instance['meta'] ); ?>
-	</p>
-
 
 
 	<?php
@@ -223,28 +213,6 @@ class MMtheme_Posts_Widget extends WP_Widget {
 					<?php } ?>
 		<?php }
 	}
-
-
-	function widget_meta( $widget_instance = false, $current = false ) {
-
-		$metas = array(
-			'0' => __( 'None', 'mmtheme' ),
-			'date' => __( 'Date/time', 'mmtheme' ),
-			'author' => __( 'Author', 'mmtheme' ),
-			'comments' => __( 'Comments', 'mmtheme' ),
-			'rtime' => __( 'Reading time', 'mmtheme' )
-		);
-
-		if ( !empty( $widget_instance ) ) { ?>
-				<label for="<?php echo $widget_instance->get_field_id( 'meta' ); ?>"><?php _e( 'Display meta data:', 'mmtheme' ); ?></label>
-				<select id="<?php echo $widget_instance->get_field_id( 'meta' ); ?>" name="<?php echo $widget_instance->get_field_name( 'meta' ); ?>" class="widefat">
-					<?php foreach ( $metas as $id => $title ) { ?>
-						<option value="<?php echo $id; ?>" <?php selected( $current, $id );?>><?php echo $title; ?></option>
-					<?php } ?>
-				</select>
-		<?php }
-	}
-
 
 }
 

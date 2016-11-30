@@ -100,4 +100,5 @@ add_action('widgets_init', function () {
 
     // Register widgets
     register_widget('MMtheme_Ads_Widget');
+    register_widget('MMtheme_Posts_Widget');
 });

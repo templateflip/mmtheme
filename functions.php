@@ -4,6 +4,7 @@
 */
 $theme_includes = [
   'widgets/ads.php',
+  'widgets/posts.php',
   'inc/svgicons.php',
   'inc/helpers.php',
   'inc/setup.php',
