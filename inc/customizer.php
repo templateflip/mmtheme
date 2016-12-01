@@ -313,13 +313,13 @@ function mmtheme_custom_fonts() {
   $custom_fonts = mmtheme_get_custom_fonts();
 
   if($body_font != 'default' && $body_font != 'default-serif') {
-    $font_family .= (str_replace(' ', '+', $custom_fonts[$body_font]) . ':400,500,700');
+    $font_family .= (str_replace(' ', '+', $custom_fonts[$body_font]) . ':' . mmtheme_get_font_weights($body_font));
   }
-  if($headings_font != 'default' && $headings_font != 'default-serif') {
+  if($headings_font != 'default' && $headings_font != 'default-serif' && $headings_font != $body_font) {
     if(!empty($font_family)) {
       $font_family .= '|';
     }
-    $font_family .= (str_replace(' ', '+', $custom_fonts[$headings_font]) . ':400,500,700');
+    $font_family .= (str_replace(' ', '+', $custom_fonts[$headings_font]) . ':' . mmtheme_get_font_weights($headings_font, true));
   }
 
   if(!empty($font_family)) {
@@ -392,6 +392,41 @@ function mmtheme_get_font_family($font_id) {
 }
 
 /**
+ * Returns font-weights assosciated with the given font.
+ * Returns medium, semi-bold or bold font for headings.
+ */
+function mmtheme_get_font_weights($font_id, $is_headings = false) {
+  switch($font_id) {
+    case 'default-serif':
+      return $is_headings ? "600" : "400,600,700";
+    case 'droid-serif':
+      return $is_headings ? "700" : "400,700";
+    case 'lato':
+      return $is_headings ? "700" : "400,700";
+    case 'open-sans':      
+      return $is_headings ? "600" : "400,600,700";
+    case 'playfair-display':
+      return $is_headings ? "700" : "400,700";
+    case 'pt-sans':
+      return $is_headings ? "700" : "400,700";
+    case 'pt-serif':
+      return $is_headings ? "700" : "400,700";
+    case 'raleway':
+      return $is_headings ? "600" : "400,600,700";
+    case 'roboto-condensed':
+      return $is_headings ? "700" : "400,700";
+    case 'roboto-slab':
+      return $is_headings ? "700" : "400,700";
+    case 'source-sans-pro':
+      return $is_headings ? "600" : "400,600,700";
+    case 'titillium-web':
+      return $is_headings ? "600" : "400,600,700";
+    case 'ubuntu':
+      return $is_headings ? "500" : "400,500,700";
+  }
+}
+
+/**
  * Returns CSS for customized fonts.
  */
 function mmtheme_get_custom_fonts_css() {
@@ -413,12 +448,14 @@ CSS;
   
   if($headings_font != 'default') {
     $headings_font_family = mmtheme_get_font_family($headings_font);
+    $headings_font_weight = mmtheme_get_font_weights($headings_font, true);
 
     $css .= <<<CSS
       h1, h2, h3, h4, h5, h6,
       .h1, h2, h3, h4, h5, h6,
       .header .title {
         font-family: {$headings_font_family};
+        font-weight: {$headings_font_weight};
       }
 CSS;
   }
