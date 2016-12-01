@@ -22,6 +22,15 @@ h1, h2, h3, h4, h5, h6,
   padding-right: 0;
 }
 
+.button,
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  line-height: 2.25;
+  padding: 0 $size-element-spacing-small;
+}
+
 .button.button-ghost {
   background-color: #fff;
   transition: box-shadow .25s ease-out;
@@ -90,4 +99,36 @@ ins {
 
 p > *:first-child {
   margin-top: 0;
+}
+
+.h1,
+h1 {
+  //36px
+  @include font-size(2.25 * $size-default-text);
+}
+
+.h2,
+h2 {
+  //28.8px
+  @include font-size(1.8 * $size-default-text);
+}
+
+@include mobile {
+  .h1,
+  h1 {
+    //30px
+    @include font-size(1.875 * $size-default-text);
+  }
+
+  .h2,
+  h2 {
+    //24px
+    @include font-size(1.625 * $size-default-text);
+  }
+  
+  .h3,
+  h3 {
+    //20px
+    @include font-size(1.25 * $size-default-text);
+  }
 }
