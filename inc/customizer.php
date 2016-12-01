@@ -728,7 +728,7 @@ function mmtheme_get_custom_layout_css() {
   }
   .single main .content-box, .page main .content-box {
     padding: 1.5rem 2rem 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
   }
 CSS;
 }

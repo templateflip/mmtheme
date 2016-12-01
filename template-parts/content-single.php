@@ -50,8 +50,8 @@
 <?php 
   if (is_active_sidebar( 'below-post' )) :
 ?>
-<div>
-  <aside class="widget-area section">
+<div class="below-post">
+  <aside class="widget-area">
     <?php dynamic_sidebar( 'below-post' ); ?>
   </aside>
 </div>
