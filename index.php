@@ -41,7 +41,7 @@ if ( $has_sidebar ) :
             endwhile;
             ?>
           </div>
-            <div class="section clearfix text-small">
+            <div class="section clearfix">
               <?php the_posts_navigation(array(
                 'prev_text'          => __( 'Older Posts &rarr;', 'mmtheme' ),
                 'next_text'          => __( '&larr; Newer Posts', 'mmtheme' ),
