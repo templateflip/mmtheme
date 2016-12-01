@@ -339,13 +339,20 @@ function mmtheme_get_custom_fonts() {
   return array(
       'default'             => 'Default System font (Sans-Serif)',
       'default-serif'       => 'Default System font (Serif)',
+      'bitter'              => 'Bitter',
+      'droid-sans'          => 'Droid Sans',
       'droid-serif'         => 'Droid Serif',
       'lato'                => 'Lato',
+      'lobster'             => 'Lobster',
+      'merriweather'        => 'Merriweather',
       'open-sans'           => 'Open Sans',
+      'oswald'              => 'Oswald',
+      'pacifico'            => 'Pacifico',
       'playfair-display'    => 'Playfair Display',
-      'pt-sans'            =>  'PT Sans',
+      'pt-sans'             => 'PT Sans',
       'pt-serif'            => 'PT Serif',
       'raleway'             => 'Raleway',
+      'roboto'              => 'Roboto',
       'roboto-condensed'    => 'Roboto Condensed',
       'roboto-slab'         => 'Roboto Slab',
       'source-sans-pro'     => 'Source Sans Pro',
@@ -362,12 +369,24 @@ function mmtheme_get_font_family($font_id) {
   switch($font_id) {
     case 'default-serif':
       return "Georgia, Times, 'Times New Roman', serif";
+    case 'bitter':    
+      return "'Bitter', serif";
+    case 'droid-sans':
+      return "'Droid Sans', sans-serif";
     case 'droid-serif':
       return "'Droid Serif', serif";
     case 'lato':
       return "'Lato', sans-serif";
+    case 'lobster':
+      return "'Lobster', cursive";
+    case 'merriweather':
+      return "'Merriweather', serif";
     case 'open-sans':
       return "'Open Sans', sans-serif";
+    case 'oswald':
+      return "'Oswald', sans-serif";
+    case 'pacifico':
+      return "'Pacifico', cursive";
     case 'playfair-display':
       return "'Playfair Display', serif";
     case 'pt-sans':
@@ -376,6 +395,8 @@ function mmtheme_get_font_family($font_id) {
       return "'PT Serif', serif";
     case 'raleway':
       return "'Raleway', sans-serif";
+    case 'roboto':
+      return "'Roboto', sans-serif";
     case 'roboto-condensed':
       return "'Roboto Condensed', sans-serif";
     case 'roboto-slab':
@@ -399,12 +420,24 @@ function mmtheme_get_font_weights($font_id, $is_headings = false) {
   switch($font_id) {
     case 'default-serif':
       return $is_headings ? "600" : "400,600,700";
+    case 'bitter':
+      return $is_headings ? "700" : "400,700";
+    case 'droid-sans':
+      return $is_headings ? "700" : "400,700";
     case 'droid-serif':
       return $is_headings ? "700" : "400,700";
     case 'lato':
       return $is_headings ? "700" : "400,700";
+    case 'lobster':
+      return $is_headings ? "400" : "400";
+    case 'merriweather':
+      return $is_headings ? "700" : "400,700";
     case 'open-sans':      
       return $is_headings ? "600" : "400,600,700";
+    case 'oswald':
+      return $is_headings ? "700" : "400,700";
+    case 'pacifico':
+      return $is_headings ? "400" : "400";
     case 'playfair-display':
       return $is_headings ? "700" : "400,700";
     case 'pt-sans':
@@ -413,6 +446,8 @@ function mmtheme_get_font_weights($font_id, $is_headings = false) {
       return $is_headings ? "700" : "400,700";
     case 'raleway':
       return $is_headings ? "600" : "400,600,700";
+    case 'roboto':
+      return $is_headings ? "500" : "400,500,700";
     case 'roboto-condensed':
       return $is_headings ? "700" : "400,700";
     case 'roboto-slab':
