@@ -416,7 +416,8 @@ CSS;
 
     $css .= <<<CSS
       h1, h2, h3, h4, h5, h6,
-      .h1, h2, h3, h4, h5, h6 {
+      .h1, h2, h3, h4, h5, h6,
+      .header .title {
         font-family: {$headings_font_family};
       }
 CSS;
