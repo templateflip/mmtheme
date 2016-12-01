@@ -52,8 +52,8 @@ add_filter('previous_posts_link_attributes', function () {
  */
 add_filter( 'widget_tag_cloud_args', function ($args) {
 	$args['number'] = 20;
-	$args['largest'] = 1.1;
-	$args['smallest'] = 1.1;
+	$args['largest'] = 1;
+	$args['smallest'] = 1;
 	$args['unit'] = 'em';
   $args['format'] = 'list';
 	return $args;
