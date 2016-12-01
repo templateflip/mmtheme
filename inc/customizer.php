@@ -554,7 +554,8 @@ CSS;
   }
   elseif ($type == 'header_background_color') {
      return <<<CSS
-     .header {
+     .header,
+     .menu-toggle-content {
        background-color: {$value};
      }
 CSS;
@@ -562,6 +563,7 @@ CSS;
   elseif ($type == 'header_text_color') {
      return <<<CSS
      .header,
+     .menu-toggle-content,
      .header nav .current-menu-item > a {
        color: {$value};
        border: 0;
