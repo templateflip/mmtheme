@@ -62,16 +62,16 @@ add_action('widgets_init', function () {
       'after_title'   => '</h3>'
     ];
     register_sidebar([
+      'name'          => __('Sidebar', 'mmtheme'),
+      'id'            => 'sidebar-primary'
+    ] + $config);
+    register_sidebar([
       'name'          => __('Header', 'mmtheme'),
       'id'            => 'header'
     ] + $config);
     register_sidebar([
       'name'          => __('Below Header', 'mmtheme'),
       'id'            => 'below-header'
-    ] + $config);
-    register_sidebar([
-      'name'          => __('Sidebar', 'mmtheme'),
-      'id'            => 'sidebar-primary'
     ] + $config);
     register_sidebar([
       'name'          => __('Post Footer', 'mmtheme'),
