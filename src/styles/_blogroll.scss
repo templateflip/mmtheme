@@ -1,6 +1,4 @@
-.blogroll {
-  margin-top: 2rem;
-  
+.blogroll {  
   article {
     margin-bottom: 2 * $size-element-spacing;
   }
@@ -42,6 +40,10 @@
   letter-spacing: 1px;
   font-size: 12px;
   font-weight: 500;
+}
+
+.page-header + .blogroll {
+  margin-top: 2rem;
 }
 
 @include mobile {

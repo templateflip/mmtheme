@@ -2,15 +2,30 @@
 get_header();
 
 $page_layout = get_theme_mod('page_layout', 'n');
-$has_sidebar = $page_layout == 'n-s';
-$page_container = $page_layout == 'n' ? 'container-readable' : '';
-$page_container = $page_layout == 'w' ? 'container-content' : $page_container;
+$content_style = get_theme_mod('content_style', 'm');
+$has_sidebar = false;
+$page_container = '';
+$page_content_class = $content_style == 'm' ? 'minimal' : '';
+
+if($page_layout == 'n-s') {
+  $has_sidebar = true;
+  if($content_style == 'm') {
+    $page_container =  'container-readable';
+    $page_content_class = 'minimal with-sidebar';
+  }
+}
+else if($page_layout == 'n') {
+  $page_container = 'container-readable';
+}
+else if($page_layout == 'w') {
+  $page_container = 'container-content';
+}
 
 if ( $has_sidebar ) :
 ?>
   <div id="wrapper" class="container-content">
     <div id="content-wrapper">
-      <div id="page-content">
+      <div id="page-content" class="<?php echo $page_content_class; ?>">
 <?php endif; ?>
 
 	<div class="<?php echo $page_container; ?>">
