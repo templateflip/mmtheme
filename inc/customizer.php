@@ -345,6 +345,7 @@ function mmtheme_get_custom_fonts() {
       'lato'                => 'Lato',
       'lobster'             => 'Lobster',
       'merriweather'        => 'Merriweather',
+      'montserrat'          => 'Montserrat',
       'open-sans'           => 'Open Sans',
       'oswald'              => 'Oswald',
       'pacifico'            => 'Pacifico',
@@ -381,6 +382,8 @@ function mmtheme_get_font_family($font_id) {
       return "'Lobster', cursive";
     case 'merriweather':
       return "'Merriweather', serif";
+    case 'montserrat':
+      return "'Montserrat', sans-serif";
     case 'open-sans':
       return "'Open Sans', sans-serif";
     case 'oswald':
@@ -432,6 +435,8 @@ function mmtheme_get_font_weights($font_id, $is_headings = false) {
       return $is_headings ? "400" : "400";
     case 'merriweather':
       return $is_headings ? "700" : "400,700";
+    case 'montserrat':
+      return $is_headings ? "700" : "400,700";
     case 'open-sans':      
       return $is_headings ? "600" : "400,600,700";
     case 'oswald':
@@ -455,7 +460,7 @@ function mmtheme_get_font_weights($font_id, $is_headings = false) {
     case 'source-sans-pro':
       return $is_headings ? "600" : "400,600,700";
     case 'titillium-web':
-      return $is_headings ? "600" : "400,600,700";
+      return $is_headings ? "700" : "400,600,700";
     case 'ubuntu':
       return $is_headings ? "500" : "400,500,700";
   }
