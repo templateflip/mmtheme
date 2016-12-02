@@ -13,18 +13,13 @@ h1, h2, h3, h4, h5, h6,
   position: relative;
 }
 
-.header .menu {
-  font-size: 92%;
-  letter-spacing: 1px;
-}
-
 .header-right .menu > li.menu-item:last-child {
   padding-right: 0;
 }
 
 .menu-toggle label {
   border: 0;
-  
+
   &:hover {    
     background-color: rgba(125, 125, 125, 0.1);
   }

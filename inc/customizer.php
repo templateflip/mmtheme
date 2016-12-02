@@ -501,15 +501,17 @@ CSS;
   }
 
   if($header_menu_text_style != 'l') {
-    $menu_font_weight = ($header_menu_text_style == 'lb' || $header_menu_text_style == 'ub') ? '500' : 'normal';
-    $menu_font_transform = ($header_menu_text_style == 'u' || $header_menu_text_style == 'ub') ? 'uppercase' : 'none';
-    $menu_font_size = $header_menu_text_style == 'lb' ? '92%' : '82%';
+    $menu_font_weight = ($header_menu_text_style === 'lb' || $header_menu_text_style === 'ub') ? 'bold' : 'normal';
+    $menu_font_transform = ($header_menu_text_style === 'u' || $header_menu_text_style === 'ub') ? 'uppercase' : 'none';
+    $menu_letter_spacing = $menu_font_transform === 'uppercase' ? '1px' : '0';
+    $menu_font_size = $menu_font_transform === 'uppercase' ? '82%' : '100%';
 
     $css .= <<<CSS
-      .header .menu {
+      .header .menu li a {
         font-weight: {$menu_font_weight};
         font-size: {$menu_font_size};
         text-transform: {$menu_font_transform};
+        letter-spacing: {$menu_letter_spacing};
       }
 CSS;
   }
