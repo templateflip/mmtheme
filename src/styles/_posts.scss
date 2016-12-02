@@ -9,6 +9,9 @@
 }
 
 .post-navigation {
+  .nav-links {
+    display: flex;
+  }
   
   .nav-previous, .nav-next {
     @extend .entry-title;
@@ -17,12 +20,15 @@
     padding: 10px 1rem;
     display: inline-block;
     margin-bottom: 0;
+
+    a {
+      font-weight: normal;
+    }
   }
 
   .nav-previous:before, .nav-next:before {
       content: 'Next';
-      display: block;  
-      font-weight: 500;
+      display: block;
       text-transform: uppercase;
       font-size: 80%;
       margin-top: 0;
