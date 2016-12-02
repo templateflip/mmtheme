@@ -504,10 +504,10 @@ CSS;
     $menu_font_weight = ($header_menu_text_style === 'lb' || $header_menu_text_style === 'ub') ? 'bold' : 'normal';
     $menu_font_transform = ($header_menu_text_style === 'u' || $header_menu_text_style === 'ub') ? 'uppercase' : 'none';
     $menu_letter_spacing = $menu_font_transform === 'uppercase' ? '1px' : '0';
-    $menu_font_size = $menu_font_transform === 'uppercase' ? '82%' : '100%';
+    $menu_font_size = $menu_font_transform === 'uppercase' ? '85%' : '105%';
 
     $css .= <<<CSS
-      .header .menu li a {
+      .header .menu {
         font-weight: {$menu_font_weight};
         font-size: {$menu_font_size};
         text-transform: {$menu_font_transform};

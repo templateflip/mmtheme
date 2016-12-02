@@ -28,7 +28,7 @@ add_action('after_setup_theme', function () {
 
     // add theme support for custom logos
     add_theme_support( 'custom-logo', array(
-      'height'      => 104,
+      'height'      => 64,
       'width'       => 300,
       'flex-width' => true,
     ) );
