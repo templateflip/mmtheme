@@ -5,6 +5,12 @@
       <div class="entry-meta">
         <?php get_template_part('template-parts/entry-meta'); ?>
       </div>
+      <?php 
+        $share_top = get_theme_mod('share_top', '2');
+        if($share_top != '1') {
+          mmtheme_share_button($share_top === '2');
+        }
+      ?>
     </header>
     <div class="entry-content">
       <?php the_content(); ?>
@@ -16,6 +22,14 @@
       <?php dynamic_sidebar( 'post-footer' ); ?>
     </aside>
     <?php endif; ?>
+    <div class="section">      
+      <?php 
+        $share_top = get_theme_mod('share_bottom', '3');
+        if($share_top != '1') {
+          mmtheme_share_button($share_top === '2');
+        }
+      ?>
+    </div>
     <div class="entry-meta">
     <?php
       /* translators: used between list items, there is a space after the comma */

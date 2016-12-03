@@ -108,3 +108,47 @@ function mmtheme_comment($comment, $args, $depth) {
   <?php endif; ?>
   <?php
 }
+
+/**
+ * Share buttons
+ */
+function mmtheme_share_button($is_mini = false) {
+  global $post;
+
+  $post_URL = urlencode(get_permalink());
+  $post_title = urlencode(html_entity_decode(get_the_title(), ENT_COMPAT, 'UTF-8'));
+  $post_thumbnail = wp_get_attachment_image_src( get_post_thumbnail_id( $post->ID ), 'full' );
+
+  $facebook_URL = 'https://www.facebook.com/sharer/sharer.php?u='.$post_URL;
+  $twitter_URL = 'https://twitter.com/intent/tweet?text='.$post_title.'&amp;url='.$post_URL;
+  $google_URL = 'https://plus.google.com/share?url='.$post_URL;
+  $pinterest_URL = 'https://pinterest.com/pin/create/button/?url='.$post_URL.'&amp;media='.$post_thumbnail[0].'&amp;description='.$post_title;
+  $linkedIn_URL = 'https://www.linkedin.com/shareArticle?mini=true&url='.$post_URL.'&amp;title='.$post_title;
+
+   $content = '';
+  if(!$is_mini) {
+    $content .= '<div class="robots-nocontent social-share-buttons">';
+  }
+  else {
+    $content .= '<div class="robots-nocontent social-share-buttons share-mini">';
+  }
+  $content .= '<a class="button button-facebook" style="background: #3B5997;" href="'.$facebook_URL.'" target="_blank">';
+  $content .= mmtheme_get_svg_icon('icon-facebook');
+  //if(!$is_mini) {
+    $content .= '<span>'.__( 'Share', 'mmtheme' ).'</span>';
+  //}
+  $content .= '</a>';
+  $content .= '<a class="button button-twitter" style="background: #00aced;" href="'. $twitter_URL .'" target="_blank">';
+  $content .= mmtheme_get_svg_icon('icon-twitter');
+  //if(!$is_mini) {
+    $content .= '<span>'.__( 'Tweet', 'mmtheme' ).'</span></a>';
+  //}
+  if(!$is_mini) {
+    $content .= '</a>';$content .= '<a class="button button-googleplus" style="background: #D64937;" href="'.$google_URL.'" target="_blank">'.mmtheme_get_svg_icon('icon-google-plus').'</a>';
+    $content .= '<a class="button button-linkedin" style="background: #0074A1;" href="'.$linkedIn_URL.'" target="_blank">'.mmtheme_get_svg_icon('icon-linkedin').'</a>';
+    $content .= '<a class="button button-pinterest" style="background: #bd081c;" href="'.$pinterest_URL.'" target="_blank">'.mmtheme_get_svg_icon('icon-pinterest').'</a>';
+    $content .= '</div>';
+  }
+
+  echo $content;
+}

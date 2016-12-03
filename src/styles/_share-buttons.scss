@@ -1,0 +1,36 @@
+.social-share-buttons {
+  .button {
+    margin-right: 6px;
+    border: 0;
+    line-height: 2;
+    padding: 0 0.8rem;
+    font-size: 90%;
+
+    &:hover {
+      opacity: 0.85;
+    }
+  }
+  .icon {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
+  .icon + span {
+    margin-left: 6px;
+  }
+}
+
+.share-mini {
+  .button {
+    line-height: 1.5;
+    padding: 0 6px 3px;
+  }
+  .icon {
+    width: 1rem;
+    height: 1rem;
+  }
+  
+  .icon + span {
+    font-size: 12px;
+    padding-right: 3px;
+  }
+}

@@ -237,6 +237,33 @@ add_action('customize_register', function ( $wp_customize ) {
       ),
     ));
 
+    $wp_customize->add_setting('share_top', array('default' => '2'));
+    $wp_customize->add_control('share_top', array(
+      'label'      => __('Share buttons above Post Content', 'mmtheme'),
+      'section'    => 'elements',
+      'settings'   => 'share_top',
+      'type'       => 'select',
+      'choices'    => array(
+        '1'   => 'Hide',
+        '2'   => 'Show Small Version',
+        '3'   => 'Show All Buttons',
+      ),
+    ));
+
+    
+    $wp_customize->add_setting('share_bottom', array('default' => '3'));
+    $wp_customize->add_control('share_bottom', array(
+      'label'      => __('Share buttons below Post Content', 'mmtheme'),
+      'section'    => 'elements',
+      'settings'   => 'share_bottom',
+      'type'       => 'select',
+      'choices'    => array(
+        '1'   => 'Hide',
+        '2'   => 'Show Small Version',
+        '3'   => 'Show All Buttons',
+      ),
+    ));
+
     $wp_customize->add_setting('about_author_visiblity', array('default' => '2'));
     $wp_customize->add_control('about_author_visiblity', array(
       'label'      => __('About the Author', 'mmtheme'),
