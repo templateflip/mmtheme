@@ -40,16 +40,13 @@
       </div>
     <?php endif;?>
     </div>
-    
-    <div class="section">
-      <nav class="text-center">
-        <?php 
-          if ( has_nav_menu( 'footer' ) ) {
-            wp_nav_menu( array( 'theme_location' => 'footer', "menu_class" => 'menu footer-menu' ) );
-          }
-        ?>
-      </nav>
-    </div>
+    <?php if ( has_nav_menu( 'footer' ) ) : ?>
+      <div class="section">
+        <nav class="text-center">
+          <?php  wp_nav_menu( array( 'theme_location' => 'footer', "menu_class" => 'menu footer-menu' ) ); ?>
+        </nav>
+      </div>
+    <?php endif; ?>
   </div>
   <div class="footer-credit section">
     <div class="container-content">

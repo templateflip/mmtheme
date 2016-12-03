@@ -26,3 +26,13 @@ main {
     letter-spacing: 0;
   }
 }
+
+/**
+ * If a menu is named as Social Menu, display it horizontally
+ */
+.menu-social-menu-container {
+  .menu li {
+    display: inline-block;
+    padding: 0 10px;
+  }
+}
