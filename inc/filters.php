@@ -13,7 +13,11 @@ add_filter( 'excerpt_length', function($length) {
 add_filter( 'get_the_excerpt', function ( $excerpt ) {
   $excerpt = substr($excerpt, 0, 76);
   $excerpt = substr($excerpt, 0, strripos($excerpt, " "));
-  return  trim($excerpt) . '&hellip; <p><a class="more-link" href="' . get_permalink() . '">' . __('Read more', 'mmtheme') . '</a></p>';
+  $excerpt = trim($excerpt);
+  if(get_theme_mod('read_more_visiblity', '2') == '2') {
+    $excerpt = $excerpt . '&hellip; <p><a class="more-link" href="' . get_permalink() . '">' . __('Read more', 'mmtheme') . '</a></p>'; 
+  }
+  return $excerpt;
 });
 
 /**

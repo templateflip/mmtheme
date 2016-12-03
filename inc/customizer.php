@@ -197,6 +197,33 @@ add_action('customize_register', function ( $wp_customize ) {
       ),
     ));
 
+    
+    $wp_customize->add_setting('post_excerpt_setting', array('default' => '2'));
+    $wp_customize->add_control('post_excerpt_setting', array(
+      'label'      => __('Post content in Index (Blog Archive)', 'mmtheme'),
+      'section'    => 'elements',
+      'settings'   => 'post_excerpt_setting',
+      'type'       => 'select',
+      'choices'    => array(
+        '1'   => 'Show Full Conent',
+        '2'   => 'Show Excerpt',
+        '3'   => 'Show Nothing'
+      ),
+    ));
+
+    
+    $wp_customize->add_setting('read_more_visiblity', array('default' => '2'));
+    $wp_customize->add_control('read_more_visiblity', array(
+      'label'      => __('Read More in Post Excerpts', 'mmtheme'),
+      'section'    => 'elements',
+      'settings'   => 'read_more_visiblity',
+      'type'       => 'select',
+      'choices'    => array(
+        '1'   => 'Hide',
+        '2'   => 'Show',
+      ),
+    ));
+
     $wp_customize->add_setting('about_author_visiblity', array('default' => '2'));
     $wp_customize->add_control('about_author_visiblity', array(
       'label'      => __('About the Author', 'mmtheme'),
@@ -212,7 +239,7 @@ add_action('customize_register', function ( $wp_customize ) {
     
     $wp_customize->add_setting('post_nav_visiblity', array('default' => '2'));
     $wp_customize->add_control('post_nav_visiblity', array(
-      'label'      => __('Show Previous and Next in Posts ', 'mmtheme'),
+      'label'      => __('Previous and Next in Posts ', 'mmtheme'),
       'section'    => 'elements',
       'settings'   => 'post_nav_visiblity',
       'type'       => 'select',

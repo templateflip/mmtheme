@@ -39,7 +39,13 @@
 
     <div class="entry-content">
       <?php
-          the_excerpt();
+          $post_excerpt_setting = get_theme_mod('post_excerpt_setting', '2');
+          if($post_excerpt_setting == '2') {
+            the_excerpt();
+          }
+          else if($post_excerpt_setting == '1') {
+            the_content();
+          }
       ?>
     </div>
   </div>
