@@ -211,6 +211,19 @@ add_action('customize_register', function ( $wp_customize ) {
       ),
     ));
 
+    $wp_customize->add_setting('post_meta_setting', array('default' => '1'));
+    $wp_customize->add_control('post_meta_setting', array(
+      'label'      => __('Post meta in Index (Blog Archive)', 'mmtheme'),
+      'section'    => 'elements',
+      'settings'   => 'post_meta_setting',
+      'type'       => 'select',
+      'choices'    => array(
+        '1'   => 'Show Date & Author',
+        '2'   => 'Show Date & Categories',
+        '3'   => 'Show only Categories'
+      ),
+    ));
+
     
     $wp_customize->add_setting('read_more_visiblity', array('default' => '2'));
     $wp_customize->add_control('read_more_visiblity', array(
