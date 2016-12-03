@@ -43,6 +43,15 @@
   color: #5e5e5e;
 }
 
+.widget .menu li {
+  display: block;
+  padding: 0 0 6px 0;
+
+  a {
+    display: inline-block;
+  }
+}
+
 .widget_calendar {
   td {
     padding: 0.8rem;
@@ -71,17 +80,12 @@
 .featured-posts-widget {
   li {
     margin-bottom: 1rem;
+    line-height: 1;
   }
 
-  .thumbnail {    
-    background-color: #eee;
-    margin-top: 3px;
+  .thumbnail {
     width: 64px;
     height: 64px;
-  }
-
-  .thumbnail img {
-    border-radius: 3px;
   }
 
   .media-left .thumbnail + .media-body {
@@ -91,9 +95,9 @@
   }
 
   .entry-title {
-    font-weight: 500;
-    font-size: 0.93rem;
-    line-height: 1;
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 1.5;
   }
 }
 
