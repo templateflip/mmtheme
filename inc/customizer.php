@@ -503,8 +503,8 @@ CSS;
   if($header_menu_text_style != 'l') {
     $menu_font_weight = ($header_menu_text_style === 'lb' || $header_menu_text_style === 'ub') ? 'bold' : 'normal';
     $menu_font_transform = ($header_menu_text_style === 'u' || $header_menu_text_style === 'ub') ? 'uppercase' : 'none';
-    $menu_letter_spacing = $menu_font_transform === 'uppercase' ? '1px' : '0';
-    $menu_font_size = $menu_font_transform === 'uppercase' ? '85%' : '105%';
+    $menu_letter_spacing = $menu_font_transform === 'uppercase' ? '1.5px' : '0';
+    $menu_font_size = $menu_font_transform === 'uppercase' ? '84%' : '105%';
 
     $css .= <<<CSS
       .header .menu {
