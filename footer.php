@@ -12,7 +12,7 @@
     $footer_class = 'one-fourth';
   }
   ?> 
-<footer id="footer" class="footer section" role="contentinfo">
+<footer id="footer" class="footer" role="contentinfo">
   <div class="container-content">
     <div class="grid">
     <?php
@@ -47,9 +47,13 @@
           if ( has_nav_menu( 'footer' ) ) {
             wp_nav_menu( array( 'theme_location' => 'footer', "menu_class" => 'menu footer-menu' ) );
           }
-         ?>
+        ?>
       </nav>
-      <p class="text-small text-center">
+    </div>
+  </div>
+  <div class="footer-credit section">
+    <div class="container-content">
+      <div class="text-small text-center">
         <?php 
           $copyright = get_theme_mod('custom_copyright', '');
           if ( !empty($copyright) ) {
@@ -63,8 +67,8 @@
           if ( get_theme_mod('credit_display', true) ) {
             printf( esc_html__( 'Powered by %1$s. Theme by %2$s.', 'mmtheme' ), '<a href="https://wordpress.org" target="_blank">WordPress</a>', '<a href="https://templateflip.com/" target="_blank">TemplateFlip</a>' );
           }
-       ?>
-      </p>
+        ?>
+      </div>
     </div>
   </div>
 </footer>
