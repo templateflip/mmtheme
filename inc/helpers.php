@@ -147,8 +147,8 @@ function mmtheme_share_button($is_mini = false) {
     $content .= '</a>';$content .= '<a class="button button-googleplus" style="background: #D64937;" href="'.$google_URL.'" target="_blank">'.mmtheme_get_svg_icon('icon-google-plus').'</a>';
     $content .= '<a class="button button-linkedin" style="background: #0074A1;" href="'.$linkedIn_URL.'" target="_blank">'.mmtheme_get_svg_icon('icon-linkedin').'</a>';
     $content .= '<a class="button button-pinterest" style="background: #bd081c;" href="'.$pinterest_URL.'" target="_blank">'.mmtheme_get_svg_icon('icon-pinterest').'</a>';
-    $content .= '</div>';
   }
+  $content .= '</div>';
 
   echo $content;
 }
