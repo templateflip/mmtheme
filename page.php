@@ -5,13 +5,13 @@ $page_layout = get_theme_mod('page_layout', 'n');
 $content_style = get_theme_mod('content_style', 'm');
 $has_sidebar = false;
 $page_container = '';
-$page_content_class = $content_style == 'm' ? 'minimal' : '';
+$page_style_class = $content_style == 'm' ? 'minimal' : '';
 
 if($page_layout == 'n-s') {
   $has_sidebar = true;
   if($content_style == 'm') {
     $page_container =  'container-readable';
-    $page_content_class = 'minimal with-sidebar';
+    $page_style_class = 'minimal with-sidebar';
   }
 }
 else if($page_layout == 'n') {
@@ -25,10 +25,10 @@ if ( $has_sidebar ) :
 ?>
   <div id="wrapper" class="container-content">
     <div id="content-wrapper">
-      <div id="page-content" class="<?php echo $page_content_class; ?>">
+      <div id="page-content">
 <?php endif; ?>
 
-	<div class="<?php echo $page_container; ?>">
+	<div class="<?php echo $page_container; ?> <?php echo $page_content_class; ?>">
 		<main role="main">
     <?php
 			while ( have_posts() ) : the_post();
