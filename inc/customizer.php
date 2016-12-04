@@ -180,21 +180,16 @@ add_action('customize_register', function ( $wp_customize ) {
 
     // Modules section
     $wp_customize->add_section('elements' , array(
-        'title' => __('Page Elements','mmtheme'),
+        'title' => __('Site Elements','mmtheme'),
     ));
 
     
-    $wp_customize->add_setting('site_tagline_visiblity', array('default' => '2'));
+    $wp_customize->add_setting('site_tagline_visiblity', array('default' => true));
     $wp_customize->add_control('site_tagline_visiblity', array(
-      'label'      => __('Site Tagline', 'mmtheme'),
-      'section'    => 'elements',
+      'label'      => __('Show Tagline on Homepage', 'mmtheme'),
+      'section'    => 'title_tagline',
       'settings'   => 'site_tagline_visiblity',
-      'type'       => 'select',
-      'choices'    => array(
-        '1'   => 'Hide',
-        '2'   => 'Show on Homepage',
-        '3'   => 'Show on All pages'
-      ),
+      'type'       => 'checkbox'
     ));
 
     

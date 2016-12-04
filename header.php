@@ -41,15 +41,7 @@
       </div>
     </header>
 	<?php
-  $display_tagline = is_front_page() && is_home();
-  $site_tagline_visiblity = get_theme_mod('site_tagline_visiblity', '2');
-
-  if( $site_tagline_visiblity == '1' ) {
-    $display_tagline = false;
-  }
-  else if ( $site_tagline_visiblity == '3' ) {
-    $display_tagline = true;
-  }
+  $display_tagline = is_front_page() && is_home() && get_theme_mod('site_tagline_visiblity', true);
 
 	if ( $display_tagline ) :
 		$description = get_bloginfo( 'description', 'display' );
