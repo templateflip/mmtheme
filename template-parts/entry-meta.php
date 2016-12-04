@@ -30,7 +30,11 @@ if(!is_single()) {
 <?php endif; ?>
 
 <?php if ($show_author) : ?>
-<span class="byline author vcard"><a href="<?= get_author_posts_url(get_the_author_meta('ID')); ?>" rel="author" class="fn"><?= get_the_author(); ?></a></span>
+<?php 
+  global $post;
+  $author_id = get_post_field( 'post_author', $post->ID );
+ ?>
+ <span class="byline author vcard"><a href="<?= get_author_posts_url($author_id); ?>" rel="author" class="fn"><?= the_author_meta( 'display_name', $author_id ); ?></a></span>
 <?php endif; ?>
 
 <?php if ($show_categories) : ?>
@@ -38,3 +42,15 @@ if(!is_single()) {
   <?php echo get_the_category_list( __( ', ', 'mmtheme' ) ); ?>
 </span>
 <?php endif; ?>
+
+<?php
+  edit_post_link(
+    sprintf(
+      /* translators: %s: Name of current post */
+      esc_html__( 'Edit %s', 'mmtheme' ),
+      the_title( '<span class="screen-reader-text">"', '"</span>', false )
+    ),
+    '<span class="dot">•</span><span class="edit-link entry-meta text-small">',
+    '</span>'
+  );
+?>

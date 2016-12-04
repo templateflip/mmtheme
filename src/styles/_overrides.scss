@@ -25,10 +25,6 @@ h1, h2, h3, h4, h5, h6,
   }
 }
 
-.sub-header .entry-title:last-child {
-  margin-bottom: 0;
-}
-
 .button,
 button,
 input[type="button"],
@@ -136,4 +132,19 @@ h2 {
     //20px
     @include font-size(1.25 * $size-default-text);
   }
+}
+
+
+.sub-header {
+  .entry-title {
+    margin-bottom: 0;
+  }
+  .entry-meta {
+    font-size: 1rem;
+    margin-top: 1.5rem;
+  }
+}
+
+.entry-content-marginfix > *:first-child {
+  margin-top: 0;
 }

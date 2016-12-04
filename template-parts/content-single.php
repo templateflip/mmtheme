@@ -1,20 +1,12 @@
 <article <?php post_class(); ?>>
-  <div class="content-box">    
-    <header class="entry-header">    
-      <?php if(!get_theme_mod('post_title_subheader', false)) {
-              get_template_part('template-parts/entry-header'); 
-      } ?>
-      <div class="entry-meta">
-        <?php get_template_part('template-parts/entry-meta'); ?>
-      </div>
-    </header>
-    <?php 
-      $share_top = get_theme_mod('share_top', '2');
-      if($share_top != '1') {
-        mmtheme_share_button($share_top === '2');
+  <div class="content-box">
+    <?php
+      $title_in_subheader = get_theme_mod('post_title_subheader', false);
+      if(!$title_in_subheader) {
+        get_template_part('template-parts/single-header');
       }
     ?>
-    <div class="entry-content">
+    <div class="entry-content <?php echo $title_in_subheader ? 'entry-content-marginfix' : ''; ?>">
       <?php the_content(); ?>
     </div>
     <?php 

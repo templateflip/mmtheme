@@ -52,13 +52,19 @@
     || (is_page() && get_theme_mod('page_title_subheader', true))
   ) {
     $sub_header_text = mmtheme_title();
-    $sub_header_class = "entry-title";
+    $sub_header_class = "h2 entry-title";
   }
 
 	if ( !empty($sub_header_text) ) : ?>
     <div class="sub-header section-medium highlight text-center">
       <div class="container-readable">
-        <h1 class="<?php echo $sub_header_class; ?>"><?php echo $sub_header_text; /* WPCS: xss ok. */ ?></h1>
+        <?php if( is_single() ): ?>          
+          <?php get_template_part('template-parts/single-header'); ?> 
+        <?php elseif(is_home() && is_front_page()) : ?>
+          <h2 class="<?php echo $sub_header_class; ?>"><?php echo $sub_header_text; ?></h2>
+        <?php else : ?>
+          <h1 class="<?php echo $sub_header_class; ?>"><?php echo $sub_header_text; ?></h1>
+        <?php endif; ?>
       </div>
     </div>
   <?php
