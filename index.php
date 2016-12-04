@@ -28,7 +28,11 @@ if ( $has_sidebar ) :
 
 	<div class="<?php echo $index_container; ?>">
 		<main role="main">      
-        <?php get_template_part('template-parts/page-header'); ?>        
+        <?php
+          if(!get_theme_mod('index_title_subheader', true)) {
+            get_template_part('template-parts/page-header');
+          }
+        ?>        
         <?php
           if ( have_posts() ) : ?>
           <div class="grid blogroll">

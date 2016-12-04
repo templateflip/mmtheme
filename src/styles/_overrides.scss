@@ -25,6 +25,10 @@ h1, h2, h3, h4, h5, h6,
   }
 }
 
+.sub-header .entry-title:last-child {
+  margin-bottom: 0;
+}
+
 .button,
 button,
 input[type="button"],

@@ -41,18 +41,27 @@
       </div>
     </header>
 	<?php
-  $display_tagline = is_front_page() && is_home() && get_theme_mod('site_tagline_visiblity', true);
+  $sub_header_text = "";
+  $sub_header_class = "";
+  if(is_front_page() && is_home() && get_theme_mod('site_tagline_visiblity', true)) {
+    $sub_header_text = get_bloginfo( 'description', 'display' );
+    $sub_header_class = "h2 site-description";
+  }
+  else if(((is_archive() || is_search()) && get_theme_mod('index_title_subheader', true))
+    || (is_single() && get_theme_mod('post_title_subheader', false))
+    || (is_page() && get_theme_mod('page_title_subheader', true))
+  ) {
+    $sub_header_text = mmtheme_title();
+    $sub_header_class = "entry-title";
+  }
 
-	if ( $display_tagline ) :
-		$description = get_bloginfo( 'description', 'display' );
-			if ( $description || is_customize_preview() ) : ?>
-				<div class="sub-header section-medium highlight text-center">
-					<div class="container-content">
-						<h2 class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></h2>
-					</div>
-				</div>
-			<?php
-			endif;
+	if ( !empty($sub_header_text) ) : ?>
+    <div class="sub-header section-medium highlight text-center">
+      <div class="container-readable">
+        <h1 class="<?php echo $sub_header_class; ?>"><?php echo $sub_header_text; /* WPCS: xss ok. */ ?></h1>
+      </div>
+    </div>
+  <?php
 	endif; ?>
 
   <?php 

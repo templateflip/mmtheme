@@ -93,6 +93,14 @@ add_action('customize_register', function ( $wp_customize ) {
         '1'   => '1 Column, No sidebar'
       ),
     ));
+    
+    $wp_customize->add_setting('index_title_subheader', array('default' => true));
+    $wp_customize->add_control('index_title_subheader', array(
+      'label'      => __('Show Blog Archive Title in Subheader', 'mmtheme'),
+      'section'    => 'layout',
+      'settings'   => 'index_title_subheader',
+      'type'       => 'checkbox'
+    ));
 
     $wp_customize->add_setting('content_style', array('default' => 'm'));
     $wp_customize->add_control('content_style', array(
@@ -119,6 +127,14 @@ add_action('customize_register', function ( $wp_customize ) {
         'w'   => 'Wide without Sidebar'
       ),
     ));
+    
+    $wp_customize->add_setting('post_title_subheader', array('default' => false));
+    $wp_customize->add_control('post_title_subheader', array(
+      'label'      => __('Show Post Title in Subheader', 'mmtheme'),
+      'section'    => 'layout',
+      'settings'   => 'post_title_subheader',
+      'type'       => 'checkbox'
+    ));
 
     $wp_customize->add_setting('page_layout', array('default' => 'n'));
     $wp_customize->add_control('page_layout', array(
@@ -131,6 +147,15 @@ add_action('customize_register', function ( $wp_customize ) {
         'n'   => 'Narrow without Sidebar',
         'w'   => 'Wide without Sidebar'
       ),
+    ));
+
+    
+    $wp_customize->add_setting('page_title_subheader', array('default' => true));
+    $wp_customize->add_control('page_title_subheader', array(
+      'label'      => __('Show Page Title in Subheader', 'mmtheme'),
+      'section'    => 'layout',
+      'settings'   => 'page_title_subheader',
+      'type'       => 'checkbox'
     ));
 
     $wp_customize->add_setting('footer_layout', array('default' => '1'));
@@ -604,12 +629,12 @@ function mmtheme_get_custom_colors() {
   $colors[] = array(
     'slug'=>'subheader_background_color', 
     'default' => '#fafafa',
-    'label' => __('Site tagline Background Color', 'mmtheme')
+    'label' => __('Subheader Background Color', 'mmtheme')
   );
   $colors[] = array(
     'slug'=>'subheader_text_color', 
     'default' => '#444444',
-    'label' => __('Site tagline Text Color', 'mmtheme')
+    'label' => __('Subheader Text Color', 'mmtheme')
   );
   $colors[] = array(
     'slug'=>'footer_background_color', 
@@ -720,7 +745,7 @@ CSS;
   }
   elseif ($type == 'subheader_text_color') {
      return <<<CSS
-     .site-description {
+     .site-description, .sub-header .entry-title {
        color: {$value};
      }
 CSS;
