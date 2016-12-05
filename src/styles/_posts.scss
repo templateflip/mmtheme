@@ -6,6 +6,10 @@
   .section-title {
     margin-bottom: $size-element-spacing;
   }
+
+  .media-body {
+    padding-left: 0;
+  }
 }
 
 .post-navigation {
@@ -44,5 +48,20 @@
     &:before {
       content: 'Prev';
     }
+  }
+}
+
+.related-posts {
+  .media {
+    margin-top: 1.5rem;
+  }
+  .thumbnail {
+    width: 112px;
+    height: 112px;
+  }
+  .media-left .thumbnail + .media-body {
+    margin-left: 112px;
+    min-height: 112px;
+    padding-left: 1rem;
   }
 }

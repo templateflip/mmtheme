@@ -55,6 +55,8 @@
   </div>
 </article>
 
+<?php get_template_part('template-parts/related-posts'); ?>
+
 <?php 
   if (is_active_sidebar( 'below-post' )) :
 ?>
@@ -73,7 +75,7 @@ if ($about_author_visiblity === '2') :
     <h3 class="h4 section-title"><?php echo __('About the author', 'mmtheme'); ?></h2>
     <div class="media media-left">
       <div class="thumbnail thumbnail-rounded">
-        <?php echo get_avatar( get_the_author_meta('ID'), 140 ) ?>
+        <?php echo get_avatar( get_the_author_meta('ID'), 120 ) ?>
       </div>
       <div class="media-body">
         <strong><?php echo get_the_author_meta('display_name'); ?></strong>
