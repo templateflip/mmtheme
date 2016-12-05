@@ -80,3 +80,19 @@ function mmtheme_nav_menu_icons( $atts, $item, $args ) {
   return $atts;
 }
 add_filter( 'nav_menu_link_attributes', 'mmtheme_nav_menu_icons', 10, 4);
+
+/**
+ * Wrap embeds in custom class
+ */
+function mmtheme_wrap_embed_with_div($html, $url, $attr) {
+ if(strpos($url, '//www.youtube.com/') 
+    || strpos($url, '//youtu.be/') 
+    || strpos($url, '//vimeo.com/')
+    || strpos($url, '//player.vimeo.com/')) {
+    return '<div class="video-container">' . $html . '</div>';
+ }
+ else {
+    return '<div class="embed-container">' . $html . '</div>';
+ }
+}
+add_filter('embed_oembed_html', 'mmtheme_wrap_embed_with_div', 10, 3);
