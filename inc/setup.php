@@ -49,6 +49,7 @@ add_action('after_setup_theme', function () {
     
     // Use main stylesheet for visual editor
     add_editor_style(mmtheme_asset_path('/css/main.css'));
+    add_editor_style(mmtheme_asset_path('/css/editor.css'));
 });
 
 /**
