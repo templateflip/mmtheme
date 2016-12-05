@@ -284,6 +284,19 @@ add_action('customize_register', function ( $wp_customize ) {
       ),
     ));
 
+    $wp_customize->add_setting('related_posts_setting', array('default' => '3'));
+    $wp_customize->add_control('related_posts_setting', array(
+      'label'      => __('Related Posts', 'mmtheme'),
+      'section'    => 'elements',
+      'settings'   => 'related_posts_setting',
+      'type'       => 'select',
+      'choices'    => array(
+        '1'   => 'Hide',
+        '2'   => 'Show Posts from Last 2 Years',
+        '3'   => 'Show Posts from All Time',
+      ),
+    ));
+
     $wp_customize->add_setting('about_author_visiblity', array('default' => '2'));
     $wp_customize->add_control('about_author_visiblity', array(
       'label'      => __('About the Author', 'mmtheme'),
@@ -292,7 +305,7 @@ add_action('customize_register', function ( $wp_customize ) {
       'type'       => 'select',
       'choices'    => array(
         '1'   => 'Hide',
-        '2'   => 'Show on Posts'
+        '2'   => 'Show'
       ),
     ));
 
