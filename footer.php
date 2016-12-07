@@ -42,7 +42,7 @@
     </div>
     <?php if ( has_nav_menu( 'footer' ) ) : ?>
       <div class="section">
-        <nav class="text-center">
+        <nav class="footer-menu-container">
           <?php  wp_nav_menu( array( 'theme_location' => 'footer', "menu_class" => 'menu footer-menu' ) ); ?>
         </nav>
       </div>
