@@ -837,6 +837,12 @@ function mmtheme_get_custom_layout_css() {
     padding: 1.5rem 2rem 2rem;
     margin-bottom: 2.5rem;
   }
+  @media (max-width: 979px) {
+    .single main .content-box, .page main .content-box {
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+    }
+  }
 CSS;
 }
 

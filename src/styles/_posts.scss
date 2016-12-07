@@ -1,4 +1,4 @@
-.entry-title {
+  .entry-title {
   margin-top: 0;
 }
 
@@ -9,6 +9,17 @@
 
   .media-body {
     padding-left: 0;
+  }
+}
+
+@include mobile {
+  .about-author {
+    .media-left [class*="thumbnail"] {
+      position: relative;
+    }
+    .media-left .thumbnail+.media-body {
+      margin-left: 0;
+    }
   }
 }
 
@@ -47,6 +58,14 @@
 
     &:before {
       content: 'Prev';
+    }
+  }
+}
+
+@include mobile {
+  .post-navigation {
+    .nav-previous, .nav-next {
+      font-size: 1rem;
     }
   }
 }

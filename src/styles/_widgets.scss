@@ -15,6 +15,12 @@
     padding-bottom: 2.5rem;
 }
 
+@include mobile {
+  .widget {    
+    padding-bottom: 1rem;
+  }
+}
+
 .widget-title {
   font-weight: 500;
   text-transform: uppercase;
