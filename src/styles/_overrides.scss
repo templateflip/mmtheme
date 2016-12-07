@@ -30,8 +30,9 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-  line-height: 2.25;
-  padding: 0 $size-element-spacing-small;
+  line-height: 1.5;
+  padding: 0.3em 1em;
+  white-space: normal;
 }
 
 .button.button-ghost {
