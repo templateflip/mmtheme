@@ -57,6 +57,25 @@ function mmtheme_title()
     return get_the_title();
 }
 
+
+/* Custom function to limit custom post content characters */
+function mmtheme_get_excerpt($content)
+{
+    $excerpt = '';
+    if (has_excerpt()) {
+        $excerpt = get_the_excerpt();
+    } else {
+        $excerpt = strip_tags($content);
+        if (!empty($excerpt)) {
+            $excerpt = strtok($excerpt, "\n"); //first para
+            if(strlen($excerpt) > 75) {
+                $excerpt = preg_replace('/\s+?(\S+)?$/', '', substr($excerpt, 0, 76)) . '…';
+            }
+        }
+    }
+    return $excerpt;
+}
+
 /**
  * Comments
  */

@@ -225,9 +225,10 @@ add_action('customize_register', function ( $wp_customize ) {
       'settings'   => 'post_excerpt_setting',
       'type'       => 'select',
       'choices'    => array(
-        '1'   => 'Show Full Conent',
-        '2'   => 'Show Excerpt',
-        '3'   => 'Show Nothing'
+        '1'   => 'Show Nothing',
+        '2'   => 'Show Minimal Content',
+        '3'   => 'Show Excerpt',
+        '4'   => 'Show Full Content'
       ),
     ));
 

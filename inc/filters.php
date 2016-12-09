@@ -1,24 +1,12 @@
 <?php
 
 /**
- * Filter the except length to 15 words
+ * Custom exceprt more
  */
-add_filter( 'excerpt_length', function($length) {
-  return 15;
-} , 999 );
-
-/**
- * Additionally limit exceprt lenth to 76 chars and add a Read more link
- */
-add_filter( 'get_the_excerpt', function ( $excerpt ) {
-  $excerpt = substr($excerpt, 0, 76);
-  $excerpt = substr($excerpt, 0, strripos($excerpt, " "));
-  $excerpt = trim($excerpt). '&hellip;';
-  if(get_theme_mod('read_more_visiblity', '2') == '2') {
-    $excerpt = $excerpt . '<p><a class="more-link" href="' . get_permalink() . '">' . __('Read more', 'mmtheme') . '</a></p>'; 
-  }
-  return $excerpt;
-});
+function mmtheme_excerpt_more( $more ) {
+	return '&hellip;';
+}
+add_filter( 'excerpt_more', 'mmtheme_excerpt_more' );
 
 /**
  * Don't count pingbacks or trackbacks when determining

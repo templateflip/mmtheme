@@ -39,13 +39,22 @@
 
     <div class="entry-content">
       <?php
-          $post_excerpt_setting = get_theme_mod('post_excerpt_setting', '2');
-          if($post_excerpt_setting == '2') {
-            the_excerpt();
-          }
-          else if($post_excerpt_setting == '1') {
-            the_content();
-          }
+        $post_excerpt_setting = get_theme_mod('post_excerpt_setting', '2');
+        $show_read_more = get_theme_mod('read_more_visiblity', '2') == '2';
+        if($post_excerpt_setting == '2') {
+          echo '<p>'.mmtheme_get_excerpt(get_the_content()).'</p>';
+        }
+        if($post_excerpt_setting == '3') {
+          the_excerpt();
+        }
+        else if($post_excerpt_setting == '4') {
+          the_content();
+          $show_read_more = false;
+        }
+        
+        if($show_read_more) {
+          echo '<p><a class="more-link" href="' . get_permalink() . '">' . __('Read more', 'mmtheme') . '</a></p>'; 
+        }
       ?>
     </div>
   </div>
