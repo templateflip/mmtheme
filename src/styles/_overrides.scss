@@ -62,39 +62,6 @@ p > *:first-child {
   margin-top: 0;
 }
 
-.h1,
-h1 {
-  //36px
-  @include font-size(2.25 * $size-default-text);
-}
-
-.h2,
-h2 {
-  //28.8px
-  @include font-size(1.8 * $size-default-text);
-}
-
-@include mobile {
-  .h1,
-  h1 {
-    //30px
-    @include font-size(1.575 * $size-default-text);
-  }
-
-  .h2,
-  h2 {
-    //24px
-    @include font-size(1.35 * $size-default-text);
-  }
-  
-  .h3,
-  h3 {
-    //20px
-    @include font-size(1.25 * $size-default-text);
-  }
-}
-
-
 .sub-header {
   .entry-title {
     margin-bottom: 0;
