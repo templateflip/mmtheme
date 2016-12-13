@@ -3,16 +3,6 @@
   padding: 20px 0;
 }
 
-.button,
-button,
-input[type="button"],
-input[type="reset"],
-input[type="submit"] {
-  line-height: 1.5;
-  padding: 0.3em 1em;
-  white-space: normal;
-}
-
 .button.button-ghost {
   background-color: #fff;
   transition: box-shadow .25s ease-out;
@@ -21,7 +11,6 @@ input[type="submit"] {
     text-decoration: none;
     background-color: #fff;
     color: inherit;
-    border-color: $color-default-border;
     box-shadow: 0 5px 10px 0 rgba(0,0,0,0.08);
   }
 }
@@ -58,10 +47,6 @@ ins {
   .dot + span {
     margin-left: 0;
   }
-}
-
-.one-full {
-  @include col-full-width();
 }
 
 .icon {
