@@ -75,9 +75,3 @@ p > *:first-child {
 .entry-content-marginfix > *:first-child {
   margin-top: 0;
 }
-
-@include mobile {
-  .footer {
-    margin-top: $size-element-spacing;
-  }
-}
