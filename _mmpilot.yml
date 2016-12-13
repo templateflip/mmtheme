@@ -4,6 +4,10 @@ out: '.'
 
 html:
   sitemap: ''
+  dest: 'none'
+
+assets:
+  dest: 'none'
 
 styles:
   src: 'src/styles'
