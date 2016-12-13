@@ -4,7 +4,7 @@
   "description": "Minimal Modern WordPress Theme",
   "main": "index.php",
   "dependencies": {
-    "mmcss": "^0.3.2"
+    "mmcss": "^0.3.3"
   },
   "devDependencies": {
     "mmpilot": "^0.6.2",
