@@ -871,7 +871,7 @@ function mmtheme_get_custom_dimension_css() {
     .site-branding img {
       padding: {$logo_margin}px 0;
     }
-    .menu-toggle label {
+    .menu-toggle > label {
       margin-top: {$menu_margin}px;
     }
 CSS;
