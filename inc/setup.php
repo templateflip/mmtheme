@@ -75,6 +75,10 @@ add_action('widgets_init', function () {
       'id'            => 'below-header'
     ] + $config);
     register_sidebar([
+      'name'          => __('Inside Post (After 1st Para)', 'mmtheme'),
+      'id'            => 'inside-post-1'
+    ] + $config);
+    register_sidebar([
       'name'          => __('Post Footer', 'mmtheme'),
       'id'            => 'post-footer'
     ] + $config);

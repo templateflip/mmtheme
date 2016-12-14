@@ -84,3 +84,36 @@ function mmtheme_wrap_embed_with_div($html, $url, $attr) {
  }
 }
 add_filter('embed_oembed_html', 'mmtheme_wrap_embed_with_div', 10, 3);
+
+/**
+ * Insert Widget inside post (after first para)
+ */
+function mmtheme_insert_post_widget( $content ) {
+	if (is_singular('post') && is_active_sidebar( 'inside-post-1' ))  {
+    ob_start();
+    dynamic_sidebar('inside-post-1');
+    $sidebar_contents = ob_get_contents();
+    ob_end_clean();
+    return mmtheme_insert_after_paragraph( $sidebar_contents, 1, $content );
+  }
+
+	return $content;
+}
+add_filter( 'the_content', 'mmtheme_insert_post_widget' );
+
+function mmtheme_insert_after_paragraph( $insertion, $paragraph_id, $content ) {
+	$closing_p = '</p>';
+	$paragraphs = explode( $closing_p, $content );
+	foreach ($paragraphs as $index => $paragraph) {
+
+		if ( trim( $paragraph ) ) {
+			$paragraphs[$index] .= $closing_p;
+		}
+
+		if ( $paragraph_id == $index + 1 ) {
+			$paragraphs[$index] .= $insertion;
+		}
+	}
+	
+	return implode( '', $paragraphs );
+}
