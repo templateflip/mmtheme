@@ -27,7 +27,9 @@ class MMtheme_Ads_Widget extends WP_Widget {
     if ( ! empty( $instance['title'] ) ) {
       echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ). $args['after_title'];
     }
-    echo '<div class="robots-nocontent" style="width:'.$instance['width'].'px;height:'.$instance['height'].'px;background:#eee;">';
+    $ads_margin = $instance['center'] ? '1rem auto 0' : '1.5rem 0 0';
+    $preview_style = is_preview() ? 'height:'.$instance['height'].'px;'.'background:#eee;' : ''; 
+    echo '<div class="robots-nocontent" style="max-width:100%;width:'.$instance['width'].'px;'.$preview_style.'margin:'.$ads_margin.'">';
     if( !is_preview() ) {
       $banner_ad_style = "";  
   		if ( ! empty( $instance['ads_code'] ) ) {   
@@ -71,6 +73,7 @@ class MMtheme_Ads_Widget extends WP_Widget {
     $img = ! empty( $instance['img'] ) ? $instance['img'] : __( '', 'mmtheme' );
     $width = ! empty( $instance['width'] ) ? $instance['width'] : '300';
     $height = ! empty( $instance['height'] ) ? $instance['height'] : '250';
+    $center = isset( $instance['center'] ) ? $instance['center'] : 1;
 		?>
 		<p>
 		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
@@ -95,7 +98,11 @@ class MMtheme_Ads_Widget extends WP_Widget {
     <p>
 		<label for="<?php echo $this->get_field_id( 'height' ); ?>"><?php _e( 'Height (in px):' ); ?></label>
 		<input class="widefat" id="<?php echo $this->get_field_id( 'height' ); ?>" name="<?php echo $this->get_field_name( 'height' ); ?>" type="text" value="<?php echo esc_attr( $height ); ?>">
-		</p>
+		</p>    
+	  <p>
+		<input id="<?php echo $this->get_field_id( 'center' ); ?>" type="checkbox" name="<?php echo $this->get_field_name( 'center' ); ?>" value="1" <?php checked( 1, $instance['center'] ); ?>/>
+		<label for="<?php echo $this->get_field_id( 'center' ); ?>"><?php _e( 'Align Center', 'mmtheme' ); ?></label>
+	  </p>
 		<?php
 	}
 
@@ -113,6 +120,7 @@ class MMtheme_Ads_Widget extends WP_Widget {
 		$instance['img'] = ( ! empty( $new_instance['img'] ) ) ? strip_tags( $new_instance['img'] ) : '';
 		$instance['width'] = ( ! empty( $new_instance['width'] ) ) ? strip_tags( $new_instance['width'] ) : '300';
 		$instance['height'] = ( ! empty( $new_instance['height'] ) ) ? strip_tags( $new_instance['height'] ) : '250';
+		$instance['center'] = isset( $new_instance['center'] ) ? 1 : 0;
 
 		return $instance;
 	}

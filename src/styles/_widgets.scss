@@ -11,8 +11,8 @@
 }
 
 .widget {
-    padding-top: 0;
-    padding-bottom: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 2.5rem;
 }
 
 .header-right .widget {
@@ -20,12 +20,12 @@
 }
 
 article .widget {
-  padding-bottom: 0;
+  margin-bottom: 0;
 }
 
 @include mobile {
   .widget {    
-    padding-bottom: 1rem;
+    margin-bottom: 1rem;
   }
 }
 
