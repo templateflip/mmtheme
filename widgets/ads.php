@@ -10,10 +10,10 @@ class MMtheme_Ads_Widget extends WP_Widget {
 	 */
 	public function __construct() {
 		$widget_ops = array(
-			'class_name' => 'mmtheme_ads_widget',
-			'description' => __( 'For inserting ads code (Hidden in post preview)', 'mmtheme' ),
+			'class_name' => 'mmtheme_custom_image_widget',
+			'description' => __( 'For inserting ads code or a fallback banner ad. Hidden in post preview', 'mmtheme' ),
 		);
-		parent::__construct( 'mmtheme_ads_widget', 'MMtheme Ads Widget', $widget_ops );
+		parent::__construct( 'mmtheme_custom_image_widget', 'MMtheme Ads Widget', $widget_ops );
 	}
 
 	/**
@@ -28,7 +28,7 @@ class MMtheme_Ads_Widget extends WP_Widget {
   		if ( ! empty( $instance['title'] ) ) {
   			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ). $args['after_title'];
   		}
-      echo '<div class="ads-widget">';
+      echo '<div class="custom-image-widget">';
   		echo $instance['ads_code'];
       echo '</div>';
   		echo $args['after_widget'];
