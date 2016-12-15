@@ -21,8 +21,17 @@ if(!is_single()) {
 }
 
 ?>
-<?php if ($show_date) : ?>
-<time class="updated" datetime="<?= get_post_time('c', true); ?>"><?= get_the_date(); ?></time>
+<?php if ($show_date) :
+    $datetime = get_post_time('c', true);
+    $modified_time = get_the_date();
+    $modifed_text = __('Posted on ', 'mmtheme');
+    if (get_the_time() != get_the_modified_time()) {
+      $datetime = get_the_modified_time('c');
+      $modified_time = get_the_modified_date();
+      $modifed_text = __('Updated on ', 'mmtheme');
+    }
+?>
+<time class="updated" datetime="<?= $datetime; ?>"><?= $modifed_text; ?><?= $modified_time; ?></time>
 <?php endif; ?>
 
 <?php if ($show_date) : ?>

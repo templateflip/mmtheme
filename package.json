@@ -14,9 +14,11 @@
     "clean": "mmpilot clean",
     "build": "mmpilot build",
     "dev-build": "mmpilot build -d",
+    "watch": "mmpilot watch",
     "dev-watch": "mmpilot watch -d",
     "serve": "mmpilot serve",
-    "dev": "npm-run-all clean dev-build --parallel dev-watch serve"
+    "dev": "npm-run-all clean dev-build --parallel dev-watch",
+    "prod": "npm-run-all clean build --parallel watch"
   },
   "repository": {
     "type": "git",
