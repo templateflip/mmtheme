@@ -6,11 +6,13 @@
 .button.button-ghost {
   background-color: #fff;
   transition: box-shadow .25s ease-out;
+  border-color: $color-dark-border;
 
   &:hover, &:focus {
     text-decoration: none;
     background-color: #fff;
     color: inherit;
+    border-color: $color-dark-border;
     box-shadow: 0 5px 10px 0 rgba(0,0,0,0.08);
   }
 }

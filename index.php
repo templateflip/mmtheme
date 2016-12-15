@@ -46,10 +46,17 @@ if ( $has_sidebar ) :
             ?>
           </div>
             <div class="section clearfix">
-              <?php the_posts_navigation(array(
-                'prev_text'          => __( 'Older Posts &rarr;', 'mmtheme' ),
-                'next_text'          => __( '&larr; Newer Posts', 'mmtheme' ),
-              )); ?>
+              <?php 
+                /*the_posts_navigation(array(
+                  'prev_text'          => __( 'Older Posts &rarr;', 'mmtheme' ),
+                  'next_text'          => __( '&larr; Newer Posts', 'mmtheme' ),
+                ));*/
+                the_posts_pagination( array(
+                  'mid_size'  => 1,
+                  'prev_text' => __( '&larr; Previous', 'mmtheme' ),
+                  'next_text' => __( 'Next &rarr;', 'mmtheme' ),
+                ) );
+              ?>
             </div>
           <?php else : ?>
             <p><?php esc_html_e( 'Sorry,  no results were found.', 'mmtheme' ); ?></p>
