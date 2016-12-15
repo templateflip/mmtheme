@@ -67,7 +67,7 @@ function mmtheme_get_excerpt($content)
     } else {
         $excerpt = strip_tags($content);
         if (!empty($excerpt)) {
-            $excerpt = strtok($excerpt, "\n"); //first para
+            $excerpt = strtok(trim($excerpt), "\n"); //first para
             if(strlen($excerpt) > 75) {
                 $excerpt = preg_replace('/\s+?(\S+)?$/', '', substr($excerpt, 0, 76)) . '…';
             }
