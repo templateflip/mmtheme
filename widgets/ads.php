@@ -23,16 +23,40 @@ class MMtheme_Ads_Widget extends WP_Widget {
 	 * @param array $instance
 	 */
 	public function widget( $args, $instance ) {
-    if( !is_preview() ) {
-      echo $args['before_widget'];
-  		if ( ! empty( $instance['title'] ) ) {
-  			echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ). $args['after_title'];
-  		}
-      echo '<div class="custom-image-widget">';
-  		echo $instance['ads_code'];
-      echo '</div>';
-  		echo $args['after_widget'];
+    echo $args['before_widget'];
+    if ( ! empty( $instance['title'] ) ) {
+      echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ). $args['after_title'];
     }
+    echo '<div class="robots-nocontent" style="width:'.$instance['width'].'px;height:'.$instance['height'].'px;background:#eee;">';
+    if( !is_preview() ) {
+      $banner_ad_style = "";  
+  		if ( ! empty( $instance['ads_code'] ) ) {   
+        echo '<div id="ads-wrapper" class="ads-widget">';
+        echo $instance['ads_code'];
+        echo '</div>';
+
+        $banner_ad_style = "display:none;";
+      }
+      if ( ! empty( $instance['img'] ) ) {   
+?>
+      <a id="custom-image" href="<?= $instance['url']; ?>" style="<?= $banner_ad_style; ?>" rel="nofollow" target="_blank">
+        <img src="<?= $instance['img']; ?>" width="<?= $instance['width']; ?>" height="<?= $instance['height']; ?>"></img>
+      </a>
+<?php
+      }
+      echo '</div>';
+?>
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded", function() {
+        var style = window.getComputedStyle(document.getElementById("ads-wrapper"));
+        if(style.display === 'none') {
+          document.getElementById("custom-image").style.display = 'block';
+        }
+      });  
+    </script>
+<?php
+    }
+    echo $args['after_widget'];
 	}
 
 	/**
@@ -43,6 +67,10 @@ class MMtheme_Ads_Widget extends WP_Widget {
 	public function form( $instance ) {
     $title = ! empty( $instance['title'] ) ? $instance['title'] : __( '', 'mmtheme' );
     $ads_code = ! empty( $instance['ads_code'] ) ? $instance['ads_code'] : __( '', 'mmtheme' );
+    $url = ! empty( $instance['url'] ) ? $instance['url'] : __( '', 'mmtheme' );
+    $img = ! empty( $instance['img'] ) ? $instance['img'] : __( '', 'mmtheme' );
+    $width = ! empty( $instance['width'] ) ? $instance['width'] : '300';
+    $height = ! empty( $instance['height'] ) ? $instance['height'] : '250';
 		?>
 		<p>
 		<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
@@ -50,7 +78,23 @@ class MMtheme_Ads_Widget extends WP_Widget {
 		</p>
 		<p>
 		<label for="<?php echo $this->get_field_id( 'ads_code' ); ?>"><?php _e( 'Ad Code:' ); ?></label>
-		<textarea class="widefat" rows="16" cols="20" id="<?php echo $this->get_field_id( 'ads_code' ); ?>" name="<?php echo $this->get_field_name( 'ads_code' ); ?>"><?php echo esc_attr( $ads_code ); ?></textarea>
+		<textarea class="widefat" rows="8" cols="20" id="<?php echo $this->get_field_id( 'ads_code' ); ?>" name="<?php echo $this->get_field_name( 'ads_code' ); ?>"><?php echo esc_attr( $ads_code ); ?></textarea>
+		</p>
+    <p>
+		<label for="<?php echo $this->get_field_id( 'url' ); ?>"><?php _e( 'Banner/Fallback Ad Target Url:' ); ?></label>
+		<input class="widefat" id="<?php echo $this->get_field_id( 'url' ); ?>" name="<?php echo $this->get_field_name( 'url' ); ?>" type="text" value="<?php echo esc_attr( $url ); ?>">
+		</p>
+    <p>
+		<label for="<?php echo $this->get_field_id( 'img' ); ?>"><?php _e( 'Banner/Fallback Image Url:' ); ?></label>
+		<input class="widefat" id="<?php echo $this->get_field_id( 'img' ); ?>" name="<?php echo $this->get_field_name( 'img' ); ?>" type="text" value="<?php echo esc_attr( $img ); ?>">
+		</p>
+    <p>
+		<label for="<?php echo $this->get_field_id( 'width' ); ?>"><?php _e( 'Widht (in px):' ); ?></label>
+		<input class="widefat" id="<?php echo $this->get_field_id( 'width' ); ?>" name="<?php echo $this->get_field_name( 'width' ); ?>" type="text" value="<?php echo esc_attr( $width ); ?>">
+		</p>
+    <p>
+		<label for="<?php echo $this->get_field_id( 'height' ); ?>"><?php _e( 'Height (in px):' ); ?></label>
+		<input class="widefat" id="<?php echo $this->get_field_id( 'height' ); ?>" name="<?php echo $this->get_field_name( 'height' ); ?>" type="text" value="<?php echo esc_attr( $height ); ?>">
 		</p>
 		<?php
 	}
@@ -65,6 +109,10 @@ class MMtheme_Ads_Widget extends WP_Widget {
     $instance = array();
 		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? strip_tags( $new_instance['title'] ) : '';
     $instance['ads_code'] = ( ! empty( $new_instance['ads_code'] ) ) ? $new_instance['ads_code'] : '';
+		$instance['url'] = ( ! empty( $new_instance['url'] ) ) ? strip_tags( $new_instance['url'] ) : '';
+		$instance['img'] = ( ! empty( $new_instance['img'] ) ) ? strip_tags( $new_instance['img'] ) : '';
+		$instance['width'] = ( ! empty( $new_instance['width'] ) ) ? strip_tags( $new_instance['width'] ) : '300';
+		$instance['height'] = ( ! empty( $new_instance['height'] ) ) ? strip_tags( $new_instance['height'] ) : '250';
 
 		return $instance;
 	}
