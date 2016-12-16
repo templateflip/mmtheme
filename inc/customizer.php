@@ -78,6 +78,14 @@ add_action('customize_register', function ( $wp_customize ) {
         'c'   => 'Conaitner width'
       ),
     ));
+    
+    $wp_customize->add_setting('header_sticky', array('default' => false));
+    $wp_customize->add_control('header_sticky', array(
+      'label'      => __('Make header sticky on scroll', 'mmtheme'),
+      'section'    => 'layout',
+      'settings'   => 'header_sticky',
+      'type'       => 'checkbox'
+    ));
 
     $wp_customize->add_setting('blog_layout', array('default' => '3'));
     $wp_customize->add_control('blog_layout', array(
@@ -397,9 +405,10 @@ add_action( 'wp_enqueue_scripts', function () {
   $custom_fonts_css = mmtheme_get_custom_fonts_css();
   $custom_dimension_css = mmtheme_get_custom_dimension_css();
   $custom_layout_css = mmtheme_get_custom_layout_css();
+  $header_sticky_css = mmtheme_get_header_sticky_css();
   $custom_user_css = get_theme_mod('custom_theme_css');
 
-  $custom_css = $custom_color_css . $custom_fonts_css . $custom_dimension_css . $custom_layout_css . $custom_user_css;
+  $custom_css = $custom_color_css . $custom_fonts_css . $custom_dimension_css . $custom_layout_css . $header_sticky_css . $custom_user_css;
 
   if(!empty($custom_css)) {
 	  wp_add_inline_style( 'mmtheme-style', $custom_css );
@@ -856,6 +865,36 @@ function mmtheme_get_custom_layout_css() {
       padding: 1rem;
       margin-bottom: 1.5rem;
     }
+  }
+CSS;
+}
+
+/**
+ * Returns CSS for sticky header.
+ */
+function mmtheme_get_header_sticky_css() {
+  $header_sticky = get_theme_mod('header_sticky', false);
+
+  if(!$header_sticky) {
+    return '';
+  }
+
+  $header_height = get_theme_mod('header_height', '72');
+  return <<<CSS
+  .header {
+    position: fixed;
+    width: 100%;
+    top:0;
+    left:0;
+  }
+  .sub-header:before,
+  #content:before {
+    content: '';
+    padding-top: {$header_height}px;
+    display: block;
+  }
+  .sub-header + #content:before {
+    padding-top: 0;
   }
 CSS;
 }
