@@ -202,12 +202,6 @@ add_action('customize_register', function ( $wp_customize ) {
         'step' => 1,
       ),
     ) );
-
-    // Modules section
-    $wp_customize->add_section('elements' , array(
-        'title' => __('Site Elements','mmtheme'),
-    ));
-
     
     $wp_customize->add_setting('site_tagline_visiblity', array('default' => true));
     $wp_customize->add_control('site_tagline_visiblity', array(
@@ -215,6 +209,25 @@ add_action('customize_register', function ( $wp_customize ) {
       'section'    => 'title_tagline',
       'settings'   => 'site_tagline_visiblity',
       'type'       => 'checkbox'
+    ));
+
+    
+    // Modules section
+    $wp_customize->add_section('elements' , array(
+        'title' => __('Site Elements','mmtheme'),
+    ));
+
+    $wp_customize->add_setting('search_header_visiblity', array('default' => '2'));
+    $wp_customize->add_control('search_header_visiblity', array(
+      'label'      => __('Search in Header', 'mmtheme'),
+      'section'    => 'elements',
+      'settings'   => 'search_header_visiblity',
+      'type'       => 'select',
+      'choices'    => array(
+        '1'   => 'Hide',
+        '2'   => 'Show Expandable',
+        '3'   => 'Show Full',
+      )
     ));
 
     

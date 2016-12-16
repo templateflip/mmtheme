@@ -33,20 +33,18 @@
             <nav role="navigation">
               <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
             </nav>
-            <?php if ($header_layout == 'c') : ?>
-              <div class="expandable-search">
-                <?php get_search_form(); ?>
-              </div>
+            <?php if ($header_layout == 'c') : ?>              
+               <?php get_template_part('template-parts/header-search'); ?>
             <?php endif; ?>
           </div>
-          <?php if ($display_header_sidebar && is_active_sidebar( 'header' )) : ?>
           <div class="header-right">
-            <?php dynamic_sidebar( 'header' ); ?>
-            <div class="expandable-search">
-              <?php get_search_form(); ?>
-            </div>
+            <?php if ($display_header_sidebar && is_active_sidebar( 'header' )) : ?>
+              <?php dynamic_sidebar( 'header' ); ?>
+            <?php endif; ?>
+            <?php if ($header_layout != 'c') : ?>  
+              <?php get_template_part('template-parts/header-search'); ?>              
+            <?php endif; ?>
           </div>
-          <?php endif; ?>
         </div>
       </div>
     </header>
