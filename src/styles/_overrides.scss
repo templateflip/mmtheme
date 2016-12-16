@@ -21,7 +21,9 @@ ins {
   background: transparent;
 }
 
-.header-right > * {
+.header-right > div,
+.header-right > nav,
+.header-right > section {
   display: inline-block;
 }
 
@@ -63,15 +65,22 @@ ins {
 }
 
 .expandable-search .search-box input[type="search"]:focus {
-  width: 300px;
+  width: 350px;
   margin-left: 40px;
-  margin-left: -340px;
+  margin-left: -390px;
   background: #fff;
-  padding-left: 40px;
+  color: #444;
+  padding-left: 15px;
   cursor: auto;
 }
 
 @include mobile {
+  .header-right > div,
+  .header-right > nav,
+  .header-right > section {
+    display: block;
+  }
+
   .expandable-search .search-box {
     width: 100%;
   }

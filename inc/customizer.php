@@ -856,8 +856,10 @@ function mmtheme_get_custom_dimension_css() {
 
   $menu_margin = ($header_height - 42) / 2;
   $logo_margin = 20;
+  $search_margin = 28;
   if($header_height <= 72) { // when header height is less than default height, keep logo atleast 30px height
     $logo_margin = ($header_height - 30) / 2;
+    $search_margin = ($header_height - 16) / 2;
   }
   $css = '';
   if ($header_height != 72) {
@@ -873,7 +875,10 @@ function mmtheme_get_custom_dimension_css() {
     }
     .menu-toggle > label {
       margin-top: {$menu_margin}px;
-    }
+    }  
+  .header .search-box .icon-search {
+    top: {$search_margin}px;
+  }
 CSS;
   }
   

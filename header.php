@@ -29,17 +29,24 @@
           <span><?php esc_html_e( 'Menu', 'mmtheme' ); ?></span>
         </label>
         <div class="menu-toggle-content">
-          <nav class="<?php echo $menu_class?>" role="navigation">
-             <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
-          </nav>
+          <div class="<?php echo $menu_class?>">
+            <nav role="navigation">
+              <?php wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu' ) ); ?>
+            </nav>
+            <?php if ($header_layout == 'c') : ?>
+              <div class="expandable-search">
+                <?php get_search_form(); ?>
+              </div>
+            <?php endif; ?>
+          </div>
           <?php if ($display_header_sidebar && is_active_sidebar( 'header' )) : ?>
           <div class="header-right">
-            <?php dynamic_sidebar( 'header' ); ?>            
+            <?php dynamic_sidebar( 'header' ); ?>
             <div class="expandable-search">
               <?php get_search_form(); ?>
             </div>
           </div>
-          <?php endif; ?>    
+          <?php endif; ?>
         </div>
       </div>
     </header>
