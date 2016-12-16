@@ -1,3 +1,10 @@
+@mixin tablet {
+  @media (min-width:480px) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+
 .site-branding img {
   height: 72px;
   padding: 20px 0;
@@ -150,4 +157,14 @@ p > *:first-child {
 
 .section + .section { 
   padding-top:0;
+}
+
+@include tablet {
+  .one-third, .one-half {
+    @include col(1, 2);
+
+    &:nth-child(2n+0) {
+      @include col-last();
+    }
+  }
 }
