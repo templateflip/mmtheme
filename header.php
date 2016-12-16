@@ -34,9 +34,12 @@
           </nav>
           <?php if ($display_header_sidebar && is_active_sidebar( 'header' )) : ?>
           <div class="header-right">
-            <?php dynamic_sidebar( 'header' ); ?>
+            <?php dynamic_sidebar( 'header' ); ?>            
+            <div class="expandable-search">
+              <?php get_search_form(); ?>
+            </div>
           </div>
-          <?php endif; ?>
+          <?php endif; ?>    
         </div>
       </div>
     </header>
