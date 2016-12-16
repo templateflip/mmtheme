@@ -27,7 +27,7 @@ class MMtheme_Ads_Widget extends WP_Widget {
     if ( ! empty( $instance['title'] ) ) {
       echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ). $args['after_title'];
     }
-    $ads_margin = $instance['center'] ? '1rem auto 0' : '1.5rem 0 0';
+    $ads_margin = $instance['center'] ? '0 auto' : '0';
     $preview_style = is_preview() ? 'height:'.$instance['height'].'px;'.'background:#eee;' : ''; 
     echo '<div class="robots-nocontent" style="max-width:100%;width:'.$instance['width'].'px;'.$preview_style.'margin:'.$ads_margin.'">';
     if( !is_preview() ) {

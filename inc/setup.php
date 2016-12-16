@@ -87,6 +87,10 @@ add_action('widgets_init', function () {
       'id'            => 'below-post'
     ] + $config);
     register_sidebar([
+      'name'          => __('Stricky Sidebar Bottom', 'mmtheme'),
+      'id'            => 'sidebar-sticky'
+    ] + $config);
+    register_sidebar([
       'name'          => __('Footer 1', 'mmtheme'),
       'id'            => 'sidebar-footer-1'
     ] + $config);

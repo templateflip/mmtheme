@@ -91,7 +91,9 @@ add_filter('embed_oembed_html', 'mmtheme_wrap_embed_with_div', 10, 3);
 function mmtheme_insert_post_widget( $content ) {
 	if (is_singular('post') && is_active_sidebar( 'inside-post-1' ))  {
     ob_start();
+    echo '<div class="inside-post-sidebar" style="margin-top: 1.5rem;">';
     dynamic_sidebar('inside-post-1');
+    echo '</div>';
     $sidebar_contents = ob_get_contents();
     ob_end_clean();
     return mmtheme_insert_after_paragraph( $sidebar_contents, 1, $content );
