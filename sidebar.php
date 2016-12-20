@@ -15,9 +15,10 @@ if ( ! is_active_sidebar( 'sidebar-primary' ) ) {
         var elTop = el.getBoundingClientRect().top - document.body.getBoundingClientRect().top;
 
         window.addEventListener('scroll', function() {
-            if (document.body.scrollTop > elTop) {
+            if (document.body.scrollTop > (elTop + 20)) {
                 el.style.position = 'fixed';
-                el.style.top = '1rem';
+                el.style.top = 0;
+                el.style.paddingTop = '20px';
                 el.style.width = '300px';
             }
             else {
