@@ -51,9 +51,12 @@ class MMtheme_Ads_Widget extends WP_Widget {
 ?>
     <script type="text/javascript">
       document.addEventListener("DOMContentLoaded", function() {
-        var style = window.getComputedStyle(document.getElementById("<?= $widget_id; ?>-wrapper"));
-        if(style.display === 'none') {
-          document.getElementById("<?= $widget_id; ?>-image").style.display = 'block';
+        var element = document.getElementById("<?= $widget_id; ?>-wrapper");
+        if(element) {
+          var style = window.getComputedStyle(element, null);
+          if(style.display === 'none') {
+            document.getElementById("<?= $widget_id; ?>-image").style.display = 'block';
+          }
         }
       });  
     </script>
