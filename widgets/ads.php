@@ -23,6 +23,7 @@ class MMtheme_Ads_Widget extends WP_Widget {
 	 * @param array $instance
 	 */
 	public function widget( $args, $instance ) {
+    $widget_id = $args['widget_id'];
     echo $args['before_widget'];
     if ( ! empty( $instance['title'] ) ) {
       echo $args['before_title'] . apply_filters( 'widget_title', $instance['title'] ). $args['after_title'];
@@ -33,7 +34,7 @@ class MMtheme_Ads_Widget extends WP_Widget {
     if( !is_preview() ) {
       $banner_ad_style = "";  
   		if ( ! empty( $instance['ads_code'] ) ) {   
-        echo '<div id="ads-wrapper" class="ads-widget">';
+        echo '<div id="'.$widget_id.'-wrapper" class="ads-widget">';
         echo $instance['ads_code'];
         echo '</div>';
 
@@ -41,7 +42,7 @@ class MMtheme_Ads_Widget extends WP_Widget {
       }
       if ( ! empty( $instance['img'] ) ) {   
 ?>
-      <a id="custom-image" href="<?= $instance['url']; ?>" style="<?= $banner_ad_style; ?>" rel="nofollow" target="_blank">
+      <a id="<?= $widget_id; ?>-image" href="<?= $instance['url']; ?>" style="<?= $banner_ad_style; ?>" rel="nofollow" target="_blank">
         <img src="<?= $instance['img']; ?>" width="<?= $instance['width']; ?>" height="<?= $instance['height']; ?>"></img>
       </a>
 <?php
@@ -50,9 +51,9 @@ class MMtheme_Ads_Widget extends WP_Widget {
 ?>
     <script type="text/javascript">
       document.addEventListener("DOMContentLoaded", function() {
-        var style = window.getComputedStyle(document.getElementById("ads-wrapper"));
+        var style = window.getComputedStyle(document.getElementById("<?= $widget_id; ?>-wrapper"));
         if(style.display === 'none') {
-          document.getElementById("custom-image").style.display = 'block';
+          document.getElementById("<?= $widget_id; ?>-image").style.display = 'block';
         }
       });  
     </script>
