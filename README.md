@@ -1,4 +1,4 @@
-## MMTheme
+## MMTheme - Minimal Modern WordPress Theme
 
 Contributors: Kanishk Kunal
 
