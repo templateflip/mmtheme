@@ -469,6 +469,9 @@ function mmtheme_get_custom_fonts() {
       'lobster'             => 'Lobster',
       'merriweather'        => 'Merriweather',
       'montserrat'          => 'Montserrat',
+      'muli'                => 'Muli',
+      'nunito'              => 'Nunito',
+      'nunito-sans'         => 'Nunito Sans',
       'open-sans'           => 'Open Sans',
       'oswald'              => 'Oswald',
       'pacifico'            => 'Pacifico',
@@ -507,6 +510,12 @@ function mmtheme_get_font_family($font_id) {
       return "'Merriweather', serif";
     case 'montserrat':
       return "'Montserrat', sans-serif";
+    case 'muli':
+      return "'Muli', sans-serif";
+    case 'nunito':
+      return "'Nunito', sans-serif";
+    case 'nunito-sans':
+      return "'Nunito Sans', sans-serif";
     case 'open-sans':
       return "'Open Sans', sans-serif";
     case 'oswald':
@@ -559,6 +568,12 @@ function mmtheme_get_font_weights($font_id, $is_headings = false) {
     case 'merriweather':
       return $is_headings ? "700" : "400,700";
     case 'montserrat':
+      return $is_headings ? "600" : "400,600,700";
+    case 'muli':
+      return $is_headings ? "700" : "400,700";
+    case 'nunito':
+      return $is_headings ? "700" : "400,700";
+    case 'nunito-sans':
       return $is_headings ? "700" : "400,700";
     case 'open-sans':      
       return $is_headings ? "600" : "400,600,700";
