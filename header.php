@@ -48,13 +48,13 @@
         </div>
       </div>
     </header>
-  <?php 
-    get_template_part('template-parts/subheader');
-  
+  <?php   
     if (is_active_sidebar( 'below-header' )) :
   ?>
   <aside class="widget-area below-header">
     <?php dynamic_sidebar( 'below-header' ); ?>
   </aside>
-  <?php endif; ?>
+  <?php endif;
+    get_template_part('template-parts/subheader');
+  ?>
 	<div class="animated fadeIn" id="content">
