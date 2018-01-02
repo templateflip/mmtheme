@@ -1,0 +1,53 @@
+/*
+Theme Name: MM Theme
+Theme URI: https://mmthemes.com
+Author: Kanishk Kunal
+Author URI: https://kanishkkunal.in
+Description: A minimal modern theme that lets you create a responsive website with sleek design and fast page loads. Feature your content in either single column or in a two-column design with a sidebar. Use the widget areas to customize your website header, footer and sidebar. Change your content's layout with a full-width page template.
+Version: 0.1
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, white, light, dark, two-columns, left-sidebar, right-sidebar, responsive-layout, custom-background, custom-colors, custom-header, custom-menu, editor-style, featured-images, flexible-header, full-width-template, microformats, post-formats, sticky-post, theme-options
+Text Domain: mmtheme
+*/
+
+@import "vars";
+@import 'mmcss/src/mm';
+@import "overrides";
+@import "animations";
+@import "layouts";
+@import "minimal";
+@import "blogroll";
+@import "posts";
+@import "media/media";
+@import "comments";
+@import "widgets";
+@import "share-buttons";
+@import "footer";
+
+main {
+  min-height: 500px;
+}
+
+#content {
+  margin-top: 2 * $size-element-spacing;
+}
+
+@include desktop {
+  .menu ul a {
+    width: 160px;
+    font-size: 0.95rem;
+    letter-spacing: 0;
+  }
+}
+
+/**
+ * If a menu is named as Social Menu, display it horizontally
+ */
+.menu-social-menu-container {
+  .menu li {
+    display: inline-block;
+    padding: 0 10px;
+  }
+}
+

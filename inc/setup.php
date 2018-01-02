@@ -3,7 +3,7 @@
 * Theme assets
 */
 add_action('wp_enqueue_scripts', function () {
-    wp_enqueue_style('mmtheme-style', mmtheme_asset_path('/css/main.css'), false, null);
+    wp_enqueue_style('mmtheme-style', mmtheme_asset_path('/style.css'), false, null);
     if ( is_singular() && comments_open() && get_option('thread_comments') ) {
         wp_enqueue_script('comment-reply');
     }
@@ -48,7 +48,7 @@ add_action('after_setup_theme', function () {
     ) ) );
 
     // Use main stylesheet for visual editor
-    add_editor_style(mmtheme_asset_path('/css/main.css'));
+    add_editor_style(mmtheme_asset_path('/style.css'));
     add_editor_style(mmtheme_asset_path('/editor.css'));
 });
 
