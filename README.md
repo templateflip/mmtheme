@@ -1,4 +1,6 @@
-## MMTheme - Minimal Modern WordPress Theme
+## MM Theme - Minimal Modern WordPress Theme
+
+[https://mmthemes.com](https://mmthemes.com)
 
 Contributors: Kanishk Kunal
 
@@ -26,10 +28,10 @@ Hi. I am a minimal modern theme that lets you create a responsive website with s
 
 ### Changelog
 
-** v1.0 ** - 28 July 2016
+** v0.1 ** - 2 Jan 2018
 * Initial release
 
 ### Credits
 
-* Based on [Underscores](http://underscores.me/), (C) 2012-2016 Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
+* Based on [Underscores](http://underscores.me/), (C) Automattic, Inc., [GPLv2 or later](https://www.gnu.org/licenses/gpl-2.0.html)
 * [MMCSS](https://mmcss.kunruchcreations.com/), [MIT](http://opensource.org/licenses/MIT)
