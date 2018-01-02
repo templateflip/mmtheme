@@ -1,33 +1,20 @@
 {
   "name": "mmtheme",
-  "version": "1.0.0",
-  "description": "Minimal Modern WordPress Theme",
+  "version": "0.1.0",
+  "description": "MM Theme - Minimal Modern WordPress Theme",
   "main": "index.php",
   "dependencies": {
     "mmcss": "^0.3.3"
   },
   "devDependencies": {
-    "mmpilot": "^0.6.2",
-    "npm-run-all": "^3.1.1"
   },
   "scripts": {
-    "clean": "mmpilot clean",
-    "build": "mmpilot build",
-    "dev-build": "mmpilot build -d",
-    "watch": "mmpilot watch",
-    "dev-watch": "mmpilot watch -d",
-    "serve": "mmpilot serve",
-    "dev": "npm-run-all clean dev-build --parallel dev-watch",
-    "prod": "npm-run-all clean build --parallel watch"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/templateflip/mmtheme.git"
+    "url": "git+https://github.com/mm-themes/mmtheme.git"
   },
   "author": "Kanishk Kunal",
   "license": "GPL-2.0",
-  "bugs": {
-    "url": "https://github.com/templateflip/mmtheme/issues"
-  },
-  "homepage": "https://github.com/templateflip/mmtheme#readme"
+  "homepage": "https://mmthemes.com"
 }
