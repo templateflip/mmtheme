@@ -1,0 +1,457 @@
+# Copyright (C) 2018 mmtheme
+# This file is distributed under the same license as the mmtheme package.
+msgid ""
+msgstr ""
+"Project-Id-Version: mmtheme\n"
+"Report-Msgid-Bugs-To: https://mmthemes.com/contact/\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Kanishk Kunal <kanishk@kunruchcreations.com>\n"
+"Language-Team: KunRuch Creations <contactus@kunruchcreations.com>\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: 404.php:15
+msgid "It looks like nothing was found at this location. Maybe try a search?"
+msgstr ""
+
+#: comments.php:25
+msgctxt "comments title"
+msgid "One comment"
+msgid_plural "%1$s comments"
+msgstr[0] ""
+msgstr[1] ""
+
+#: comments.php:65
+msgid "Comment navigation"
+msgstr ""
+
+#: comments.php:71
+msgid "Older Comments"
+msgstr ""
+
+#: comments.php:73
+msgid "Newer Comments"
+msgstr ""
+
+#: comments.php:89
+msgid "Comments are closed."
+msgstr ""
+
+#: footer.php:129
+msgid "Powered by %1$s. Theme by %2$s."
+msgstr ""
+
+#: functions.php:31
+msgid "Error locating %s"
+msgstr ""
+
+#: header.php:21
+msgid "Skip to content"
+msgstr ""
+
+#: header.php:53
+msgid "Toggle"
+msgstr ""
+
+#: header.php:57
+msgid "Menu"
+msgstr ""
+
+#: inc/customizer.php:55
+msgid "Fonts"
+msgstr ""
+
+#: inc/customizer.php:67
+msgid "Headings Font"
+msgstr ""
+
+#: inc/customizer.php:85
+msgid "Body Font"
+msgstr ""
+
+#: inc/customizer.php:103
+msgid "Header Menu Text Style"
+msgstr ""
+
+#: inc/customizer.php:131
+msgid "Layout"
+msgstr ""
+
+#: inc/customizer.php:143
+msgid "Header Layout"
+msgstr ""
+
+#: inc/customizer.php:167
+msgid "Make header sticky on scroll"
+msgstr ""
+
+#: inc/customizer.php:183
+msgid "Blog Layout"
+msgstr ""
+
+#: inc/customizer.php:213
+msgid "Show Blog Archive Title in Subheader"
+msgstr ""
+
+#: inc/customizer.php:229
+msgid "Content Display Style"
+msgstr ""
+
+#: inc/customizer.php:255
+msgid "Post Layout"
+msgstr ""
+
+#: inc/customizer.php:281
+msgid "Show Post Title in Subheader"
+msgstr ""
+
+#: inc/customizer.php:297
+msgid "Page Layout"
+msgstr ""
+
+#: inc/customizer.php:325
+msgid "Show Page Title in Subheader"
+msgstr ""
+
+#: inc/customizer.php:341
+msgid "Footer Layout"
+msgstr ""
+
+#: inc/customizer.php:371
+msgid "Dimensions"
+msgstr ""
+
+#: inc/customizer.php:431
+msgid "Show Tagline on Homepage"
+msgstr ""
+
+#: inc/customizer.php:449
+msgid "Site Elements"
+msgstr ""
+
+#: inc/customizer.php:459
+msgid "Search in Header"
+msgstr ""
+
+#: inc/customizer.php:487
+msgid "Post content in Index (Blog Archive)"
+msgstr ""
+
+#: inc/customizer.php:515
+msgid "Post meta in Index (Blog Archive)"
+msgstr ""
+
+#: inc/customizer.php:543
+msgid "Read More in Post Excerpts"
+msgstr ""
+
+#: inc/customizer.php:567
+msgid "Share buttons above Post Content"
+msgstr ""
+
+#: inc/customizer.php:595
+msgid "Share buttons below Post Content"
+msgstr ""
+
+#: inc/customizer.php:621
+msgid "Related Posts"
+msgstr ""
+
+#: inc/customizer.php:647
+msgid "About the Author"
+msgstr ""
+
+#: inc/customizer.php:673
+msgid "Previous and Next in Posts "
+msgstr ""
+
+#: inc/customizer.php:697
+msgid "Advanced Settings"
+msgstr ""
+
+#: inc/customizer.php:707
+msgid "Custom Theme CSS"
+msgstr ""
+
+#: inc/customizer.php:723
+msgid "Custom Head Code"
+msgstr ""
+
+#: inc/customizer.php:739
+msgid "Custom copyright text in footer"
+msgstr ""
+
+#: inc/customizer.php:755
+msgid "Display credit in footer"
+msgstr ""
+
+#: inc/customizer.php:1335
+msgid "Primary Color"
+msgstr ""
+
+#: inc/customizer.php:1345
+msgid "Header Background Color"
+msgstr ""
+
+#: inc/customizer.php:1355
+msgid "Header Text Color"
+msgstr ""
+
+#: inc/customizer.php:1365
+msgid "Subheader Background Color"
+msgstr ""
+
+#: inc/customizer.php:1375
+msgid "Subheader Text Color"
+msgstr ""
+
+#: inc/customizer.php:1385
+msgid "Footer Background Color"
+msgstr ""
+
+#: inc/customizer.php:1395
+msgid "Footer Text Color"
+msgstr ""
+
+#: inc/customizer.php:1405
+msgid "Footer Links Color"
+msgstr ""
+
+#: inc/helpers.php:95
+msgid "Latest Posts"
+msgstr ""
+
+#: inc/helpers.php:107
+msgid "Search Results for %s"
+msgstr ""
+
+#: inc/helpers.php:113
+msgid "Not Found"
+msgstr ""
+
+#: inc/helpers.php:317
+msgid "Share"
+msgstr ""
+
+#: inc/helpers.php:329
+msgid "Tweet"
+msgstr ""
+
+#: inc/setup.php:75
+msgid "Primary"
+msgstr ""
+
+#: inc/setup.php:77
+msgid "Footer"
+msgstr ""
+
+#: inc/setup.php:131
+msgid "Sidebar"
+msgstr ""
+
+#: inc/setup.php:139
+msgid "Header"
+msgstr ""
+
+#: inc/setup.php:147
+msgid "Below Header"
+msgstr ""
+
+#: inc/setup.php:155
+msgid "Inside Post (After 1st Para)"
+msgstr ""
+
+#: inc/setup.php:163
+msgid "Post Footer"
+msgstr ""
+
+#: inc/setup.php:171
+msgid "Below Post"
+msgstr ""
+
+#: inc/setup.php:179
+msgid "Stricky Sidebar Bottom"
+msgstr ""
+
+#: inc/setup.php:187
+msgid "Footer 1"
+msgstr ""
+
+#: inc/setup.php:195
+msgid "Footer 2"
+msgstr ""
+
+#: inc/setup.php:203
+msgid "Footer 3"
+msgstr ""
+
+#: inc/setup.php:211
+msgid "Footer 4"
+msgstr ""
+
+#: index.php:101
+msgid "Older Posts &rarr;"
+msgstr ""
+
+#: index.php:103
+msgid "&larr; Newer Posts"
+msgstr ""
+
+#: index.php:111
+msgid "&larr; Previous"
+msgstr ""
+
+#: index.php:113
+msgid "Next &rarr;"
+msgstr ""
+
+#: index.php:123
+msgid "Sorry,  no results were found."
+msgstr ""
+
+#: template-parts/content-page.php:27, template-parts/content-single.php:101
+msgid "Pages:"
+msgstr ""
+
+#: template-parts/content-single.php:59, template-parts/content-single.php:65, template-parts/entry-meta.php:101
+msgid ", "
+msgstr ""
+
+#: template-parts/content-single.php:73
+msgid "Posted in: %1$s <br>"
+msgstr ""
+
+#: template-parts/content-single.php:81
+msgid "Tags: %1$s"
+msgstr ""
+
+#: template-parts/content-single.php:149
+msgid "About the author"
+msgstr ""
+
+#: template-parts/content.php:111
+msgid "Read more"
+msgstr ""
+
+#: template-parts/entry-meta.php:53
+msgid "Posted on "
+msgstr ""
+
+#: template-parts/entry-meta.php:61
+msgid "Updated on "
+msgstr ""
+
+#: template-parts/entry-meta.php:117
+msgid "Edit %s"
+msgstr ""
+
+#: template-parts/related-posts.php:69
+msgid "Related"
+msgstr ""
+
+#: widgets/ads.php:27
+msgid "For inserting ads code or a fallback banner ad. Hidden in post preview"
+msgstr ""
+
+#: widgets/ads.php:147, widgets/ads.php:149, widgets/ads.php:151, widgets/ads.php:153
+msgid ""
+msgstr ""
+
+#: widgets/ads.php:215
+msgid "Align Center"
+msgstr ""
+
+#: widgets/posts.php:23
+msgid "Display your posts with this widget"
+msgstr ""
+
+#: widgets/posts.php:27
+msgid "MMtheme Posts Widget"
+msgstr ""
+
+#: widgets/posts.php:33
+msgid "Featured Posts"
+msgstr ""
+
+#: widgets/posts.php:263
+msgid "Title"
+msgstr ""
+
+#: widgets/posts.php:273
+msgid "Number of posts to show"
+msgstr ""
+
+#: widgets/posts.php:293
+msgid "Auto detect category"
+msgstr ""
+
+#: widgets/posts.php:295
+msgid "If sidebar is used on single post template, display posts from current post category "
+msgstr ""
+
+#: widgets/posts.php:311
+msgid "Only select posts which are not older than"
+msgstr ""
+
+#: widgets/posts.php:331
+msgid "Choose manually"
+msgstr ""
+
+#: widgets/posts.php:335
+msgid "Specify post ids separated by comma if you want to select only those posts. i.e. 213,32,12,45 Note: you can also choose pages as well as custom post types"
+msgstr ""
+
+#: widgets/posts.php:355
+msgid "1 Day"
+msgstr ""
+
+#: widgets/posts.php:357
+msgid "1 Week"
+msgstr ""
+
+#: widgets/posts.php:359
+msgid "1 Month"
+msgstr ""
+
+#: widgets/posts.php:361
+msgid "3 Months"
+msgstr ""
+
+#: widgets/posts.php:363
+msgid "6 Months"
+msgstr ""
+
+#: widgets/posts.php:365
+msgid "1 Year"
+msgstr ""
+
+#: widgets/posts.php:367
+msgid "Select all posts"
+msgstr ""
+
+#: widgets/posts.php:383
+msgid "Published date"
+msgstr ""
+
+#: widgets/posts.php:385
+msgid "Number of comments"
+msgstr ""
+
+#: widgets/posts.php:387
+msgid "Random"
+msgstr ""
+
+#: widgets/posts.php:393
+msgid "Order by:"
+msgstr ""
+
+#: widgets/posts.php:419
+msgid "Choose from:"
+msgstr ""

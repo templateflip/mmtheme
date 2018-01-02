@@ -35,7 +35,7 @@ var productURL              = './'; // Theme/Plugin URL. Leave it like it is, si
 
 // Translation related.
 var text_domain             = 'mmtheme'; // Your textdomain here.
-var translationFile         = 'mmtheme.pot'; // Name of the transalation file.
+var translationFile         = ''; // Name of the transalation file.
 var translationDestination  = './languages'; // Where to save the translation files.
 var packageName             = 'mmtheme'; // Package name.
 var bugReport               = 'https://mmthemes.com/contact/'; // Where can users report bugs.
