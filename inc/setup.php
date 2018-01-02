@@ -14,13 +14,13 @@ add_action('wp_enqueue_scripts', function () {
 */
 add_action('after_setup_theme', function () {
     load_theme_textdomain('mmtheme', get_template_directory() . '/languages');
-    
+
     // Add default posts and comments RSS feed links to head.
     add_theme_support('automatic-feed-links');
-    
+
     // Let WordPress manage the document title.
     add_theme_support('title-tag');
-    
+
     // Enable support for Post Thumbnails on posts and pages.
     add_theme_support('post-thumbnails');
     add_image_size('small_thumb', 500, 0 );
@@ -32,13 +32,13 @@ add_action('after_setup_theme', function () {
       'width'       => 300,
       'flex-width' => true,
     ) );
-    
+
     // Register navigation menus
     register_nav_menus( [
     'primary' => __('Primary', 'mmtheme'),
     'footer' => __('Footer', 'mmtheme')
     ]);
-    
+
     // Enable HTML5 markup support
     add_theme_support('html5', ['caption', 'comment-form', 'comment-list', 'gallery', 'search-form']);
 
@@ -46,10 +46,10 @@ add_action('after_setup_theme', function () {
     add_theme_support( 'custom-background', apply_filters( 'mmtheme_custom_background_args', array(
       'default-color' => 'ffffff'
     ) ) );
-    
+
     // Use main stylesheet for visual editor
     add_editor_style(mmtheme_asset_path('/css/main.css'));
-    add_editor_style(mmtheme_asset_path('/css/editor.css'));
+    add_editor_style(mmtheme_asset_path('/editor.css'));
 });
 
 /**
