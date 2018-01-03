@@ -14,19 +14,19 @@ add_action('customize_register', function ( $wp_customize ) {
       $wp_customize->add_control(
         new WP_Customize_Color_Control(
           $wp_customize,
-          $color['slug'], 
-          array('label' => $color['label'], 
+          $color['slug'],
+          array('label' => $color['label'],
           'section' => 'colors',
           'settings' => $color['slug'])
         )
       );
     }
 
-    
+
     // Fonts section
     $wp_customize->add_section('fonts' , array(
-        'title' => __('Fonts','mmtheme'),
-        'priority' => 30
+        'title' => __('Typography','mmtheme'),
+        'priority' => 40
     ));
 
     $wp_customize->add_setting('headings_font', array('default' => 'default'));
@@ -46,7 +46,7 @@ add_action('customize_register', function ( $wp_customize ) {
       'type'       => 'select',
       'choices'    => mmtheme_get_custom_fonts()
     ));
-    
+
     $wp_customize->add_setting('header_menu_text_style', array('default' => 'l'));
     $wp_customize->add_control('header_menu_text_style', array(
       'label'      => __('Header Menu Text Style', 'mmtheme'),
@@ -66,7 +66,7 @@ add_action('customize_register', function ( $wp_customize ) {
         'title' => __('Layout','mmtheme'),
     ));
 
-    
+
     $wp_customize->add_setting('header_layout', array('default' => 'c'));
     $wp_customize->add_control('header_layout', array(
       'label'      => __('Header Layout', 'mmtheme'),
@@ -78,7 +78,7 @@ add_action('customize_register', function ( $wp_customize ) {
         'c'   => 'Conaitner width'
       ),
     ));
-    
+
     $wp_customize->add_setting('header_sticky', array('default' => false));
     $wp_customize->add_control('header_sticky', array(
       'label'      => __('Make header sticky on scroll', 'mmtheme'),
@@ -101,7 +101,7 @@ add_action('customize_register', function ( $wp_customize ) {
         '1'   => '1 Column, No sidebar'
       ),
     ));
-    
+
     $wp_customize->add_setting('index_title_subheader', array('default' => true));
     $wp_customize->add_control('index_title_subheader', array(
       'label'      => __('Show Blog Archive Title in Subheader', 'mmtheme'),
@@ -135,7 +135,7 @@ add_action('customize_register', function ( $wp_customize ) {
         'w'   => 'Wide without Sidebar'
       ),
     ));
-    
+
     $wp_customize->add_setting('post_title_subheader', array('default' => false));
     $wp_customize->add_control('post_title_subheader', array(
       'label'      => __('Show Post Title in Subheader', 'mmtheme'),
@@ -157,7 +157,7 @@ add_action('customize_register', function ( $wp_customize ) {
       ),
     ));
 
-    
+
     $wp_customize->add_setting('page_title_subheader', array('default' => true));
     $wp_customize->add_control('page_title_subheader', array(
       'label'      => __('Show Page Title in Subheader', 'mmtheme'),
@@ -180,7 +180,7 @@ add_action('customize_register', function ( $wp_customize ) {
       ),
     ));
 
-    
+
     // Dimensions section
     $wp_customize->add_section('dimension' , array(
         'title' => __('Dimensions','mmtheme'),
@@ -198,7 +198,7 @@ add_action('customize_register', function ( $wp_customize ) {
       ),
     ) );
 
-    
+
     $wp_customize->add_setting('featured_image_height', array('default' => '250'));
     $wp_customize->add_control( 'featured_image_height', array(
       'type' => 'number',
@@ -210,7 +210,7 @@ add_action('customize_register', function ( $wp_customize ) {
         'step' => 1,
       ),
     ) );
-    
+
     $wp_customize->add_setting('site_tagline_visiblity', array('default' => true));
     $wp_customize->add_control('site_tagline_visiblity', array(
       'label'      => __('Show Tagline on Homepage', 'mmtheme'),
@@ -219,7 +219,7 @@ add_action('customize_register', function ( $wp_customize ) {
       'type'       => 'checkbox'
     ));
 
-    
+
     // Modules section
     $wp_customize->add_section('elements' , array(
         'title' => __('Site Elements','mmtheme'),
@@ -238,7 +238,7 @@ add_action('customize_register', function ( $wp_customize ) {
       )
     ));
 
-    
+
     $wp_customize->add_setting('post_excerpt_setting', array('default' => '2'));
     $wp_customize->add_control('post_excerpt_setting', array(
       'label'      => __('Post content in Index (Blog Archive)', 'mmtheme'),
@@ -266,7 +266,7 @@ add_action('customize_register', function ( $wp_customize ) {
       ),
     ));
 
-    
+
     $wp_customize->add_setting('read_more_visiblity', array('default' => '2'));
     $wp_customize->add_control('read_more_visiblity', array(
       'label'      => __('Read More in Post Excerpts', 'mmtheme'),
@@ -292,7 +292,7 @@ add_action('customize_register', function ( $wp_customize ) {
       ),
     ));
 
-    
+
     $wp_customize->add_setting('share_bottom', array('default' => '3'));
     $wp_customize->add_control('share_bottom', array(
       'label'      => __('Share buttons below Post Content', 'mmtheme'),
@@ -331,7 +331,7 @@ add_action('customize_register', function ( $wp_customize ) {
       ),
     ));
 
-    
+
     $wp_customize->add_setting('post_nav_visiblity', array('default' => '2'));
     $wp_customize->add_control('post_nav_visiblity', array(
       'label'      => __('Previous and Next in Posts ', 'mmtheme'),
@@ -364,7 +364,7 @@ add_action('customize_register', function ( $wp_customize ) {
       'settings'   => 'custom_head_code',
       'type'       => 'textarea'
     ));
-    
+
     $wp_customize->add_setting('custom_copyright', array('default' => ''));
     $wp_customize->add_control('custom_copyright', array(
       'label'      => __('Custom copyright text in footer', 'mmtheme'),
@@ -372,7 +372,7 @@ add_action('customize_register', function ( $wp_customize ) {
       'settings'   => 'custom_copyright',
       'type'       => 'textarea'
     ));
-    
+
     $wp_customize->add_setting('credit_display', array('default' => true));
     $wp_customize->add_control('credit_display', array(
       'label'      => __('Display credit in footer', 'mmtheme'),
@@ -421,7 +421,7 @@ add_action( 'wp_enqueue_scripts', function () {
 */
 add_action( 'wp_head', function () {
   $custom_head_code = get_theme_mod('custom_head_code');
-  
+
   if(!empty($custom_head_code)) {
 	  echo  $custom_head_code;
   }
@@ -496,7 +496,7 @@ function mmtheme_get_font_family($font_id) {
   switch($font_id) {
     case 'default-serif':
       return "Georgia, Times, 'Times New Roman', serif";
-    case 'bitter':    
+    case 'bitter':
       return "'Bitter', serif";
     case 'droid-sans':
       return "'Droid Sans', sans-serif";
@@ -575,7 +575,7 @@ function mmtheme_get_font_weights($font_id, $is_headings = false) {
       return $is_headings ? "700" : "400,700";
     case 'nunito-sans':
       return $is_headings ? "700" : "400,700";
-    case 'open-sans':      
+    case 'open-sans':
       return $is_headings ? "600" : "400,600,700";
     case 'oswald':
       return $is_headings ? "700" : "400,700";
@@ -623,7 +623,7 @@ function mmtheme_get_custom_fonts_css() {
 CSS;
   }
 
-  
+
   if($headings_font != 'default') {
     $headings_font_family = mmtheme_get_font_family($headings_font);
     $headings_font_weight = mmtheme_get_font_weights($headings_font, true);
@@ -663,42 +663,42 @@ CSS;
 function mmtheme_get_custom_colors() {
   $colors = array();
   $colors[] = array(
-    'slug'=>'primary_color', 
+    'slug'=>'primary_color',
     'default' => '#2196f3',
     'label' => __('Primary Color', 'mmtheme')
   );
   $colors[] = array(
-    'slug'=>'header_background_color', 
+    'slug'=>'header_background_color',
     'default' => '#ffffff',
     'label' => __('Header Background Color', 'mmtheme')
   );
   $colors[] = array(
-    'slug'=>'header_text_color', 
+    'slug'=>'header_text_color',
     'default' => '#444444',
     'label' => __('Header Text Color', 'mmtheme')
-  );  
+  );
   $colors[] = array(
-    'slug'=>'subheader_background_color', 
+    'slug'=>'subheader_background_color',
     'default' => '#fafafa',
     'label' => __('Subheader Background Color', 'mmtheme')
   );
   $colors[] = array(
-    'slug'=>'subheader_text_color', 
+    'slug'=>'subheader_text_color',
     'default' => '#444444',
     'label' => __('Subheader Text Color', 'mmtheme')
   );
   $colors[] = array(
-    'slug'=>'footer_background_color', 
+    'slug'=>'footer_background_color',
     'default' => '#fafafa',
     'label' => __('Footer Background Color', 'mmtheme')
   );
   $colors[] = array(
-    'slug'=>'footer_text_color', 
+    'slug'=>'footer_text_color',
     'default' => '#919191',
     'label' => __('Footer Text Color', 'mmtheme')
   );
   $colors[] = array(
-    'slug'=>'footer_link_color', 
+    'slug'=>'footer_link_color',
     'default' => '#5e5e5e',
     'label' => __('Footer Links Color', 'mmtheme')
   );
@@ -712,7 +712,7 @@ function mmtheme_get_custom_color_css($type, $value) {
   if( $type == 'primary_color') {
     return <<<CSS
     a,
-    nav .current-menu-item > a, 
+    nav .current-menu-item > a,
     .entry-title a:hover,
     .post-navigation .nav-previous a:hover,
     .post-navigation .nav-next a:hover,
@@ -861,8 +861,8 @@ function mmtheme_get_custom_layout_css() {
     padding-bottom: 20px;
     transition: box-shadow .25s ease-out;
   }
-  
-  .blogroll article {  
+
+  .blogroll article {
     height: 100%;
     width: 100%;
     margin-bottom: 0;
@@ -942,13 +942,13 @@ function mmtheme_get_custom_dimension_css() {
     }
     .menu-toggle > label {
       margin-top: {$menu_margin}px;
-    }  
+    }
   .header .search-box .icon-search {
     top: {$search_margin}px;
   }
 CSS;
   }
-  
+
   if ($featured_image_height != 250) {
     $css .= <<<CSS
     .blogroll .entry-image {
