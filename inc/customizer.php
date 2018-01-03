@@ -349,14 +349,6 @@ add_action('customize_register', function ( $wp_customize ) {
         'title' => __('Advanced Settings','mmtheme'),
     ));
 
-    $wp_customize->add_setting('custom_theme_css', array('default' => ''));
-    $wp_customize->add_control('custom_theme_css', array(
-      'label'      => __('Custom Theme CSS', 'mmtheme'),
-      'section'    => 'advanced',
-      'settings'   => 'custom_theme_css',
-      'type'       => 'textarea'
-    ));
-
     $wp_customize->add_setting('custom_head_code', array('default' => ''));
     $wp_customize->add_control('custom_head_code', array(
       'label'      => __('Custom Head Code', 'mmtheme'),
@@ -406,9 +398,8 @@ add_action( 'wp_enqueue_scripts', function () {
   $custom_dimension_css = mmtheme_get_custom_dimension_css();
   $custom_layout_css = mmtheme_get_custom_layout_css();
   $header_sticky_css = mmtheme_get_header_sticky_css();
-  $custom_user_css = get_theme_mod('custom_theme_css');
 
-  $custom_css = $custom_color_css . $custom_fonts_css . $custom_dimension_css . $custom_layout_css . $header_sticky_css . $custom_user_css;
+  $custom_css = $custom_color_css . $custom_fonts_css . $custom_dimension_css . $custom_layout_css . $header_sticky_css;
 
   if(!empty($custom_css)) {
 	  wp_add_inline_style( 'mmtheme-style', $custom_css );
