@@ -7,7 +7,7 @@
     "mmcss": "^0.3.3"
   },
   "devDependencies": {
-    "browser-sync": "^2.11.1",
+    "browser-sync": "^2.23.2",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-concat": "^2.5.2",
