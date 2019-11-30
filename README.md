@@ -1,7 +1,5 @@
 ## MM Theme - Minimal Modern WordPress Theme
 
-[https://mmthemes.com](https://mmthemes.com)
-
 Contributors: Kanishk Kunal
 
 Tags: translation-ready, custom-background, theme-options, custom-menu, post-formats, threaded-comments
